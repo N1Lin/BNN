@@ -44,6 +44,12 @@ module BNN_Core(
     wire pooling_sel;
     assign pooling_sel = instruction[13];
     
+    wire[3:0] chip_sel;
+    assign chip_sel[0] = bpug_sel==0? 1:0;
+    assign chip_sel[1] = bpug_sel==1? 1:0;
+    assign chip_sel[2] = bpug_sel==2? 1:0;
+    assign chip_sel[3] = bpug_sel==3? 1:0;
+    
     wire[7:0] cal_bin;//binary calculation result
     wire[2:0] pooling_cnt;
     assign pooling_cnt ={pooling_sel,instruction[6]};
@@ -86,83 +92,114 @@ module BNN_Core(
     end
     BPUG bpug0(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==0)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
+    .sel(chip_sel[0]),
     .bpu_out(bpu_out[0]));
+    
     BPUG bpug1(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==0)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
+    .sel(chip_sel[0]),
     .bpu_out(bpu_out[1]));
+    
     BPUG bpug2(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==0)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
+    .sel(chip_sel[0]),
     .bpu_out(bpu_out[2]));
+    
     BPUG bpug3(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==0)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
+    .sel(chip_sel[0]),
     .bpu_out(bpu_out[3]));
+    
     BPUG bpug4(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==1)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
+    .sel(chip_sel[1]),
     .bpu_out(bpu_out[4]));
+    
     BPUG bpug5(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==1)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
+    .sel(chip_sel[1]),
     .bpu_out(bpu_out[5]));
+    
     BPUG bpug6(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==1)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
+    .sel(chip_sel[1]),
     .bpu_out(bpu_out[6]));
+    
     BPUG bpug7(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==1)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
+    .sel(chip_sel[1]),
     .bpu_out(bpu_out[7]));
+    
     BPUG bpug8(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==2)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
+    .sel(chip_sel[2]),
     .bpu_out(bpu_out[8]));
+    
     BPUG bpug9(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==2)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
+    .sel(chip_sel[2]),
     .bpu_out(bpu_out[9]));
+    
     BPUG bpug10(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==2)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
+    .sel(chip_sel[2]),
     .bpu_out(bpu_out[10]));
+    
     BPUG bpug11(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==2)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
+    .sel(chip_sel[2]),
     .bpu_out(bpu_out[11]));
+    
     BPUG bpug12(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==3)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
+    .sel(chip_sel[3]),
     .bpu_out(bpu_out[12]));
+    
     BPUG bpug13(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==3)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
+    .sel(chip_sel[3]),
     .bpu_out(bpu_out[13]));
+    
     BPUG bpug14(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==3)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
+    .sel(chip_sel[3]),
     .bpu_out(bpu_out[14]));
+    
     BPUG bpug15(.clk(clk),
     .rst(rst),
-    .instruction_in((bpug_sel==3)?instruction_bpug:{2'b00,instruction_bpug[5:0]}),
+    .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
+    .sel(chip_sel[3]),
     .bpu_out(bpu_out[15]));
     
     reg signed[7:0][8:0]cal_intern;//to store accumulation interns for future binarization

@@ -13,7 +13,8 @@ module BPUG(
     input clk,
     input rst,
     input [7:0]data_in,// input data, both image and weight
-    input wire[7:0] instruction_in,//instructions bus
+    input [7:0] instruction_in,//instructions bus
+    input sel,// 
     output wire signed[7:0][6:0] bpu_out//calculation of BPU
     );
     
@@ -41,7 +42,7 @@ module BPUG(
         if(rst)begin
             wgt <= 0;
         end
-        else if(wgt_en) begin
+        else if(wgt_en&sel) begin
             wgt <= {wgt[54:0],wgt_in};//shift register
         end
     end
@@ -51,7 +52,7 @@ module BPUG(
         if(rst) begin
             img_reg<=0;
         end
-        else if(en[1])begin
+        else if(img_en&sel)begin
             img_reg[0] <= {img_reg[0][5:0],img_in[0]};//another shift register
             img_reg[1] <= {img_reg[1][5:0],img_in[1]};
             img_reg[2] <= {img_reg[2][5:0],img_in[2]};
