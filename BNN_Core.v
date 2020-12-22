@@ -23,7 +23,7 @@ module BNN_Core(
     input rst,
     input [3:0][7:0]data_in,//input data, image toghether with weight
     input [13:0] instruction,//instruction bus
-    output reg[7:0]reg_bins//stores the output of this layer
+    output reg[3:0][7:0]reg_bins//stores the output of this layer
     );
     
     reg[2:0][7:0]pooling_reg;//stores pooling data, controlled by pooling_en
@@ -53,6 +53,7 @@ module BNN_Core(
     wire[7:0] cal_bin;//binary calculation result
     wire[2:0] pooling_cnt;
     assign pooling_cnt ={pooling_sel,instruction[6]};
+    
     always@(posedge clk)begin
         if(rst)begin
             reg_bins <= 0;
@@ -65,11 +66,11 @@ module BNN_Core(
                         pooling_reg[pooling_cnt]<=cal_bin;
                     end
                     else if(pooling_cnt==2'b11)begin
-                        reg_bins <= pooling_reg[0]|pooling_reg[1]|pooling_reg[2]|cal_bin;
+                        reg_bins <= {pooling_reg[0]|pooling_reg[1]|pooling_reg[2]|cal_bin,reg_bins[2:0]};
                     end
                 end
                 else begin
-                    reg_bins <= cal_bin;
+                    reg_bins <= {cal_bin,reg_bins[2:0]};
                 end
             end
             else reg_bins<=8'bzzzzzzzz;
