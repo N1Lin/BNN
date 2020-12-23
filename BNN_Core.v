@@ -22,15 +22,17 @@ module BNN_Core(
     input clk,
     input rst,
     input [3:0][7:0]data_in,//input data, image toghether with weight
-    input [13:0] instruction,//instruction bus
-    output reg[3:0][7:0]reg_bins//stores the output of this layer
+    input [16:0] instruction,//instruction bus
+    output wire[3:0][7:0]result_bins//stores the output of this layer
     );
     
     reg[2:0][7:0]pooling_reg;//stores pooling data, controlled by pooling_en
     
-    wire [7:0] instruction_bpug;//instructions for bpugs
+    wire [9:0] instruction_bpug;//instructions for bpugs
     assign instruction_bpug[3:0] = instruction[3:0];
     assign instruction_bpug[7:4] = instruction[8:5];
+    assign instruction_bpug[9:8] = instruction[16:15];
+
     wire [3:0] bpug_sel;//to pick one bpug
     assign bpug_sel = instruction[4:1];
     wire psum_add;
@@ -43,6 +45,12 @@ module BNN_Core(
     assign pooling_en = instruction[12];
     wire pooling_sel;
     assign pooling_sel = instruction[13];
+    wire store;//1: enable the result_bins; 0: set result_bins to high resistance
+    assign store = instruction[14];
+    wire img_reg_up;//instruct the img_reg to shit upwards
+    assign img_reg_up = instruction[15];
+    wire img_reg_sel;//instruct to write in which part of img reg
+    assign img_reg_sel = instruction[16];
     
     wire[3:0] chip_sel;
     assign chip_sel[0] = bpug_sel==0? 1:0;
@@ -54,6 +62,7 @@ module BNN_Core(
     wire[2:0] pooling_cnt;
     assign pooling_cnt ={pooling_sel,instruction[6]};
     
+    reg[7:0][7:0]reg_bins;
     always@(posedge clk)begin
         if(rst)begin
             reg_bins <= 0;
@@ -66,16 +75,17 @@ module BNN_Core(
                         pooling_reg[pooling_cnt]<=cal_bin;
                     end
                     else if(pooling_cnt==2'b11)begin
-                        reg_bins <= {pooling_reg[0]|pooling_reg[1]|pooling_reg[2]|cal_bin,reg_bins[2:0]};
+                        reg_bins <= {pooling_reg[0]|pooling_reg[1]|pooling_reg[2]|cal_bin,reg_bins[6:1]};
                     end
                 end
                 else begin
-                    reg_bins <= {cal_bin,reg_bins[2:0]};
+                    reg_bins <= {cal_bin,reg_bins[6:1]};
                 end
             end
-            else reg_bins<=8'bzzzzzzzz;
         end
     end
+    
+    assign result_bins = store? (instruction[6]?reg_bins[7:4]:reg_bins[3:0]) : {64{1'bz}};
     
     wire [15:0][7:0][6:0] bpu_out;//connect to BPUGs
     
