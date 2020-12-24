@@ -24,7 +24,7 @@ module BPUCtrl(
     input clk, 
     input rst,
     input [15:0]inst,//instructios
-    output wire[12:0]bnncore_ctrl,
+    output wire[16:0]bnncore_ctrl,
     output reg[]datasram_ctrl,
     output reg[]instsram_ctrl,
     );
@@ -73,35 +73,34 @@ module BPUCtrl(
                 3'b111: r4<={r4[15:8],inst[7:0]};
             endcase
             pc1<=pc1+1;
-            //instsram_ctrl<=
         end
         5'b00010: begin//LOAD2
             case(inst[10:9])
                 2'b00:begin//load weight
-                    
+                    datasram_ctrl <= ;
                 end
                 2'b01:begin//load bias
-                    
+                    datasram_ctrl <= ;
                 end
                 2'b10:begin//load image
-                    
+                    datasram_ctrl <= ; 
                 end
             endcase
             pc1<=pc1+1;
         end
-        5'b00011:begin//a register add an immediate number
+        5'b00011:begin//ADD1 a register add an immediate number
             case(inst[10:9])
                 2'b00:begin
-                    r1<=r1+inst[8:0];
+                    r1<=r1+$signed(inst[8:0]);
                 end
                 2'b01:begin
-                    r2<=r2+inst[8:0];
+                    r2<=r2+$signed(inst[8:0]);
                 end
                 2'b10:begin
-                    r3<=r3+inst[8:0];
+                    r3<=r3+$signed(inst[8:0]);
                 end
                 2'b11:begin
-                    r4<=r4+inst[8:0];
+                    r4<=r4+$signed(inst[8:0]);
                 end
             endcase
             pc1<=pc1+1;
@@ -123,7 +122,7 @@ module BPUCtrl(
             endcase
             pc1<=pc1+1;
         end
-        5'b00101:begin//JUMP
+        5'b00101:begin//JUMP generally jump to a ceratin line
             if (r1) begin
                 pc1 <= pc1 - inst[10:0];
             end
@@ -131,6 +130,7 @@ module BPUCtrl(
         end
         5'b00110:begin//EMPT
             bnncore_ctrl[0] <= 1;
+            bnncore_ctrl[16:1] <=0;
             pc1<=pc1+1;
         end
         5'b00111:begin//BPPUE ADD
