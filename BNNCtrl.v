@@ -140,13 +140,32 @@ module BPUCtrl(
             
         end
         5'b01001:begin//pooling
-            
+        5'b01001:begin//bnn out, this decides if pooling
+            bnncore_ctrl[10] <= 1;//write to some risger
+            bnncore_ctrl[12] <= inst[10];//decides if write to pooling register
+            bnncore_ctrl[6] <= inst[9];//if write in pooling register, decides writes in which rigster
+            bnncore_ctrl[13] <= inst[8];//
+
+            bnncore_ctrl[5:0] <= 0;
+            bnncore_ctrl[9:7] <= 0;
+            bnncore_ctrl[16:14] <= 0;
         end
-        5'b01010:begin//bnn out
+        5'b01010:begin//store
+            bnncore_ctrl[14] <= 1;
+            bnncore_ctrl[6] <= inst[10];
             
+            bnncore_ctrl[5:0] <= 0;
+            bnncore_ctrl[13:7] <= 0;
+            bnncore_ctrl[16:15] <= 0;
         end
-        5'b01011:begin//store
-            
+        5'b01011:begin//img_reg shift up
+            bnncore_ctrl[15] <= 1;
+
+            bnncore_ctrl[14:0] <=0;
+            bnncore_ctrl[16] <= 0;
+        end
+        5'b01100:begin//decide load data in which part of img_reg
+            bnncore_ctrl[16] <= inst[10];
         end
         default:
         endcase
