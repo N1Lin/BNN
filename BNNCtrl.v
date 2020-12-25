@@ -77,13 +77,26 @@ module BPUCtrl(
         5'b00010: begin//LOAD2
             case(inst[10:9])
                 2'b00:begin//load weight
-                    datasram_ctrl <= ;
+                    bnncore_ctrl[7] <= 1;//weight enable
+                    bnncore_ctrl[2:1] <= inst[10:9];//select a colomn of bpug
+
+                    bnncore_ctrl[0] <= 0;
+                    bnncore_ctrl[6:3] <= 0;
+                    bnncore_ctrl[16:8] <= 0;
                 end
                 2'b01:begin//load bias
-                    datasram_ctrl <= ;
+                    bnncore_ctrl[11] <= 1;//bias enable
+
+                    bnncore_ctrl[10:0] <= 0;
+                    bnncore_ctrl[16:12] <= 0;
                 end
                 2'b10:begin//load image
-                    datasram_ctrl <= ; 
+                    bnncore_ctrl[8] <= 1;//image enable
+                    bnncore_ctrl[2:1] <= inst[10:9];//select one col of bpugs
+
+                    bnncore_ctrl[0] <= 0;
+                    bnncore_ctrl[7:3] <= 0;
+                    bnncore_ctrl[16:9] <= 0;
                 end
             endcase
             pc1<=pc1+1;
@@ -134,12 +147,21 @@ module BPUCtrl(
             pc1<=pc1+1;
         end
         5'b00111:begin//BPPUE ADD
-            bnncore_ctrl <= ;
+            bnncore_ctrl[5] <= 1;
+            bnncore_ctrl[3:1] <= inst[10:8];//select one bpue
+
+            bnncore_ctrl[0] <= 0;
+            bnncore_ctrl[4] <= 0;
+            bnncore_ctrl[16:6] <= 0;
         end
         5'b01000:begin//BPUC ADD
-            
+            bnncore_ctrl[9] <= 1;
+            bnncore_ctrl[4:1] <= inst[10:7];//select one bpug
+
+            bnncore_ctrl[0] <= 0;
+            bnncore_ctrl[8:5] <= 0 ;
+            bnncore_ctrl[16:10] <= 0;
         end
-        5'b01001:begin//pooling
         5'b01001:begin//bnn out, this decides if pooling
             bnncore_ctrl[10] <= 1;//write to some risger
             bnncore_ctrl[12] <= inst[10];//decides if write to pooling register
