@@ -55,30 +55,45 @@ module BPUCtrl(
         if (rst) begin
             cnt <= 0;
         end
-        case(inst[15:11])
+        case(inst[15:11])//
         5'b00000: begin//NULL
             //  Enable signals of BNN Core, DataSRAM are all invalid;
             instsram_ctrl<=0;
             pc1<=pc1+1;
         end
-        5'b00001: begin//LOAD1
-            case(inst[10:8])
-                3'b000: ;
-                3'b001: pc2<={pc2[15:8],inst[7:0]};
-                3'b010: pc3<={pc3[15:8],inst[7:0]};
-                3'b011: pc4<={pc4[15:8],inst[7:0]};
-                3'b100: r1<={r1[15:8],inst[7:0]};
-                3'b101: r2<={r2[15:8],inst[7:0]};
-                3'b110: r3<={r3[15:8],inst[7:0]};
-                3'b111: r4<={r4[15:8],inst[7:0]};
-            endcase
+        5'b00001: begin//LOAD1L
+                case(inst[10:8])
+                    3'b000: ;
+                    3'b001: pc2<={pc2[15:8],inst[7:0]};
+                    3'b010: pc3<={pc3[15:8],inst[7:0]};
+                    3'b011: pc4<={pc4[15:8],inst[7:0]};
+                    3'b100: r1<={r1[15:8],inst[7:0]};
+                    3'b101: r2<={r2[15:8],inst[7:0]};
+                    3'b110: r3<={r3[15:8],inst[7:0]};
+                    3'b111: r4<={r4[15:8],inst[7:0]};
+                    default:
+                endcase
             pc1<=pc1+1;
         end
-        5'b00010: begin//LOAD2
+        5'b00010: begin//LOAD1H
+                case(inst[10:8])
+                    3'b000: ;
+                    3'b001: pc2<={inst[7:0],pc2[7:0]};
+                    3'b010: pc3<={inst[7:0],pc3[7:0]};
+                    3'b011: pc4<={pc4[15:8],pc4[7:0]};
+                    3'b100: r1<={inst[7:0],r1[7:0]};
+                    3'b101: r2<={inst[7:0],r2[7:0]};
+                    3'b110: r3<={inst[7:0],r3[7:0]};
+                    3'b111: r4<={inst[7:0],r4[7:0]};
+                    default:
+                endcase
+            pc1<=pc1+1;
+        end
+        5'b00011: begin//LOAD2
             case(inst[10:9])
                 2'b00:begin//load weight
                     bnncore_ctrl[7] <= 1;//weight enable
-                    bnncore_ctrl[2:1] <= inst[10:9];//select a colomn of bpug
+                    bnncore_ctrl[2:1] <= inst[8:7];//select a colomn of bpug
 
                     bnncore_ctrl[0] <= 0;
                     bnncore_ctrl[6:3] <= 0;
@@ -92,16 +107,17 @@ module BPUCtrl(
                 end
                 2'b10:begin//load image
                     bnncore_ctrl[8] <= 1;//image enable
-                    bnncore_ctrl[2:1] <= inst[10:9];//select one col of bpugs
+                    bnncore_ctrl[2:1] <= inst[8:7];//select one col of bpugs
+                    bnncore_ctrl[16] <= inst[6];//select to write in wchich part of IMG_REG, 1=[15:8], 0=[7:0]
 
                     bnncore_ctrl[0] <= 0;
                     bnncore_ctrl[7:3] <= 0;
-                    bnncore_ctrl[16:9] <= 0;
+                    bnncore_ctrl[15:9] <= 0;
                 end
             endcase
             pc1<=pc1+1;
         end
-        5'b00011:begin//ADD1 a register add an immediate number
+        5'b00100:begin//ADD1 a register add an immediate number
             case(inst[10:9])
                 2'b00:begin
                     r1<=r1+$signed(inst[8:0]);
@@ -118,7 +134,7 @@ module BPUCtrl(
             endcase
             pc1<=pc1+1;
         end
-        5'b00100:begin//CMP
+        5'b00101:begin//CMP
             case([inst[10:9]])
                 2'b00:begin
                     r1<= r1>inst[8:0]?1:0;
@@ -135,26 +151,26 @@ module BPUCtrl(
             endcase
             pc1<=pc1+1;
         end
-        5'b00101:begin//JUMP generally jump to a ceratin line
+        5'b00110:begin//JUMP generally jump to a ceratin line
             if (r1) begin
                 pc1 <= pc1 - inst[10:0];
             end
             else pc1<=pc1+1;
         end
-        5'b00110:begin//EMPT
+        5'b00111:begin//EMPT
             bnncore_ctrl[0] <= 1;
             bnncore_ctrl[16:1] <=0;
             pc1<=pc1+1;
         end
-        5'b00111:begin//BPPUE ADD
+        5'b01000:begin//BPPUE ADD
             bnncore_ctrl[5] <= 1;
-            bnncore_ctrl[3:1] <= inst[10:8];//select one bpue
+            bnncore_ctrl[3:1] <= inst[10:8];//select one bpue  should replace inst[10:8] with pc3[2:0]
 
             bnncore_ctrl[0] <= 0;
             bnncore_ctrl[4] <= 0;
             bnncore_ctrl[16:6] <= 0;
         end
-        5'b01000:begin//BPUC ADD
+        5'b01001:begin//BPUC ADD
             bnncore_ctrl[9] <= 1;
             bnncore_ctrl[4:1] <= inst[10:7];//select one bpug
 
@@ -162,8 +178,8 @@ module BPUCtrl(
             bnncore_ctrl[8:5] <= 0 ;
             bnncore_ctrl[16:10] <= 0;
         end
-        5'b01001:begin//bnn out, this decides if pooling
-            bnncore_ctrl[10] <= 1;//write to some risger
+        5'b01010:begin//bnn out, this decides if pooling
+            bnncore_ctrl[10] <= 1;//instruction to write a binary result into the register
             bnncore_ctrl[12] <= inst[10];//decides if write to pooling register
             bnncore_ctrl[6] <= inst[9];//if write in pooling register, decides writes in which rigster
             bnncore_ctrl[13] <= inst[8];//
@@ -172,7 +188,7 @@ module BPUCtrl(
             bnncore_ctrl[9:7] <= 0;
             bnncore_ctrl[16:14] <= 0;
         end
-        5'b01010:begin//store
+        5'b01011:begin//store
             bnncore_ctrl[14] <= 1;
             bnncore_ctrl[6] <= inst[10];
             
@@ -180,13 +196,13 @@ module BPUCtrl(
             bnncore_ctrl[13:7] <= 0;
             bnncore_ctrl[16:15] <= 0;
         end
-        5'b01011:begin//img_reg shift up
+        5'b01100:begin//img_reg shift up
             bnncore_ctrl[15] <= 1;
 
             bnncore_ctrl[14:0] <=0;
             bnncore_ctrl[16] <= 0;
         end
-        5'b01100:begin//decide load data in which part of img_reg
+        5'b01101:begin//decide load data in which part of img_reg
             bnncore_ctrl[16] <= inst[10];
         end
         default:
