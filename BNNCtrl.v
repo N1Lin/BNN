@@ -24,9 +24,9 @@ module BPUCtrl(
     input clk, 
     input rst,
     input [15:0]inst,//instructios
-    output wire[16:0]bnncore_ctrl,
-    output reg[]datasram_ctrl,
-    output reg[]instsram_ctrl,
+    output reg[16:0]bnncore_ctrl,
+    output reg[1:0]datasram_ctrl,
+    output reg[1:0]instsram_ctrl
     );
     
     reg [15:0]pc1;
@@ -44,7 +44,7 @@ module BPUCtrl(
             // reset
             
         end
-        else if () begin
+        else begin
             
         end
     end
@@ -71,7 +71,9 @@ module BPUCtrl(
                     3'b101: r2<={r2[15:8],inst[7:0]};
                     3'b110: r3<={r3[15:8],inst[7:0]};
                     3'b111: r4<={r4[15:8],inst[7:0]};
-                    default:
+                    default: begin
+                        
+                    end
                 endcase
             pc1<=pc1+1;
         end
@@ -85,7 +87,9 @@ module BPUCtrl(
                     3'b101: r2<={inst[7:0],r2[7:0]};
                     3'b110: r3<={inst[7:0],r3[7:0]};
                     3'b111: r4<={inst[7:0],r4[7:0]};
-                    default:
+                    default:begin
+                        
+                    end
                 endcase
             pc1<=pc1+1;
         end
@@ -135,7 +139,7 @@ module BPUCtrl(
             pc1<=pc1+1;
         end
         5'b00101:begin//CMP
-            case([inst[10:9]])
+            case(inst[10:9])
                 2'b00:begin
                     r1<= r1>inst[8:0]?1:0;
                 end
@@ -205,7 +209,9 @@ module BPUCtrl(
         5'b01101:begin//decide load data in which part of img_reg
             bnncore_ctrl[16] <= inst[10];
         end
-        default:
+        default:begin
+            
+        end
         endcase
     end
 
