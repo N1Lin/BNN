@@ -1,12 +1,12 @@
 import sys
 a = 1  #useless
-assembly="add1 r1 16"#assembly language
+assembly="LOAD1L R2 15"#assembly language
 machine_code = ""#machine instruction codes
 
 assembly = assembly.upper()
 assembly = assembly.replace(" ","")
 
-print(assembly[6:8])
+#print(assembly[6:8])
 if "NULL" in assembly:#doing nothing
     machine_code = machine_code + "0000000000000000"
 elif "LOAD1L" in assembly:
@@ -101,11 +101,10 @@ elif "STORE" in assembly:
 elif "SHIFT_UP" in assembly:
     machine_code = machine_code + "01100"
 elif "IMG_SEL" in assembly:
-    machine_code = machine_code + "01001"
+    machine_code = machine_code + "01001" + assembly[7] + "0000000000"
 else:
     print("error")
     sys.exit()
 print("16'b"+machine_code)
 machine_code = machine_code.replace("1","")
 machine_code = machine_code.replace("0","")
-print("16'b"+machine_code)

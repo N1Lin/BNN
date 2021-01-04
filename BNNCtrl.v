@@ -62,7 +62,7 @@ module BPUCtrl(
             pc1<=pc1+1;
         end
         5'b00001: begin//LOAD1L
-                case(inst[10:8])
+                casez(inst[10:8])
                     3'b000: ;
                     3'b001: pc2<={pc2[15:8],inst[7:0]};
                     3'b010: pc3<={pc3[15:8],inst[7:0]};
@@ -94,6 +94,7 @@ module BPUCtrl(
             pc1<=pc1+1;
         end
         5'b00011: begin//LOAD2
+            
             case(inst[10:9])
                 2'b00:begin//load weight
                     bnncore_ctrl[7] <= 1;//weight enable
