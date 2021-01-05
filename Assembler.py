@@ -1,5 +1,5 @@
 import sys
-a = 1  #useless
+
 assembly="BPUC_ADD 12"#assembly language
 machine_code = ""#machine instruction codes
 
@@ -34,7 +34,7 @@ elif "LOAD1L" in assembly:
         if (int(assembly[8:]) <= 255) & (int(assembly[8:]) >= 0):
             machine_code = machine_code + str.zfill(bin(int(assembly[8:]))[2:], 8)
     else:
-        print("error1")
+        print("error_LOAD1L")
         sys.exit()
 
 elif "LOAD1H" in assembly:
@@ -60,12 +60,12 @@ elif "LOAD1H" in assembly:
         elif assembly[7] == "4":
             machine_code = machine_code + "111"
         else:
-            print("error2")
+            print("error_LOAD1H1")
             sys.exit()
         if (int(assembly[8:]) <= 255) & (int(assembly[8:]) >= 0):
             machine_code = machine_code + str.zfill(bin(int(assembly[8:]))[2:], 8)
     else:
-        print("error3")
+        print("error_LOAD1H2")
         sys.exit()
 
 elif "LOAD2" in assembly:
@@ -76,7 +76,7 @@ elif "LOAD2" in assembly:
             machine_code = machine_code + str.zfill(bin(int(assembly[8:]))[2:], 2)
             machine_code = machine_code + "0000000"
         else:
-            print("error4")
+            print("error_load2wgt")
             sys.exit()
     elif "BIAS" in assembly:
         machine_code = machine_code + "01000000000"
@@ -86,13 +86,13 @@ elif "LOAD2" in assembly:
             machine_code = machine_code + str.zfill(bin(int(assembly[8]))[2:], 2)
             machine_code = machine_code
         else:
-            print("error5")
+            print("error_load2img1")
             sys.exit()
         if (int(assembly[9]) <= 1) & (int(assembly[9]) >= 0):
             machine_code = machine_code + assembly[9]
             machine_code = machine_code + "000000"
         else:
-            print("error6")
+            print("error_load2img2")
             sys.exit()
 
 elif "BPUC_ADD" in assembly:
@@ -117,7 +117,7 @@ elif "ADD1" in assembly:
     elif assembly[4:6] == "R4":
         machine_code = machine_code + "11"
     else:
-        print("error7")
+        print("error_add1")
         sys.exit()
     if (int(assembly[6:]) <= 255) & (int(assembly[6:]) >= 0):
         machine_code = machine_code + str.zfill(bin(int(assembly[6:]))[2:], 8)
@@ -151,15 +151,24 @@ elif "BIN_OUT" in assembly:
         machine_code = machine_code + "1"
     else:
         machine_code = machine_code + "0"
+    if (int(assembly[11]) <= 1) & (int(assembly[11]) >= 0):
+        machine_code = machine_code + assembly[11]
+    else:
+        print("error_binout")
+        sys.exit()
+
 elif "STORE" in assembly:
     machine_code = machine_code + "01011"
+    machine_code = machine_code + assembly[5]
+    machine_code = machine_code + "0000000000"
+
 elif "SHIFT_UP" in assembly:
-    machine_code = machine_code + "01100"
-elif "IMG_SEL" in assembly:
-    machine_code = machine_code + "01001" + assembly[7] + "0000000000"
+    machine_code = machine_code + "0110000000000000"
+
 else:
-    print("error8")
+    print("error_store")
     sys.exit()
+
 print("16'b"+machine_code)
 machine_code = machine_code.replace("1","")
 machine_code = machine_code.replace("0","")

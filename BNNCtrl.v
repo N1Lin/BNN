@@ -213,7 +213,7 @@ module BPUCtrl(
             bnncore_ctrl[16:15] <= 0;
 
             datasram_ctrl[12:0] <= pc2[12:0];
-            datasram_ctrl[14] <=1; 
+            datasram_ctrl[14] <=1;
             
             datasram_ctrl[15] <= 0;
             datasram_ctrl[13] <= 0;
