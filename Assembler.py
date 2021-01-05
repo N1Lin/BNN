@@ -1,168 +1,177 @@
 import sys
 
-assembly="BPUC_ADD 12"#assembly language
+with open('D:\\Lin\\Documents\\BNN\\test.TXT') as f:
+    read_data = f.read()
+f.close()
+read_data = read_data.split('\n')
+print(read_data)
+
+assembly=read_data[1]#assembly language
 machine_code = ""#machine instruction codes
 
 assembly = assembly.upper()
-assembly = assembly.replace(" ","")
+assembly = assembly.split()
 
 #print(assembly[6:8])
-if "NULL" in assembly:#doing nothing
+if "NULL" == assembly[0]:#doing nothing
     machine_code = machine_code + "0000000000000000"
 
-elif "LOAD1L" in assembly:
+elif "LOAD1L" == assembly[0]:
     machine_code = machine_code + "00001"
-    if assembly[6] == "P":
-        if assembly[7:9] == "C2":  #judge the first operand
-            machine_code = machine_code + "001"
-        elif assembly[7:9] == "C3":  #judge the first operand
-            machine_code = machine_code + "010"
-        elif assembly[7:9] == "C4":  #judge the first operand
-            machine_code = machine_code + "011"
-        if (int(assembly[9:]) <= 255) & (int(assembly[9:]) >= 0):
-            machine_code = machine_code + str.zfill(bin(int(assembly[9:]))[2:], 8)
-
-    elif assembly[6] == "R":
-        if assembly[7] == "1":
-            machine_code = machine_code + "100"
-        elif assembly[7] == "2":
-            machine_code = machine_code + "101"
-        elif assembly[7] == "3":
-            machine_code = machine_code + "110"
-        elif assembly[7] == "4":
-            machine_code = machine_code + "111"
-        if (int(assembly[8:]) <= 255) & (int(assembly[8:]) >= 0):
-            machine_code = machine_code + str.zfill(bin(int(assembly[8:]))[2:], 8)
+    if assembly[1] == "PC2":
+        machine_code = machine_code + "001"
+    elif assembly[1] == "PC3":
+        machine_code = machine_code + "010"
+    elif assembly[1] == "PC4":
+        machine_code = machine_code + "011"
+    elif assembly[1] == "R1":
+        machine_code = machine_code + "100"
+    elif assembly[1] == "R2":
+        machine_code = machine_code + "101"
+    elif assembly[1] == "R3":
+        machine_code = machine_code + "110"
+    elif assembly[1] == "R4":
+        machine_code = machine_code + "111"
     else:
-        print("error_LOAD1L")
+        print("error_LOAD1L1")
         sys.exit()
 
-elif "LOAD1H" in assembly:
+    if (int(assembly[2]) <= 255) & (int(assembly[2]) >= 0):
+        machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 8)
+    else:
+        print("error_LOAD1L2")
+        sys.exit()
+
+elif "LOAD1H" == assembly[0]:
     machine_code = machine_code + "00010"
 
-    if assembly[6] == "P":
-        if assembly[7:9] == "C2":  # judge the first operand
-            machine_code = machine_code + "001"
-        elif assembly[7:9] == "C3":  # judge the first operand
-            machine_code = machine_code + "010"
-        elif assembly[7:9] == "C4":  # judge the first operand
-            machine_code = machine_code + "011"
-        if (int(assembly[9:]) <= 255) & (int(assembly[9:]) >= 0):
-            machine_code = machine_code + str.zfill(bin(int(assembly[9:]))[2:], 8)
-
-    elif assembly[6] == "R":
-        if assembly[7] == "1":
-            machine_code = machine_code + "100"
-        elif assembly[7] == "2":
-            machine_code = machine_code + "101"
-        elif assembly[7] == "3":
-            machine_code = machine_code + "110"
-        elif assembly[7] == "4":
-            machine_code = machine_code + "111"
-        else:
-            print("error_LOAD1H1")
-            sys.exit()
-        if (int(assembly[8:]) <= 255) & (int(assembly[8:]) >= 0):
-            machine_code = machine_code + str.zfill(bin(int(assembly[8:]))[2:], 8)
+    if assembly[1] == "PC2":
+        machine_code = machine_code + "001"
+    elif assembly[1] == "PC3":
+        machine_code = machine_code + "010"
+    elif assembly[1] == "PC4":
+        machine_code = machine_code + "011"
+    elif assembly[1] == "R1":
+        machine_code = machine_code + "100"
+    elif assembly[1] == "R2":
+        machine_code = machine_code + "101"
+    elif assembly[1] == "R3":
+        machine_code = machine_code + "110"
+    elif assembly[1] == "R4":
+        machine_code = machine_code + "111"
     else:
-        print("error_LOAD1H2")
+        print("error_LOAD1L1")
         sys.exit()
 
-elif "LOAD2" in assembly:
+    if (int(assembly[2]) <= 255) & (int(assembly[2]) >= 0):
+        machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 8)
+    else:
+        print("error_LOAD1L2")
+        sys.exit()
+
+elif "LOAD2" == assembly[0]:
     machine_code = machine_code + "00011"
-    if "WGT" in assembly:
+    if "WGT" == assembly[1]:
         machine_code = machine_code + "00"
-        if (int(assembly[8:]) <= 4) & (int(assembly[8:]) >= 0):
-            machine_code = machine_code + str.zfill(bin(int(assembly[8:]))[2:], 2)
+        if (int(assembly[2]) <= 4) & (int(assembly[2]) >= 0):
+            machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 2)
             machine_code = machine_code + "0000000"
         else:
             print("error_load2wgt")
             sys.exit()
-    elif "BIAS" in assembly:
+    elif "BIAS" == assembly[1]:
         machine_code = machine_code + "01000000000"
-    elif "IMG" in assembly:
+    elif "IMG" == assembly[1]:
         machine_code = machine_code + "10"
-        if (int(assembly[8]) <= 4) & (int(assembly[8]) >= 0):
-            machine_code = machine_code + str.zfill(bin(int(assembly[8]))[2:], 2)
+        if (int(assembly[2]) <= 4) & (int(assembly[2]) >= 0):
+            machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 2)
             machine_code = machine_code
         else:
             print("error_load2img1")
             sys.exit()
-        if (int(assembly[9]) <= 1) & (int(assembly[9]) >= 0):
-            machine_code = machine_code + assembly[9]
+        if (int(assembly[3]) <= 1) & (int(assembly[3]) >= 0):
+            machine_code = machine_code + assembly[3]
             machine_code = machine_code + "000000"
         else:
             print("error_load2img2")
             sys.exit()
 
-elif "BPUC_ADD" in assembly:
-    machine_code = machine_code + "01001"
-    if (int(assembly[8:]) <= 15) & (int(assembly[8:]) >= 0):
-        machine_code = machine_code + str.zfill(bin(int(assembly[8:]))[2:],4)
-        machine_code = machine_code + "0000000"
-
-elif "BPUE_ADD" in assembly:
-    machine_code = machine_code + "01000"
-    if (int(assembly[8]) <= 6) & (int(assembly[8]) >= 0):
-        machine_code = machine_code + str.zfill(bin(int(assembly[8:]))[2:],3)
-
-elif "ADD1" in assembly:
+elif "ADD1" == assembly[0]:
     machine_code = machine_code + "00100"
-    if assembly[4:6] == "R1":
-        machine_code = machine_code + "00"
-    elif assembly[4:6] == "R2":
-        machine_code = machine_code + "01"
-    elif assembly[4:6] == "R3":
-        machine_code = machine_code + "10"
-    elif assembly[4:6] == "R4":
-        machine_code = machine_code + "11"
+
+    if assembly[1] == "PC2":
+        machine_code = machine_code + "001"
+    elif assembly[1] == 'PC3':
+        machine_code = machine_code + "010"
+    elif assembly[1] == 'PC4':
+        machine_code = machine_code + "011"
+    elif assembly[1] == "R1":
+        machine_code = machine_code + "100"
+    elif assembly[1] == "R2":
+        machine_code = machine_code + "101"
+    elif assembly[1] == "R3":
+        machine_code = machine_code + "110"
+    elif assembly[1] == "R4":
+        machine_code = machine_code + "111"
     else:
         print("error_add1")
         sys.exit()
-    if (int(assembly[6:]) <= 255) & (int(assembly[6:]) >= 0):
-        machine_code = machine_code + str.zfill(bin(int(assembly[6:]))[2:], 8)
+    if (int(assembly[2]) <= 255) & (int(assembly[2]) >= 0):
+        machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 7)
 
-elif "CMP" in assembly:
+elif "CMP" == assembly[0]:
     machine_code = machine_code + "00101"
-    if assembly[3:5] == "R1":
+    if assembly[1] == "R1":
         machine_code = machine_code + "00"
-    elif assembly[3:5] == "R2":
+    elif assembly[1] == "R2":
         machine_code = machine_code + "01"
-    elif assembly[3:5] == "R3":
+    elif assembly[1] == "R3":
         machine_code = machine_code + "10"
-    elif assembly[3:5] == "R4":
+    elif assembly[1] == "R4":
         machine_code = machine_code + "11"
-    if (int(assembly[5:]) <= 512) & (int(assembly[5:]) >= 0):
-        machine_code = machine_code + str.zfill(bin(int(assembly[5:]))[2:], 9)
+    if (int(assembly[2]) <= 512) & (int(assembly[2]) >= 0):
+        machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 9)
 
-elif "JUMP" in assembly:
+elif "JUMP" == assembly[0]:
     machine_code = machine_code + "00110"
-    if (int(assembly[4:]) <= 512) & (int(assembly[4:]) >= 0):
-        machine_code = machine_code + str.zfill(bin(int(assembly[4:]))[2:], 11)
+    if (int(assembly[2]) <= 512) & (int(assembly[2]) >= 0):
+        machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 11)
 
-elif "EMPT" in assembly:
+elif "EMPT" == assembly[0]:
     machine_code = machine_code + "0011100000000000"
-    if (int(assembly[4]) <= 512) & (int(assembly[4]) >= 0):
-        machine_code = machine_code + str.zfill(bin(int(assembly[5:]))[2:], 9)
 
-elif "BIN_OUT" in assembly:
+elif "BPUE_ADD" == assembly[0]:
+    machine_code = machine_code + "01000"
+    if (int(assembly[1]) <= 6) & (int(assembly[1]) >= 0):
+        machine_code = machine_code + str.zfill(bin(int(assembly[1]))[2:],3)
+
+elif "BPUC_ADD" == assembly[0]:
+    machine_code = machine_code + "01001"
+    if (int(assembly[1]) <= 15) & (int(assembly[1]) >= 0):
+        machine_code = machine_code + str.zfill(bin(int(assembly[1]))[2:],4)
+        machine_code = machine_code + "0000000"
+
+elif "BNN_OUT" == assembly[0]:
     machine_code = machine_code + "01010"
-    if "POOL" in assembly:
-        machine_code = machine_code + "1"
+    if len(assembly)>1:
+        if ("POOL" == assembly[1]):
+            machine_code = machine_code + "1"
+            if (int(assembly[2]) <= 3) & (int(assembly[2]) >= 0):
+                machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:],2)
+                machine_code = machine_code + "00000000"
+            else:
+                print("error_binout")
+                sys.exit()
+            machine_code = machine_code + ""
     else:
-        machine_code = machine_code + "0"
-    if (int(assembly[11]) <= 1) & (int(assembly[11]) >= 0):
-        machine_code = machine_code + assembly[11]
-    else:
-        print("error_binout")
-        sys.exit()
+        machine_code = machine_code + "00000000000"
 
-elif "STORE" in assembly:
+elif "STORE" == assembly[0]:
     machine_code = machine_code + "01011"
     machine_code = machine_code + assembly[5]
     machine_code = machine_code + "0000000000"
 
-elif "SHIFT_UP" in assembly:
+elif "SHIFT_UP" == assembly[0]:
     machine_code = machine_code + "0110000000000000"
 
 else:
