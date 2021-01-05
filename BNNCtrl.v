@@ -25,8 +25,8 @@ module BPUCtrl(
     input rst,
     input [15:0]inst,//instructios
     output reg[16:0]bnncore_ctrl,
-    output reg[1:0]datasram_ctrl,
-    output reg[1:0]instsram_ctrl
+    output reg[15:0]datasram_ctrl,//12~0:address bits, 13: read enable, 14: write enable
+    output reg[15:0]instsram_ctrl
     );
     
     reg [15:0]pc1;
@@ -58,7 +58,8 @@ module BPUCtrl(
         case(inst[15:11])//
         5'b00000: begin//NULL
             //  Enable signals of BNN Core, DataSRAM are all invalid;
-            instsram_ctrl<=0;
+            instsram_ctrl <= 0;
+            datasram_ctrl <= 0;
             pc1<=pc1+1;
         end
         5'b00001: begin//LOAD1L
@@ -71,9 +72,7 @@ module BPUCtrl(
                     3'b101: r2<={r2[15:8],inst[7:0]};
                     3'b110: r3<={r3[15:8],inst[7:0]};
                     3'b111: r4<={r4[15:8],inst[7:0]};
-                    default: begin
-                        
-                    end
+                    default:;
                 endcase
             pc1<=pc1+1;
         end
@@ -87,9 +86,7 @@ module BPUCtrl(
                     3'b101: r2<={inst[7:0],r2[7:0]};
                     3'b110: r3<={inst[7:0],r3[7:0]};
                     3'b111: r4<={inst[7:0],r4[7:0]};
-                    default:begin
-                        
-                    end
+                    default:;
                 endcase
             pc1<=pc1+1;
         end
@@ -102,12 +99,22 @@ module BPUCtrl(
                     bnncore_ctrl[0] <= 0;
                     bnncore_ctrl[6:3] <= 0;
                     bnncore_ctrl[16:8] <= 0;
+
+                    datasram_ctrl[12:0] <= pc2[12:0];
+                    datasram_ctrl[13] <=1; 
+
+                    datasram_ctrl[15:14] <= 0;
                 end
                 2'b01:begin//load bias
                     bnncore_ctrl[11] <= 1;//bias enable
 
                     bnncore_ctrl[10:0] <= 0;
                     bnncore_ctrl[16:12] <= 0;
+
+                    datasram_ctrl[12:0] <= pc2[12:0];
+                    datasram_ctrl[13] <=1; 
+
+                    datasram_ctrl[15:14] <= 0;
                 end
                 2'b10:begin//load image
                     bnncore_ctrl[8] <= 1;//image enable
@@ -117,6 +124,11 @@ module BPUCtrl(
                     bnncore_ctrl[0] <= 0;
                     bnncore_ctrl[7:3] <= 0;
                     bnncore_ctrl[15:9] <= 0;
+
+                    datasram_ctrl[12:0] <= pc2[12:0];
+                    datasram_ctrl[13] <=1; 
+                    
+                    datasram_ctrl[15:14] <= 0;
                 end
             endcase
             pc1<=pc1+1;
@@ -166,7 +178,7 @@ module BPUCtrl(
             bnncore_ctrl[16:1] <=0;
             pc1<=pc1+1;
         end
-        5'b01000:begin//BPPUE ADD
+        5'b01000:begin//BPUE ADD
             bnncore_ctrl[5] <= 1;
             bnncore_ctrl[3:1] <= inst[10:8];//select one bpue  should replace inst[10:8] with pc3[2:0]
 
@@ -199,6 +211,12 @@ module BPUCtrl(
             bnncore_ctrl[5:0] <= 0;
             bnncore_ctrl[13:7] <= 0;
             bnncore_ctrl[16:15] <= 0;
+
+            datasram_ctrl[12:0] <= pc2[12:0];
+            datasram_ctrl[14] <=1; 
+            
+            datasram_ctrl[15] <= 0;
+            datasram_ctrl[13] <= 0;
         end
         5'b01100:begin//img_reg shift up
             bnncore_ctrl[15] <= 1;
@@ -209,9 +227,7 @@ module BPUCtrl(
         5'b01101:begin//decide load data in which part of img_reg
             bnncore_ctrl[16] <= inst[10];
         end
-        default:begin
-            
-        end
+        default:;
         endcase
     end
 
