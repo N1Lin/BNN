@@ -5,7 +5,7 @@ machine_code = ""#machine instruction codes
 
 assembly = assembly.upper()
 assembly = assembly.replace(" ","")
-print(assembly)
+
 #print(assembly[6:8])
 if "NULL" in assembly:#doing nothing
     machine_code = machine_code + "0000000000000000"
