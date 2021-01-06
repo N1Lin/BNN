@@ -20,19 +20,15 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module BPUCtrl(
+module BNNCtrl(
     input clk,
     input rst,
-    input [15:0]inst,//instructios
-    output reg[16:0]bnncore_ctrl,
+    input [15:0]inst,//input instructios
+    output reg[16:0]bnncore_ctrl,//instruction to bnn_core
     output reg[14:0]datasram_ctrl,//12~0:address bits, 13: CEN, 14: WEN
     output wire[12:0]instsram_ctrl//10~0:address bits, 11: CEN, 12: WEN
     );
     
-    assign instsram_ctrl[11:0] = pc1[11:0];
-    assign instsram_ctrl[12] = 1'b0;
-    assign instsram_ctrl[13] = 1'b1;
-
     reg [15:0]pc1;
     reg [15:0]pc2;
     reg [15:0]pc3;
@@ -42,6 +38,10 @@ module BPUCtrl(
     reg [15:0]r2;
     reg [15:0]r3;
     reg [15:0]r4;
+
+    assign instsram_ctrl[10:0] = pc1[10:0];
+    assign instsram_ctrl[11] = 1'b0;
+    assign instsram_ctrl[12] = 1'b1;
 
     always @(inst or posedge rst) begin
         if (rst) begin
@@ -56,9 +56,7 @@ module BPUCtrl(
     always @(clk) begin
 
         if (rst) begin
-            instsram_ctrl <= 0;
             datasram_ctrl <= 0;
-            instsram_ctrl <= 0;
             pc1 <= 0;
             pc2 <= 0;
             pc3 <= 0;
@@ -73,7 +71,6 @@ module BPUCtrl(
         //NULL
         5'b00000: begin
             //Enable signals of BNN Core, DataSRAM are all invalid;
-            instsram_ctrl <= 0;
             datasram_ctrl <= 0;
             pc1<=pc1+1;
         end
