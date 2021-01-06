@@ -73,7 +73,7 @@ elif "LOAD2" == assembly[0]:
     machine_code = machine_code + "00011"
     if "WGT" == assembly[1]:
         machine_code = machine_code + "00"
-        if (int(assembly[2]) <= 4) & (int(assembly[2]) >= 0):
+        if (int(assembly[2]) <= 3) & (int(assembly[2]) >= 0):
             machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 2)
             machine_code = machine_code + "0000000"
         else:
@@ -121,13 +121,13 @@ elif "ADD1" == assembly[0]:
 
 elif "CMP" == assembly[0]:
     machine_code = machine_code + "00101"
-    if assembly[1] == "R1":
+    if assembly[1] == "PC1":
         machine_code = machine_code + "00"
-    elif assembly[1] == "R2":
+    elif assembly[1] == "PC2":
         machine_code = machine_code + "01"
-    elif assembly[1] == "R3":
+    elif assembly[1] == "PC3":
         machine_code = machine_code + "10"
-    elif assembly[1] == "R4":
+    elif assembly[1] == "PC4":
         machine_code = machine_code + "11"
     if (int(assembly[2]) <= 512) & (int(assembly[2]) >= 0):
         machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 9)
