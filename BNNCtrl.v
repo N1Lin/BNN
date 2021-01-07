@@ -43,18 +43,7 @@ module BNNCtrl(
     assign instsram_ctrl[11] = 1'b0;
     assign instsram_ctrl[12] = 1'b1;
 
-    always @(inst or posedge rst) begin
-        if (rst) begin
-            // reset
-            
-        end
-        else begin
-            
-        end
-    end
-
     always @(clk) begin
-
         if (rst) begin
             datasram_ctrl <= 0;
             pc1 <= 0;

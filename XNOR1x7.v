@@ -15,7 +15,7 @@
 // 
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments:  
+// Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
 //Function: to execute 1¡Á7 XNOR operation
