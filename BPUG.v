@@ -51,31 +51,31 @@ module BPUG(
         end
     end
     
-    reg [7:0][15:0]img_reg;//register to store image data
+    reg [15:0][7:0]img_reg;//register to store image data
     always@(posedge clk)begin
         if(rst) begin
             img_reg<=0;
         end
         else if(img_en&sel&(!img_reg_up))begin
             if (!img_reg_sel) begin
-                img_reg[0] <= {img_reg[0][14:0],img_in[0]};//another shift register
-                img_reg[1] <= {img_reg[1][14:0],img_in[1]};
-                img_reg[2] <= {img_reg[2][14:0],img_in[2]};
-                img_reg[3] <= {img_reg[3][14:0],img_in[3]};
-                img_reg[4] <= {img_reg[4][14:0],img_in[4]};
-                img_reg[5] <= {img_reg[5][14:0],img_in[5]};
-                img_reg[6] <= {img_reg[6][14:0],img_in[6]};
-                img_reg[7] <= {img_reg[7][14:0],img_in[7]};
+                img_reg[0] <= {img_reg[0][6:0],img_in[0]};//another shift register
+                img_reg[1] <= {img_reg[1][6:0],img_in[1]};
+                img_reg[2] <= {img_reg[2][6:0],img_in[2]};
+                img_reg[3] <= {img_reg[3][6:0],img_in[3]};
+                img_reg[4] <= {img_reg[4][6:0],img_in[4]};
+                img_reg[5] <= {img_reg[5][6:0],img_in[5]};
+                img_reg[6] <= {img_reg[6][6:0],img_in[6]};
+                img_reg[7] <= {img_reg[7][6:0],img_in[7]};
             end
             else if(img_reg_sel) begin
-                img_reg[8] <= {img_reg[8][14:0],img_in[0]};//another shift register
-                img_reg[9] <= {img_reg[9][14:0],img_in[1]};
-                img_reg[10] <= {img_reg[10][14:0],img_in[2]};
-                img_reg[11] <= {img_reg[11][14:0],img_in[3]};
-                img_reg[12] <= {img_reg[12][14:0],img_in[4]};
-                img_reg[13] <= {img_reg[13][14:0],img_in[5]};
-                img_reg[14] <= {img_reg[14][14:0],img_in[6]};
-                img_reg[15] <= {img_reg[15][14:0],img_in[7]};
+                img_reg[8] <= {img_reg[8][6:0],img_in[0]};//another shift register
+                img_reg[9] <= {img_reg[9][6:0],img_in[1]};
+                img_reg[10] <= {img_reg[10][6:0],img_in[2]};
+                img_reg[11] <= {img_reg[11][6:0],img_in[3]};
+                img_reg[12] <= {img_reg[12][6:0],img_in[4]};
+                img_reg[13] <= {img_reg[13][6:0],img_in[5]};
+                img_reg[14] <= {img_reg[14][6:0],img_in[6]};
+                img_reg[15] <= {img_reg[15][6:0],img_in[7]};
             end
         end
         else if (img_reg_up) begin
@@ -84,7 +84,13 @@ module BPUG(
     end
     
     wire [6:0][6:0]img;
-    assign img = data_sel? img_reg[6:0][6:0]:img_reg[6:0][7:1];
+    assign img[0] = data_sel? img_reg[0][7:1]:img_reg[0][6:0];
+    assign img[1] = data_sel? img_reg[1][7:1]:img_reg[1][6:0];
+    assign img[2] = data_sel? img_reg[2][7:1]:img_reg[2][6:0];
+    assign img[3] = data_sel? img_reg[3][7:1]:img_reg[3][6:0];
+    assign img[4] = data_sel? img_reg[4][7:1]:img_reg[4][6:0];
+    assign img[5] = data_sel? img_reg[5][7:1]:img_reg[5][6:0];
+    assign img[6] = data_sel? img_reg[6][7:1]:img_reg[6][6:0];
     
     //instance
     BPU bpu0(.clk(clk),
