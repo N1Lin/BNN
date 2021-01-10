@@ -46,6 +46,7 @@ module BNNCtrl(
     always @(clk) begin
         if (rst) begin
             datasram_ctrl <= 0;
+            bnncore_ctrl <= 0;
             pc1 <= 0;
             pc2 <= 0;
             pc3 <= 0;
@@ -55,12 +56,11 @@ module BNNCtrl(
             r3 <= 0;
             r4 <= 0;
         end
-
-        case(inst[15:11])
+        else case(inst[15:11])
         //NULL
         5'b00000: begin
             //Enable signals of BNN Core, DataSRAM are all invalid;
-            datasram_ctrl <= 0;
+            datasram_ctrl[13] <= 1;
             pc1<=pc1+1;
         end
         //LOAD1L
@@ -77,7 +77,8 @@ module BNNCtrl(
                     default:;
                 endcase
             pc1<=pc1+1;
-            datasram_ctrl <= 0;
+            datasram_ctrl[13] <= 1;
+            bnncore_ctrl <= 0;
         end
         //LOAD1H
         5'b00010: begin
@@ -94,14 +95,15 @@ module BNNCtrl(
                 endcase
             pc1<=pc1+1;
             datasram_ctrl[13] <= 1;
+            bnncore_ctrl <= 0;
         end
         //LOAD2
         5'b00011: begin
             case(inst[10:9])
-                //load weight
+                //load weight WGT
                 2'b00:begin
                     bnncore_ctrl[7] <= 1;//weight enable
-                    bnncore_ctrl[2:1] <= inst[8:7];//select a colomn of bpug
+                    bnncore_ctrl[2:1] <= pc3[1:0];//select a colomn of bpug
 
                     bnncore_ctrl[0] <= 0;
                     bnncore_ctrl[6:3] <= 0;
@@ -110,7 +112,6 @@ module BNNCtrl(
                     datasram_ctrl[12:0] <= pc2[12:0];
                     datasram_ctrl[13] <=0;
                     datasram_ctrl[14] <=1;
-
                 end
                 //load bias
                 2'b01:begin
@@ -126,8 +127,8 @@ module BNNCtrl(
                 //load image
                 2'b10:begin
                     bnncore_ctrl[8] <= 1;//image enable
-                    bnncore_ctrl[2:1] <= inst[8:7];//select one col of bpugs
-                    bnncore_ctrl[16] <= inst[6];//select to write in wchich part of IMG_REG, 1=[15:8], 0=[7:0]
+                    bnncore_ctrl[2:1] <=pc3[1:0];//select one col of bpugs
+                    bnncore_ctrl[16] <= inst[8];//select to write in wchich part of IMG_REG, 1=[15:8], 0=[7:0]
 
                     bnncore_ctrl[0] <= 0;
                     bnncore_ctrl[7:3] <= 0;
@@ -139,83 +140,95 @@ module BNNCtrl(
                 end
             endcase
             pc1 <= pc1 + 1;
-            pc2 <= pc2 + 1;
+            if(inst[0])begin
+                pc2 <= pc2 + 1;
+            end
+            else begin
+                pc2 <= pc2 - 1;
+            end
+            pc3 <= pc3 + 1;
         end
         //ADD1 a register add an immediate number
         5'b00100:begin
             case(inst[10:8])
                 3'b000:;
                 3'b001:begin
-                    pc2 <= pc2 + inst[7:0];
+                    pc2 <= pc2 + $signed(inst[7:0]);
                 end
                 3'b010:begin
-                    pc3 <= pc3 + inst[7:0];
+                    pc3 <= pc3 + $signed(inst[7:0]);
                 end
                 3'b011:begin
-                    pc4 <= pc4 + inst[7:0];
+                    pc4 <= pc4 + $signed(inst[7:0]);
                 end
                 3'b100:begin
-                    r1 <= r1 + inst[7:0];
+                    r1 <= r1 + $signed(inst[7:0]);
                 end
                 3'b101:begin
-                    r2 <= r2 + inst[7:0];
+                    r2 <= r2 + $signed(inst[7:0]);
                 end
                 3'b110:begin
-                    r3 <= r3 + inst[7:0];
+                    r3 <= r3 + $signed(inst[7:0]);
                 end
                 3'b111:begin
-                    r4 <= r4 + inst[7:0];
+                    r4 <= r4 + $signed(inst[7:0]);
                 end
             endcase
             pc1<=pc1+1;
             datasram_ctrl[13] <= 1;
+            bnncore_ctrl <= 0;
         end
         //CMP
         5'b00101:begin
             case(inst[10:9])
                 2'b00:begin
-                    r1<= pc1>=inst[8:0]?1:0;
+                    r1<= pc1>=inst[8:0]?0:1;
                 end
                 2'b01:begin
-                    r1<= pc2>=inst[8:0]?1:0;
+                    r1<= pc2>=inst[8:0]?0:1;
                 end
                 2'b10:begin
-                    r1<= pc3>=inst[8:0]?1:0;
+                    r1<= pc3>=inst[8:0]?0:1;
                 end
                 2'b11:begin
-                    r1<= pc4>=inst[8:0]?1:0;
+                    r1<= pc4>=inst[8:0]?0:1;
                 end
             endcase
             pc1<=pc1+1;
             datasram_ctrl[13] <= 1;
+            bnncore_ctrl <= 0;
         end
         //JUMP generally jump to a ceratin line
         5'b00110:begin
             if (r1) begin
                 pc1 <= pc1 - inst[10:0];
             end
-            else pc1<=pc1+1;
 
+            else pc1<=pc1+1;
+            bnncore_ctrl <= 0;
             datasram_ctrl[13] <= 1;
         end
         //EMPT
         5'b00111:begin
             bnncore_ctrl[0] <= 1;
             bnncore_ctrl[16:1] <=0;
-            pc1<=pc1+1;
 
             datasram_ctrl[13] <= 1;
+            pc1<=pc1+1;
         end
         //BPUE ADD
         5'b01000:begin
             bnncore_ctrl[5] <= 1;
-            bnncore_ctrl[3:1] <= pc3[2:0];//select one bpue  should replace inst[10:8] with pc3[2:0]
+            bnncore_ctrl[3:1] <= pc3[2:0];
+            bnncore_ctrl[6] <= inst[10];
 
             bnncore_ctrl[0] <= 0;
             bnncore_ctrl[4] <= 0;
-            bnncore_ctrl[16:6] <= 0;
+            bnncore_ctrl[16:7] <= 0;
 
             datasram_ctrl[13] <= 1;
+            pc1 <= pc1 + 1;
+            pc3 <= pc3 + 1;
         end
         //BPUC ADD
         5'b01001:begin
@@ -226,6 +239,8 @@ module BNNCtrl(
             bnncore_ctrl[8:5] <= 0 ;
             bnncore_ctrl[16:10] <= 0;
             datasram_ctrl[13] <= 1;
+            pc1 <= pc1 + 1;
+            pc3 <= pc3 + 1;
         end
         //bnn_out, decides if pooling
         5'b01010:begin
@@ -237,8 +252,8 @@ module BNNCtrl(
             bnncore_ctrl[5:0] <= 0;
             bnncore_ctrl[9:7] <= 0;
             bnncore_ctrl[16:14] <= 0;
-
             datasram_ctrl[13] <= 1;
+            pc1 <= pc1 + 1;
         end
         //store
         5'b01011:begin
@@ -249,9 +264,16 @@ module BNNCtrl(
             bnncore_ctrl[13:7] <= 0;
             bnncore_ctrl[16:15] <= 0;
 
-            datasram_ctrl[12:0] <= pc2[12:0];
+            datasram_ctrl[12:0] <= pc4[12:0];
             datasram_ctrl[13] <= 0;
             datasram_ctrl[14] <= 0;
+            if (instsram_ctrl[9]) begin
+                pc4 <= pc4 + 1;
+            end
+            else begin
+                pc4 <= pc4 - 1;
+            end
+            pc1 <= pc1 + 1;
         end
         //img_reg shift up
         5'b01100:begin
@@ -261,6 +283,7 @@ module BNNCtrl(
             bnncore_ctrl[16] <= 0;
 
             datasram_ctrl[13] <= 1;
+            pc1 <= pc1 + 1;
         end
         default:;
         endcase
