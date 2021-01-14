@@ -34,11 +34,13 @@ module SRAM
     input EMAS;
     input RET1N;
     
+    
+    
     (* dont_touch = "true" *)reg [(DATAWIDTH-1):0] memory[0:(2**ADDRWIDTH-1)];
     
     initial
     begin
-	   (*ram_style="block"*) $readmemb(FILE_NAME, memory);
+		(*ram_style="block"*) $readmemb(FILE_NAME, memory);
     end
     
     always @ (posedge CLK) begin

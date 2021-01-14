@@ -106,13 +106,15 @@ module BPU(
     assign intern=(reg_popcnt[lut_in]+lut_in_origin[6])<<1;
     //a mux that chooses 1 output from 8 input
     
+    always @(intern) begin
+        popcnt = intern-height;
+    end
+
     always @(posedge clk) begin
         if(rst|psum_rst) begin
             popcnt_add <= 0;
-            popcnt<=0;
         end
         else begin
-            popcnt <= intern-height;
             if(psum_add) begin
                 popcnt_add <= popcnt_add + $signed({{2{popcnt[4]}},popcnt});
             end

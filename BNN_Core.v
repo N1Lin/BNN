@@ -73,8 +73,8 @@ module BNNCore(
     assign chip_sel[3] = bpug_sel==3? 1:0;
     
     wire[7:0] cal_bin;//binary calculation result
-    wire[2:0] pooling_cnt;
-    assign pooling_cnt ={pooling_sel,instruction[6]};
+    wire[1:0] pooling_cnt;
+    assign pooling_cnt ={instruction[6],pooling_sel};
     
     reg[7:0][7:0]reg_bins;
     always@(posedge clk)begin
@@ -89,17 +89,18 @@ module BNNCore(
                         pooling_reg[pooling_cnt]<=cal_bin;
                     end
                     else if(pooling_cnt==2'b11)begin
-                        reg_bins <= {pooling_reg[0]|pooling_reg[1]|pooling_reg[2]|cal_bin,reg_bins[6:1]};
+                        reg_bins <= {reg_bins[6:0],pooling_reg[0]|pooling_reg[1]|pooling_reg[2]|cal_bin};
                     end
                 end
                 else begin
-                    reg_bins <= {cal_bin,reg_bins[6:1]};
+                    reg_bins <= {reg_bins[6:0],cal_bin};
                 end
             end
         end
     end
     
-    assign result_bins = store? (instruction[6]?reg_bins[7:4]:reg_bins[3:0]) : {64{1'bz}};
+    assign result_bins = store? (instruction[6]?{reg_bins[7][7],reg_bins[6][7],reg_bins[5][7],reg_bins[4][7],reg_bins[3][7],reg_bins[2][7],reg_bins[1][7],reg_bins[0][7],reg_bins[7][6],reg_bins[6][6],reg_bins[5][6],reg_bins[4][6],reg_bins[3][6],reg_bins[2][6],reg_bins[1][6],reg_bins[0][6],reg_bins[7][5],reg_bins[6][5],reg_bins[5][5],reg_bins[4][5],reg_bins[3][5],reg_bins[2][5],reg_bins[1][5],reg_bins[0][5],reg_bins[7][4],reg_bins[6][4],reg_bins[5][4],reg_bins[4][4],reg_bins[3][4],reg_bins[2][4],reg_bins[1][4],reg_bins[0][4]}:
+    {reg_bins[7][3],reg_bins[6][3],reg_bins[5][3],reg_bins[4][3],reg_bins[3][3],reg_bins[2][3],reg_bins[1][3],reg_bins[0][3],reg_bins[7][2],reg_bins[6][2],reg_bins[5][2],reg_bins[4][2],reg_bins[3][2],reg_bins[2][2],reg_bins[1][2],reg_bins[0][2],reg_bins[7][1],reg_bins[6][1],reg_bins[5][1],reg_bins[4][1],reg_bins[3][1],reg_bins[2][1],reg_bins[1][1],reg_bins[0][1],reg_bins[7][0],reg_bins[6][0],reg_bins[5][0],reg_bins[4][0],reg_bins[3][0],reg_bins[2][0],reg_bins[1][0],reg_bins[0][0]}) : {64{1'bz}};
     
     wire [15:0][7:0][6:0] bpu_out;//connect to BPUGs
     
@@ -275,7 +276,7 @@ module BNNCore(
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[15]));
     
-    reg signed[7:0][8:0]cal_intern;//to store accumulation interns for future binarization
+    reg signed[7:0][10:0]cal_intern;//to store accumulation interns for future binarization
     
     //to extend the sign bit. This is beyond Verilog's ability
     always @(posedge clk) begin
@@ -301,13 +302,13 @@ module BNNCore(
         end
     end
     
-    assign cal_bin[0] = ~cal_intern[0][8];
-    assign cal_bin[1] = ~cal_intern[1][8];
-    assign cal_bin[2] = ~cal_intern[2][8];
-    assign cal_bin[3] = ~cal_intern[3][8];
-    assign cal_bin[4] = ~cal_intern[4][8];
-    assign cal_bin[5] = ~cal_intern[5][8];
-    assign cal_bin[6] = ~cal_intern[6][8];
-    assign cal_bin[7] = ~cal_intern[7][8];
+    assign cal_bin[0] = ~cal_intern[0][10];
+    assign cal_bin[1] = ~cal_intern[1][10];
+    assign cal_bin[2] = ~cal_intern[2][10];
+    assign cal_bin[3] = ~cal_intern[3][10];
+    assign cal_bin[4] = ~cal_intern[4][10];
+    assign cal_bin[5] = ~cal_intern[5][10];
+    assign cal_bin[6] = ~cal_intern[6][10];
+    assign cal_bin[7] = ~cal_intern[7][10];
     
 endmodule

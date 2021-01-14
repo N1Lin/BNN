@@ -39,17 +39,24 @@ module BNNCtrl(
     reg [15:0]r2;
     reg [15:0]r3;
     reg [15:0]r4;
-
-    reg[1:0] cnt;
+    reg [15:0]r5;
+    reg [15:0]r6;
+    reg [15:0]r7;
+    reg [15:0]r8;
+    reg [15:0]r9;
+    reg [15:0]r10;
+    reg [15:0]r11;
+    reg [15:0]r12;
 
     assign instsram_ctrl[10:0] = pc1[10:0];
     assign instsram_ctrl[11] = 1'b0;
     assign instsram_ctrl[12] = 1'b1;
 
     always @(posedge clk) begin
-        
         if (rst) begin
+            datasram_ctrl[14] <= 1;
             datasram_ctrl[13] <= 1;
+            datasram_ctrl[12:0] <= 0;
             bnncore_ctrl <= 0;
             pc1 <= 0;
             pc2 <= 0;
@@ -59,13 +66,19 @@ module BNNCtrl(
             r2 <= 0;
             r3 <= 0;
             r4 <= 0;
+            r5 <= 0;
+            r6 <= 0;
+            r7 <= 0;
+            r8 <= 0;
+            r9 <= 0;
+            r10 <= 0;
+            r11 <= 0;
+            r12 <= 0;
         end
-
         else if (pause) begin
             bnncore_ctrl <= 0;
             datasram_ctrl[13] <= 1;
         end
-
         else case(inst[15:11])
         //NULL
         5'b00000: begin
@@ -96,7 +109,7 @@ module BNNCtrl(
                     3'b000: ;
                     3'b001: pc2<={inst[7:0],pc2[7:0]};
                     3'b010: pc3<={inst[7:0],pc3[7:0]};
-                    3'b011: pc4<={pc4[15:8],pc4[7:0]};
+                    3'b011: pc4<={inst[15:8],pc4[7:0]};
                     3'b100: r1<={inst[7:0],r1[7:0]};
                     3'b101: r2<={inst[7:0],r2[7:0]};
                     3'b110: r3<={inst[7:0],r3[7:0]};
@@ -159,28 +172,52 @@ module BNNCtrl(
         end
         //ADD1 a register add an immediate number
         5'b00100:begin
-            case(inst[10:8])
-                3'b000:;
-                3'b001:begin
-                    pc2 <= pc2 + $signed(inst[7:0]);
+            case(inst[10:7])
+                4'b0000:;
+                4'b0001:begin
+                    pc2 <= pc2 + $signed({{9{inst[6]}},inst[6:0]});
                 end
-                3'b010:begin
-                    pc3 <= pc3 + $signed(inst[7:0]);
+                4'b0010:begin
+                    pc3 <= pc3 + $signed({{9{inst[6]}},inst[6:0]});
                 end
-                3'b011:begin
-                    pc4 <= pc4 + $signed(inst[7:0]);
+                4'b0011:begin
+                    pc4 <= pc4 + $signed({{9{inst[6]}},inst[6:0]});
                 end
-                3'b100:begin
-                    r1 <= r1 + $signed(inst[7:0]);
+                4'b0100:begin
+                    r1 <= r1 + $signed({{9{inst[6]}},inst[6:0]});
                 end
-                3'b101:begin
-                    r2 <= r2 + $signed(inst[7:0]);
+                4'b0101:begin
+                    r2 <= r2 + $signed({{9{inst[6]}},inst[6:0]});
                 end
-                3'b110:begin
-                    r3 <= r3 + $signed(inst[7:0]);
+                4'b0110:begin
+                    r3 <= r3 + $signed({{9{inst[6]}},inst[6:0]});
                 end
-                3'b111:begin
-                    r4 <= r4 + $signed(inst[7:0]);
+                4'b0111:begin
+                    r4 <= r4 + $signed({{9{inst[6]}},inst[6:0]});
+                end
+                4'b1000:begin
+                    r5 <= r5 + $signed({{9{inst[6]}},inst[6:0]});
+                end
+                4'b1001:begin
+                    r6 <= r6 + $signed({{9{inst[6]}},inst[6:0]});
+                end
+                4'b1010:begin
+                    r7 <= r7 + $signed({{9{inst[6]}},inst[6:0]});
+                end
+                4'b1011:begin
+                    r8 <= r8 + $signed({{9{inst[6]}},inst[6:0]});
+                end
+                4'b1100:begin
+                    r9 <= r9 + $signed({{9{inst[6]}},inst[6:0]});
+                end
+                4'b1101:begin
+                    r10 <= r10 + $signed({{9{inst[6]}},inst[6:0]});
+                end
+                4'b1110:begin
+                    r11 <= r11 + $signed({{9{inst[6]}},inst[6:0]});
+                end
+                4'b1111:begin
+                    r12 <= r12 + $signed({{9{inst[6]}},inst[6:0]});
                 end
             endcase
             pc1<=pc1+1;
@@ -189,18 +226,54 @@ module BNNCtrl(
         end
         //CMP
         5'b00101:begin
-            case(inst[10:9])
-                2'b00:begin
-                    r1<= r1>=inst[8:0]?0:1;
+            case(inst[10:7])
+                4'b0000:begin
+                    r1<= r1>=inst[6:0]?0:1;
                 end
-                2'b01:begin
-                    r1<= r2>=inst[8:0]?0:1;
+                4'b0001:begin
+                    r1<= r2>=inst[6:0]?0:1;
                 end
-                2'b10:begin
-                    r1<= r3>=inst[8:0]?0:1;
+                4'b0010:begin
+                    r1<= r3>=inst[6:0]?0:1;
                 end
-                2'b11:begin
-                    r1<= r4>=inst[8:0]?0:1;
+                4'b0011:begin
+                    r1<= r4>=inst[6:0]?0:1;
+                end
+                4'b0100:begin
+                    r1<= r5>=inst[6:0]?0:1;
+                end
+                4'b0101:begin
+                    r1<= r6>=inst[6:0]?0:1;
+                end
+                4'b0110:begin
+                    r1<= r7>=inst[6:0]?0:1;
+                end
+                4'b0111:begin
+                    r1<= r8>=inst[6:0]?0:1;
+                end
+                4'b1000:begin
+                    r1<= r9>=inst[6:0]?0:1;
+                end
+                4'b1001:begin
+                    r1<= r10>=inst[6:0]?0:1;
+                end
+                4'b1010:begin
+                    r1<= r11>=inst[6:0]?0:1;
+                end
+                4'b1011:begin
+                    r1<= r12>=inst[6:0]?0:1;
+                end
+                4'b1100:begin
+                    r1<= pc1>=inst[6:0]?0:1;
+                end
+                4'b1101:begin
+                    r1<= pc2>=inst[6:0]?0:1;
+                end
+                4'b1110:begin
+                    r1<= pc3>=inst[6:0]?0:1;
+                end
+                4'b1111:begin
+                    r1<= pc4>=inst[6:0]?0:1;
                 end
             endcase
             pc1<=pc1+1;
@@ -274,7 +347,7 @@ module BNNCtrl(
             datasram_ctrl[12:0] <= pc4[12:0];
             datasram_ctrl[13] <= 0;
             datasram_ctrl[14] <= 0;
-            if (instsram_ctrl[9]) begin
+            if (inst[9]) begin
                 pc4 <= pc4 + 1;
             end
             else begin
@@ -291,6 +364,56 @@ module BNNCtrl(
 
             datasram_ctrl[13] <= 1;
             pc1 <= pc1 + 1;
+        end
+        //Register MOV 
+        5'b01101:begin
+            pc1<=pc1+1;
+            datasram_ctrl[13] <= 1;
+            bnncore_ctrl <= 0;
+            case (inst[10:8]) //inst[10:8]:destination register   inst[7:5] source register
+                3'b000: pc1<=inst[7]?(inst[6]?(inst[5]?r4:r3):(inst[5]?r2:r1)):(inst[6]?(inst[5]?pc4:pc3):(inst[5]?pc2:pc1));
+                3'b001: pc2<=inst[7]?(inst[6]?(inst[5]?r4:r3):(inst[5]?r2:r1)):(inst[6]?(inst[5]?pc4:pc3):(inst[5]?pc2:pc1));
+                3'b010: pc3<=inst[7]?(inst[6]?(inst[5]?r4:r3):(inst[5]?r2:r1)):(inst[6]?(inst[5]?pc4:pc3):(inst[5]?pc2:pc1));
+                3'b011: pc4<=inst[7]?(inst[6]?(inst[5]?r4:r3):(inst[5]?r2:r1)):(inst[6]?(inst[5]?pc4:pc3):(inst[5]?pc2:pc1));
+                3'b100: r1<=inst[7]?(inst[6]?(inst[5]?r4:r3):(inst[5]?r2:r1)):(inst[6]?(inst[5]?pc4:pc3):(inst[5]?pc2:pc1));
+                3'b101: r2<=inst[7]?(inst[6]?(inst[5]?r4:r3):(inst[5]?r2:r1)):(inst[6]?(inst[5]?pc4:pc3):(inst[5]?pc2:pc1));
+                3'b110: r3<=inst[7]?(inst[6]?(inst[5]?r4:r3):(inst[5]?r2:r1)):(inst[6]?(inst[5]?pc4:pc3):(inst[5]?pc2:pc1));
+                3'b111: r4<=inst[7]?(inst[6]?(inst[5]?r4:r3):(inst[5]?r2:r1)):(inst[6]?(inst[5]?pc4:pc3):(inst[5]?pc2:pc1));
+            endcase
+        end
+        //LOAD3L
+        5'b01110: begin
+                case(inst[10:8])
+                    3'b000: r5<={r5[15:8],inst[7:0]};
+                    3'b001: r6<={r6[15:8],inst[7:0]};
+                    3'b010: r7<={r7[15:8],inst[7:0]};
+                    3'b011: r8<={r8[15:8],inst[7:0]};
+                    3'b100: r9<={r9[15:8],inst[7:0]};
+                    3'b101: r10<={r10[15:8],inst[7:0]};
+                    3'b110: r11<={r11[15:8],inst[7:0]};
+                    3'b111: r12<={r12[15:8],inst[7:0]};
+                    default:;
+                endcase
+            pc1<=pc1+1;
+            datasram_ctrl[13] <= 1;
+            bnncore_ctrl <= 0;
+        end
+        //LOAD3H
+        5'b01111: begin
+                case(inst[10:8])
+                    3'b000: r5<={inst[7:0],r5[7:0]};
+                    3'b001: r6<={inst[7:0],r6[7:0]};
+                    3'b010: r7<={inst[7:0],r7[7:0]};
+                    3'b011: r8<={inst[7:0],r8[7:0]};
+                    3'b100: r9<={inst[7:0],r9[7:0]};
+                    3'b101: r10<={inst[7:0],r10[7:0]};
+                    3'b110: r11<={inst[7:0],r11[7:0]};
+                    3'b111: r12<={inst[7:0],r12[7:0]};
+                    default:;
+                endcase
+            pc1<=pc1+1;
+            datasram_ctrl[13] <= 1;
+            bnncore_ctrl <= 0;
         end
         default:;
         endcase
