@@ -18,15 +18,27 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module BNN_Core(
+module BNNCore(
     input clk,
     input rst,
     input [3:0][7:0]data_in,//input data, image toghether with weight
-    input [16:0] instruction,//instruction bus
+    input [19:0] instruction,//instruction bus
     output wire[3:0][7:0]result_bins//stores the output of this layer
     );
     
     reg[2:0][7:0]pooling_reg;//stores pooling data, controlled by pooling_en
+    reg[15:0] enable;
+    reg[2:0] height;
+    always@(posedge clk) begin
+        if (rst)begin
+            enable <= 0;
+            height <= 0;
+        end
+        else if(instruction[15]&instruction[8])begin
+            enable <= {data_in[1],data_in[0]};
+            height <= data_in[2][2:0];
+        end
+    end
     
     wire [9:0] instruction_bpug;//instructions for bpugs
     assign instruction_bpug[3:0] = instruction[3:0];
@@ -51,6 +63,8 @@ module BNN_Core(
     assign img_reg_up = instruction[15];
     wire img_reg_sel;//instruct to write in which part of img reg
     assign img_reg_sel = instruction[16];
+    wire [2:0]wgt_sel;
+    assign wgt_sel = instruction[19:17];
     
     wire[3:0] chip_sel;
     assign chip_sel[0] = bpug_sel==0? 1:0;
@@ -90,7 +104,7 @@ module BNN_Core(
     wire [15:0][7:0][6:0] bpu_out;//connect to BPUGs
     
     wire[7:0][6:0] bpu_out_add;
-    assign bpu_out_add = bpug_sel[3]?(bpug_sel[2]?(bpug_sel[1]?(bpug_sel[0]?bpu_out[15]:bpu_out[14]):(bpug_sel[0]?bpu_out[13]:bpu_out[12])):(bpug_sel[1]?(bpug_sel[0]?bpu_out[11]:bpu_out[10]):(bpug_sel[0]?bpu_out[9]:bpu_out[8]))):(bpug_sel[2]?(bpug_sel[1]?(bpug_sel[0]?bpu_out[7]:bpu_out[6]):(bpug_sel[0]?bpu_out[5]:bpu_out[4])):(bpug_sel[1]?(bpug_sel[0]?bpu_out[3]:bpu_out[2]):(bpug_sel[0]?bpu_out[1]:bpu_out[0])));
+    assign bpu_out_add = bpu_out[bpug_sel];
     
     reg[7:0][7:0] bias;
     always@(posedge clk)begin
@@ -105,6 +119,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[0]),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[0]));
     
@@ -112,6 +129,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[1]),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[1]));
     
@@ -119,6 +139,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[2]),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[2]));
     
@@ -126,6 +149,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[3]),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[3]));
     
@@ -133,6 +159,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[4]),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[4]));
     
@@ -140,6 +169,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[5]),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[5]));
     
@@ -147,6 +179,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[6]),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[6]));
     
@@ -154,6 +189,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[7]),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[7]));
     
@@ -161,6 +199,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[8]),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[8]));
     
@@ -168,6 +209,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[9]),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[9]));
     
@@ -175,6 +219,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[10]),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[10]));
     
@@ -182,6 +229,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[11]),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[11]));
     
@@ -189,6 +239,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[12]),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[12]));
     
@@ -196,6 +249,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[13]),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[13]));
     
@@ -203,6 +259,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[14]),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[14]));
     
@@ -210,6 +269,9 @@ module BNN_Core(
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
+    .height(height),
+    .wgt_sel(wgt_sel),
+    .enable(enable[15]),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[15]));
     

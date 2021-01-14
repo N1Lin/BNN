@@ -137,24 +137,12 @@ module BNNCtrl(
                 //load image
                 2'b10:begin
                     bnncore_ctrl[8] <= 1;//image enable
-                    bnncore_ctrl[2:1] <=instsram_ctrl[8:7];//select one col of bpugs
+                    bnncore_ctrl[2:1] <=inst[8:7];//select one col of bpugs
                     bnncore_ctrl[16] <= inst[6];//select to write in wchich part of IMG_REG, 1=[15:8], 0=[7:0]
 
                     bnncore_ctrl[0] <= 0;
                     bnncore_ctrl[7:3] <= 0;
                     bnncore_ctrl[15:9] <= 0;
-
-                    datasram_ctrl[12:0] <= pc2[12:0];
-                    datasram_ctrl[13] <=0;
-                    datasram_ctrl[14] <=1;
-                end
-                //load enable
-                2'b11:begin
-                    bnncore_ctrl[15] <= 1;
-                    bnncore_ctrl[8] <= 1;
-
-                    bnncore_ctrl[7:0] <= 0;
-                    bnncore_ctrl[14:9] <= 0;
 
                     datasram_ctrl[12:0] <= pc2[12:0];
                     datasram_ctrl[13] <=0;
@@ -303,13 +291,6 @@ module BNNCtrl(
 
             datasram_ctrl[13] <= 1;
             pc1 <= pc1 + 1;
-        end
-        //MOVE
-        5'b01101:begin
-            case (/* switch */)
-            
-                default : /* default */;
-            endcase
         end
         default:;
         endcase

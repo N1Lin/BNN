@@ -26,11 +26,25 @@
 module BPU(
     input clk,
     input rst,
+    input [2:0]height,//height of calculation
     input [4:0]instruction, //instruction signal
+    input [2:0]right_shift,
     input [6:0][6:0] img,//input image
-    input [6:0][6:0] wgt,//input weight
+    input wgt_input,//input weight
+    input wgt_en,
     output reg signed[6:0] popcnt_add//popcount result of a 7x7 unit
     );
+    
+    reg [6:0][6:0]wgt;
+    
+    always@(posedge clk)begin
+        if(rst)begin
+            wgt <= 0;
+        end
+        else if(wgt_en)begin
+            wgt <= {wgt[5:0],wgt_input};
+        end
+    end
     
     wire psum_rst;//reset psum to 0, should be changed to BIAS later
     assign psum_rst = instruction[0];
@@ -41,47 +55,48 @@ module BPU(
     
     wire [6:0][6:0] xnor_out;
     XNOR1x7 xnor0(
-    .img(img[0]),
+    .img(img[0]>>right_shift),
     .wgt(wgt[0]),
+    .height(height),
     .xnor_out(xnor_out[0]));
     XNOR1x7 xnor1(
-    .img(img[1]),
+    .img(img[1]>>right_shift),
     .wgt(wgt[1]),
+    .height(height),
     .xnor_out(xnor_out[1]));
     XNOR1x7 xnor2(
-    .img(img[2]),
+    .img(img[2]>>right_shift),
     .wgt(wgt[2]),
+    .height(height),
     .xnor_out(xnor_out[2]));
     XNOR1x7 xnor3(
-    .img(img[3]),
+    .img(img[3]>>right_shift),
     .wgt(wgt[3]),
+    .height(height),
     .xnor_out(xnor_out[3]));
     XNOR1x7 xnor4(
-    .img(img[4]),
+    .img(img[4]>>right_shift),
     .wgt(wgt[4]),
+    .height(height),
     .xnor_out(xnor_out[4]));
     XNOR1x7 xnor5(
-    .img(img[5]),
+    .img(img[5]>>right_shift),
     .wgt(wgt[5]),
+    .height(height),
     .xnor_out(xnor_out[5]));
     XNOR1x7 xnor6(
-    .img(img[6]),
+    .img(img[6]>>right_shift),
     .wgt(wgt[6]),
+    .height(height),
     .xnor_out(xnor_out[6]));
     
     // lut_sel decides which output of XNOR1x7 to connect with input of LUT
     wire [6:0] lut_in_origin;
-    assign lut_in_origin = lut_sel[2]?(lut_sel[1]?(lut_sel[0]? 7'b0:xnor_out[6]):(lut_sel[0]?xnor_out[5]:xnor_out[4])):(lut_sel[1]?(lut_sel[0]? xnor_out[3]:xnor_out[2]):(lut_sel[0]? xnor_out[1]:xnor_out[0]));
+    assign lut_in_origin = xnor_out[lut_sel];
     wire [5:0] lut_in;
     //the operation of shift-binary algorithm
     assign lut_in = lut_in_origin[5:0];
     
-//    wire signed[3:0] popcnt;
-//    shift_lut lut1(
-//    .addra(lut_in),
-//    .clka(clk),
-//    .douta(popcnt)
-//    );
     wire[63:0][2:0]reg_popcnt;
     assign reg_popcnt='{'{3'b110},'{3'b101},'{3'b101},'{3'b100},'{3'b101},'{3'b100},'{3'b100},'{3'b11},'{3'b101},'{3'b100},'{3'b100},'{3'b11},'{3'b100},'{3'b11},'{3'b11},'{3'b10},'{3'b101},'{3'b100},'{3'b100},'{3'b11},'{3'b100},'{3'b11},'{3'b11},'{3'b10},'{3'b100},'{3'b11},'{3'b11},'{3'b10},'{3'b11},'{3'b10},'{3'b10},'{3'b1},'{3'b101},'{3'b100},'{3'b100},'{3'b11},'{3'b100},'{3'b11},'{3'b11},'{3'b10},'{3'b100},'{3'b11},'{3'b11},'{3'b10},'{3'b11},'{3'b10},'{3'b10},'{3'b1},'{3'b100},'{3'b11},'{3'b11},'{3'b10},'{3'b11},'{3'b10},'{3'b10},'{3'b1},'{3'b11},'{3'b10},'{3'b10},'{3'b1},'{3'b10},'{3'b1},'{3'b1},'{3'b0}};
 
@@ -97,7 +112,7 @@ module BPU(
             popcnt<=0;
         end
         else begin
-            popcnt <= intern-3'b111;
+            popcnt <= intern-height;
             if(psum_add) begin
                 popcnt_add <= popcnt_add + $signed({{2{popcnt[4]}},popcnt});
             end

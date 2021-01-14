@@ -12,11 +12,17 @@
 module BPUG(
     input clk,
     input rst,
+    input [2:0]height,
+    input enable,
+    input [2:0]wgt_sel,
     input [7:0]data_in,// input data, both image and weight
     input [9:0] instruction_in,//instructions bus
-    input sel,// 
+    input sel,//
     output wire signed[7:0][6:0] bpu_out//calculation of BPU
     );
+    
+    wire clk_bpug;
+    assign clk_bpug = clk & enable;
     
     wire[4:0] instruction;//calculation instruction to BPU
     assign instruction =instruction_in[4:0];
@@ -41,22 +47,12 @@ module BPUG(
     wire wgt_en;//enable the weight shift register
     assign wgt_en = en[0];
     
-    reg [55:0][6:0]wgt;// wgt[56] is this layer's bias, the rest is
-    always@(posedge clk)begin
-        if(rst)begin
-            wgt <= 0;
-        end
-        else if(wgt_en&sel) begin
-            wgt <= {wgt[54:0],wgt_in};//shift register
-        end
-    end
-    
     reg [15:0][7:0]img_reg;//register to store image data
-    always@(posedge clk)begin
+    always@(posedge clk_bpug)begin
         if(rst) begin
             img_reg<=0;
         end
-        else if(img_en&sel&(!img_reg_up))begin
+        else if(img_en & sel & (!img_reg_up))begin
             if (!img_reg_sel) begin
                 img_reg[0] <= {img_reg[0][6:0],img_in[0]};//another shift register
                 img_reg[1] <= {img_reg[1][6:0],img_in[1]};
@@ -78,7 +74,7 @@ module BPUG(
                 img_reg[15] <= {img_reg[15][6:0],img_in[7]};
             end
         end
-        else if (img_reg_up) begin
+        else if (img_reg_up & (!img_en)) begin
             img_reg[14:0] <= img_reg[15:1];
         end
     end
@@ -92,54 +88,80 @@ module BPUG(
     assign img[5] = data_sel? img_reg[5][7:1]:img_reg[5][6:0];
     assign img[6] = data_sel? img_reg[6][7:1]:img_reg[6][6:0];
     
+    wire[7:0] wgt_en_bpu;
+    assign wgt_en_bpu[0] = wgt_sel==0? wgt_en:0;
+    assign wgt_en_bpu[1] = wgt_sel==1? wgt_en:0;
+    assign wgt_en_bpu[2] = wgt_sel==2? wgt_en:0;
+    assign wgt_en_bpu[3] = wgt_sel==3? wgt_en:0;
+    assign wgt_en_bpu[4] = wgt_sel==4? wgt_en:0;
+    assign wgt_en_bpu[5] = wgt_sel==5? wgt_en:0;
+    assign wgt_en_bpu[6] = wgt_sel==6? wgt_en:0;
+    assign wgt_en_bpu[7] = wgt_sel==7? wgt_en:0;
+    
     //instance
-    BPU bpu0(.clk(clk),
+    BPU bpu0(.clk(clk_bpug),
     .rst(rst),
+    .height(height),
+    .wgt_en(wgt_en_bpu[0]),
     .instruction(instruction),
     .img(img),
-    .wgt(wgt[6:0]),
+    .wgt_input(wgt_in),
     .popcnt_add(bpu_out[0]));
-    BPU bpu1(.clk(clk),
+    BPU bpu1(.clk(clk_bpug),
     .rst(rst),
+    .height(height),
+    .wgt_en(wgt_en_bpu[1]),
     .instruction(instruction),
     .img(img),
-    .wgt(wgt[13:7]),
+    .wgt_input(wgt_in),
     .popcnt_add(bpu_out[1]));
-    BPU bpu2(.clk(clk),
+    BPU bpu2(.clk(clk_bpug),
     .rst(rst),
+    .height(height),
+    .wgt_en(wgt_en_bpu[2]),
     .instruction(instruction),
     .img(img),
-    .wgt(wgt[20:14]),
+    .wgt_input(wgt_in),
     .popcnt_add(bpu_out[2]));
-    BPU bpu3(.clk(clk),
+    BPU bpu3(.clk(clk_bpug),
     .rst(rst),
+    .height(height),
+    .wgt_en(wgt_en_bpu[3]),
     .instruction(instruction),
     .img(img),
-    .wgt(wgt[27:21]),
+    .wgt_input(wgt_in),
     .popcnt_add(bpu_out[3]));
-    BPU bpu4(.clk(clk),
+    BPU bpu4(.clk(clk_bpug),
     .rst(rst),
+    .height(height),
+    .wgt_en(wgt_en_bpu[4]),
     .instruction(instruction),
     .img(img),
-    .wgt(wgt[34:28]),
+    .wgt_input(wgt_in),
     .popcnt_add(bpu_out[4]));
-    BPU bpu5(.clk(clk),
+    BPU bpu5(.clk(clk_bpug),
     .rst(rst),
+    .height(height),
+    .wgt_en(wgt_en_bpu[5]),
     .instruction(instruction),
     .img(img),
-    .wgt(wgt[41:35]),
+    .wgt_input(wgt_in),
     .popcnt_add(bpu_out[5]));
-    BPU bpu6(.clk(clk),
+    BPU bpu6(.clk(clk_bpug),
     .rst(rst),
+    .height(height),
+    .wgt_en(wgt_en_bpu[6]),
     .instruction(instruction),
     .img(img),
-    .wgt(wgt[48:42]),
+    .wgt_input(wgt_in),
     .popcnt_add(bpu_out[6]));
-    BPU bpu7(.clk(clk),
+    BPU bpu7(.clk(clk_bpug),
     .rst(rst),
+    .height(height),
+    .wgt_en(wgt_en_bpu[7]),
     .instruction(instruction),
     .img(img),
-    .wgt(wgt[55:49]),
+    .wgt_input(wgt_in),
     .popcnt_add(bpu_out[7]));
     
 endmodule
