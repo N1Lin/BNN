@@ -41,7 +41,7 @@ module BPUG(
     wire wgt_en;//enable the weight shift register
     assign wgt_en = en[0];
     
-    reg [55:0][7:0]wgt;// wgt[56] is this layer's bias, the rest is
+    reg [55:0][6:0]wgt;// wgt[56] is this layer's bias, the rest is
     always@(posedge clk)begin
         if(rst)begin
             wgt <= 0;
