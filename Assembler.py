@@ -1,7 +1,7 @@
 import sys
 
 machine_code = ""#machine instruction codes
-with open('D:\\Lin\\Documents\\BNN\\test-imgsel.TXT') as f:
+with open('INST_TEST') as f:
     read_data = f.read()
 f.close()
 read_data = read_data.split('\n')
@@ -72,12 +72,12 @@ for assembly in read_data:
         machine_code = machine_code + "00011"
         if "WGT" == assembly[1]:
             machine_code = machine_code + "00"
-            if (int(assembly[2]) <= 3) & (int(assembly[2]) >= 0):#select BPUG col
+            if (int(assembly[2]) <= 3) & (int(assembly[2]) >= 0):
                 machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 2)
             else:
                 print("error_LOAD2 1")
                 sys.exit()
-            if (int(assembly[3]) <= 1) & (int(assembly[3]) >= 0):#decides if PC2 self adds of self minus
+            if (int(assembly[3]) <= 1) & (int(assembly[3]) >= 0):
                 machine_code = machine_code + "000000"+ assembly[3]
             else:
                 print("error_LOAD2 2")
@@ -107,52 +107,94 @@ for assembly in read_data:
         machine_code = machine_code + "00100"
 
         if assembly[1] == "PC2":
-            machine_code = machine_code + "001"
+            machine_code = machine_code + "0001"
         elif assembly[1] == 'PC3':
-            machine_code = machine_code + "010"
+            machine_code = machine_code + "0010"
         elif assembly[1] == 'PC4':
-            machine_code = machine_code + "011"
+            machine_code = machine_code + "0011"
         elif assembly[1] == "R1":
-            machine_code = machine_code + "100"
+            machine_code = machine_code + "0100"
         elif assembly[1] == "R2":
-            machine_code = machine_code + "101"
+            machine_code = machine_code + "0101"
         elif assembly[1] == "R3":
-            machine_code = machine_code + "110"
+            machine_code = machine_code + "0110"
         elif assembly[1] == "R4":
-            machine_code = machine_code + "111"
+            machine_code = machine_code + "0111"
+        elif assembly[1] == "R5":
+            machine_code = machine_code + "1000"
+        elif assembly[1] == "R6":
+            machine_code = machine_code + "1001"
+        elif assembly[1] == "R7":
+            machine_code = machine_code + "1010"
+        elif assembly[1] == "R8":
+            machine_code = machine_code + "1011"
+        elif assembly[1] == "R9":
+            machine_code = machine_code + "1100"
+        elif assembly[1] == "R10":
+            machine_code = machine_code + "1101"
+        elif assembly[1] == "R11":
+            machine_code = machine_code + "1110"
+        elif assembly[1] == "R12":
+            machine_code = machine_code + "1111"
         else:
-            print("error_add1")
+            print("error_add_1")
             sys.exit()
 
-        if (int(assembly[2]) <= 127) & (int(assembly[2]) >= -128):
+        if (int(assembly[2]) <= 63) & (int(assembly[2]) >= -64):
             if int(assembly[2]) > 0:
-                assembly[2] = bin(int(assembly[2]))[2:].rjust(8, "0")
+                assembly[2] = bin(int(assembly[2]))[2:].rjust(7, "0")
             else:
                 assembly[2] = bin(int(assembly[2]) + 1)[3:]
                 assembly[2] = assembly[2].replace("1", "a")
                 assembly[2] = assembly[2].replace("0", "1")
                 assembly[2] = assembly[2].replace("a", "0")
-                assembly[2] = assembly[2].rjust(8, "1")
+                assembly[2] = assembly[2].rjust(7, "1")
             machine_code = machine_code + assembly[2]
         else:
-            print("error_add2")
+            print("error_add_2")
             sys.exit()
+
 
     elif "CMP" == assembly[0]:
         machine_code = machine_code + "00101"
         if assembly[1] == "R1":
-            machine_code = machine_code + "00"
+            machine_code = machine_code + "0000"
         elif assembly[1] == "R2":
-            machine_code = machine_code + "01"
+            machine_code = machine_code + "0001"
         elif assembly[1] == "R3":
-            machine_code = machine_code + "10"
+            machine_code = machine_code + "0010"
         elif assembly[1] == "R4":
-            machine_code = machine_code + "11"
+            machine_code = machine_code + "0011"
+        elif assembly[1] == "R5":
+            machine_code = machine_code + "0100"
+        elif assembly[1] == "R6":
+            machine_code = machine_code + "0101"
+        elif assembly[1] == "R7":
+            machine_code = machine_code + "0110"
+        elif assembly[1] == "R8":
+            machine_code = machine_code + "0111"
+        elif assembly[1] == "R9":
+            machine_code = machine_code + "1000"
+        elif assembly[1] == "R10":
+            machine_code = machine_code + "1001"
+        elif assembly[1] == "R11":
+            machine_code = machine_code + "1010"
+        elif assembly[1] == "R12":
+            machine_code = machine_code + "1011"
+        elif assembly[1] == "PC1":
+            machine_code = machine_code + "1100"
+        elif assembly[1] == "PC2":
+            machine_code = machine_code + "1101"
+        elif assembly[1] == "PC3":
+            machine_code = machine_code + "1110"
+        elif assembly[1] == "PC4":
+            machine_code = machine_code + "1111"
+        
         else:
             print("Error_CMp1")
             sys.exit()
-        if (int(assembly[2]) < 512) & (int(assembly[2]) >= 0):
-            machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 9)
+        if (int(assembly[2]) < 128) & (int(assembly[2]) >= 0):
+            machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 7)
         else:
             print("Error_CMp2")
             sys.exit()
@@ -220,6 +262,105 @@ for assembly in read_data:
 
     elif "SHIFTUP" == assembly[0]:
         machine_code = machine_code + "0110000000000000"
+
+    elif "MOV" == assembly[0]:
+        machine_code = machine_code + "01101"
+        if assembly[1] == "PC2":
+            machine_code = machine_code + "001"
+        elif assembly[1] == 'PC3':
+            machine_code = machine_code + "010"
+        elif assembly[1] == 'PC4':
+            machine_code = machine_code + "011"
+        elif assembly[1] == "R1":
+            machine_code = machine_code + "100"
+        elif assembly[1] == "R2":
+            machine_code = machine_code + "101"
+        elif assembly[1] == "R3":
+            machine_code = machine_code + "110"
+        elif assembly[1] == "R4":
+            machine_code = machine_code + "111"
+        elif assembly[1] == "PC1":
+            machine_code = machine_code + "000"
+        else:
+            print("error_MOV")
+            sys.exit()
+        if assembly[2] == "PC2":
+            machine_code = machine_code + "001"
+        elif assembly[2] == 'PC3':
+            machine_code = machine_code + "010"
+        elif assembly[2] == 'PC4':
+            machine_code = machine_code + "011"
+        elif assembly[2] == "R1":
+            machine_code = machine_code + "100"
+        elif assembly[2] == "R2":
+            machine_code = machine_code + "101"
+        elif assembly[2] == "R3":
+            machine_code = machine_code + "110"
+        elif assembly[2] == "R4":
+            machine_code = machine_code + "111"
+        elif assembly[2] == "PC1":
+            machine_code = machine_code + "000"
+        else:
+            print("error_MOV")
+            sys.exit()
+        machine_code = machine_code + "00000"
+
+    elif "LOAD3L" == assembly[0]:
+        machine_code = machine_code + "01110"
+        if assembly[1] == "R6":
+            machine_code = machine_code + "001"
+        elif assembly[1] == "R7":
+            machine_code = machine_code + "010"
+        elif assembly[1] == "R8":
+            machine_code = machine_code + "011"
+        elif assembly[1] == "R9":
+            machine_code = machine_code + "100"
+        elif assembly[1] == "R10":
+            machine_code = machine_code + "101"
+        elif assembly[1] == "R11":
+            machine_code = machine_code + "110"
+        elif assembly[1] == "R12":
+            machine_code = machine_code + "111"
+        elif assembly[1] == "R5":
+            machine_code = machine_code + "000"
+        else:
+            print("error_LOAD3L1")
+            sys.exit()
+
+        if (int(assembly[2]) <= 255) & (int(assembly[2]) >= 0):
+            machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 8)
+        else:
+            print("error_LOAD3L2")
+            sys.exit()
+
+    elif "LOAD3H" == assembly[0]:
+        machine_code = machine_code + "01111"
+
+        if assembly[1] == "R6":
+            machine_code = machine_code + "001"
+        elif assembly[1] == "R7":
+            machine_code = machine_code + "010"
+        elif assembly[1] == "R8":
+            machine_code = machine_code + "011"
+        elif assembly[1] == "R9":
+            machine_code = machine_code + "100"
+        elif assembly[1] == "R10":
+            machine_code = machine_code + "101"
+        elif assembly[1] == "R11":
+            machine_code = machine_code + "110"
+        elif assembly[1] == "R12":
+            machine_code = machine_code + "111"
+        elif assembly[1] == "R5":
+            machine_code = machine_code + "000"
+        else:
+            print("error_LOAD3H1")
+            sys.exit()
+
+        if (int(assembly[2]) <= 255) & (int(assembly[2]) >= 0):
+            machine_code = machine_code + str.zfill(bin(int(assembly[2]))[2:], 8)
+        else:
+            print("error_LOAD3H2")
+            sys.exit()
 
     if len(machine_code) == 16:
         print(machine_code)
