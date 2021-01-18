@@ -22,9 +22,9 @@ module BPUG(
     
     wire clk_bpug;
     assign clk_bpug = clk & enable;
-    
+
     wire[4:0] instruction;//calculation instruction to BPU
-    assign instruction[4:0] =instruction_in[4:0];
+    assign instruction =instruction_in[4:0];
     wire data_sel;//image data selector
     assign data_sel = instruction_in[5];// =0, [6:0]of image data; =1, [7:1] of image data
     //data_sel at the same time controls the address of pooling
@@ -36,7 +36,7 @@ module BPUG(
     assign  img_reg_sel = instruction_in[9];
     wire [2:0] wgt_sel;
     assign wgt_wel = instruction_in[12:10];
-    
+
     ////////////////////////////////////////////////////////////
     
     wire [7:0]img_in;//image data in
@@ -77,21 +77,18 @@ module BPUG(
             end
         end
         else if (img_reg_up & (!img_en)) begin
-            img_reg[14:0] <= img_reg[15:1];
+            img_reg[15:1] <= img_reg[14:0];
         end
     end
     
     wire [6:0][6:0]img;
-    assign img[6] = data_sel? img_reg[6][7:1]:img_reg[6][6:0];
-    assign img[5] = data_sel? img_reg[5][7:1]:img_reg[5][6:0];
-    
-    assign img[0] = data_sel? img_reg[0][7:1]:img_reg[0][6:0];
-    assign img[1] = data_sel? img_reg[1][7:1]:img_reg[1][6:0];
-    assign img[2] = data_sel? img_reg[2][7:1]:img_reg[2][6:0];
-    assign img[3] = data_sel? img_reg[3][7:1]:img_reg[3][6:0];
-    assign img[4] = data_sel? img_reg[4][7:1]:img_reg[4][6:0];
-    
-    
+    assign img[0] = data_sel? img_reg[9][7:1]:img_reg[9][6:0];
+    assign img[1] = data_sel? img_reg[10][7:1]:img_reg[10][6:0];
+    assign img[2] = data_sel? img_reg[11][7:1]:img_reg[11][6:0];
+    assign img[3] = data_sel? img_reg[12][7:1]:img_reg[12][6:0];
+    assign img[4] = data_sel? img_reg[13][7:1]:img_reg[13][6:0];
+    assign img[5] = data_sel? img_reg[14][7:1]:img_reg[14][6:0];
+    assign img[6] = data_sel? img_reg[15][7:1]:img_reg[15][6:0];
     
     wire[7:0] wgt_en_bpu;
     assign wgt_en_bpu[0] = wgt_sel==0? wgt_en:0;
