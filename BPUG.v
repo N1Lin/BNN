@@ -14,14 +14,10 @@ module BPUG(
     input rst,
     input [2:0]height,
     input sel,//
-    input enable,
     input [12:0] instruction_in,//instructions bus
     input [7:0]data_in,// input data, both image and weight
     output wire signed[7:0][6:0] bpu_out//calculation of BPU
     );
-    
-    wire clk_bpug;
-    assign clk_bpug = clk & enable;
 
     wire[4:0] instruction;//calculation instruction to BPU
     assign instruction =instruction_in[4:0];
@@ -50,7 +46,7 @@ module BPUG(
     assign wgt_en = en[0];
     
     reg [15:0][7:0]img_reg;//register to store image data
-    always@(posedge clk_bpug)begin
+    always@(posedge clk)begin
         if(rst) begin
             img_reg<=0;
         end
@@ -101,7 +97,7 @@ module BPUG(
     assign wgt_en_bpu[7] = wgt_sel==7? wgt_en:0;
     
     //instance
-    BPU bpu0(.clk(clk_bpug),
+    BPU bpu0(.clk(clk),
     .rst(rst),
     .height(height),
     .wgt_en(wgt_en_bpu[0]),
@@ -109,7 +105,7 @@ module BPUG(
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[0]));
-    BPU bpu1(.clk(clk_bpug),
+    BPU bpu1(.clk(clk),
     .rst(rst),
     .height(height),
     .wgt_en(wgt_en_bpu[1]),
@@ -117,7 +113,7 @@ module BPUG(
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[1]));
-    BPU bpu2(.clk(clk_bpug),
+    BPU bpu2(.clk(clk),
     .rst(rst),
     .height(height),
     .wgt_en(wgt_en_bpu[2]),
@@ -125,7 +121,7 @@ module BPUG(
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[2]));
-    BPU bpu3(.clk(clk_bpug),
+    BPU bpu3(.clk(clk),
     .rst(rst),
     .height(height),
     .wgt_en(wgt_en_bpu[3]),
@@ -133,7 +129,7 @@ module BPUG(
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[3]));
-    BPU bpu4(.clk(clk_bpug),
+    BPU bpu4(.clk(clk),
     .rst(rst),
     .height(height),
     .wgt_en(wgt_en_bpu[4]),
@@ -141,7 +137,7 @@ module BPUG(
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[4]));
-    BPU bpu5(.clk(clk_bpug),
+    BPU bpu5(.clk(clk),
     .rst(rst),
     .height(height),
     .wgt_en(wgt_en_bpu[5]),
@@ -149,7 +145,7 @@ module BPUG(
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[5]));
-    BPU bpu6(.clk(clk_bpug),
+    BPU bpu6(.clk(clk),
     .rst(rst),
     .height(height),
     .wgt_en(wgt_en_bpu[6]),
@@ -157,7 +153,7 @@ module BPUG(
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[6]));
-    BPU bpu7(.clk(clk_bpug),
+    BPU bpu7(.clk(clk),
     .rst(rst),
     .height(height),
     .wgt_en(wgt_en_bpu[7]),

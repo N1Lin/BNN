@@ -27,18 +27,20 @@ module BNNCore(
     );
     
     reg[2:0][7:0]pooling_reg;//stores pooling data, controlled by pooling_en
-    reg[15:0] enable;
+    reg[15:0] bpug_enable;
     reg[2:0] height;
     always@(posedge clk) begin
         if (rst)begin
-            enable <= 0;
+            bpug_enable <= 0;
             height <= 0;
         end
         else if(instruction[15]&instruction[8])begin
-            enable <= {data_in[1],data_in[0]};
+            bpug_enable <= {data_in[1],data_in[0]};
             height <= data_in[2][2:0];
         end
     end
+    wire[15:0] clk_bpug;
+    assign clk_bpug = clk & bpug_enable;
     
     wire [12:0] instruction_bpug;//instructions for bpugs
     assign instruction_bpug[3:0] = instruction[3:0];
@@ -117,147 +119,131 @@ module BNNCore(
             end
         end
     end
-    BPUG bpug0(.clk(clk),
+    BPUG bpug0(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
     .height(height),
-    .enable(enable[0]),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[0]));
     
-    BPUG bpug1(.clk(clk),
+    BPUG bpug1(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
     .height(height),
-    .enable(enable[1]),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[1]));
     
-    BPUG bpug2(.clk(clk),
+    BPUG bpug2(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
     .height(height),
-    .enable(enable[2]),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[2]));
     
-    BPUG bpug3(.clk(clk),
+    BPUG bpug3(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
     .height(height),
-    .enable(enable[3]),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[3]));
     
-    BPUG bpug4(.clk(clk),
+    BPUG bpug4(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
     .height(height),
-    .enable(enable[4]),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[4]));
     
-    BPUG bpug5(.clk(clk),
+    BPUG bpug5(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
     .height(height),
-    .enable(enable[5]),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[5]));
     
-    BPUG bpug6(.clk(clk),
+    BPUG bpug6(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
     .height(height),
-    .enable(enable[6]),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[6]));
     
-    BPUG bpug7(.clk(clk),
+    BPUG bpug7(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
     .height(height),
-    .enable(enable[7]),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[7]));
     
-    BPUG bpug8(.clk(clk),
+    BPUG bpug8(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
     .height(height),
-    .enable(enable[8]),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[8]));
     
-    BPUG bpug9(.clk(clk),
+    BPUG bpug9(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
     .height(height),
-    .enable(enable[9]),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[9]));
     
-    BPUG bpug10(.clk(clk),
+    BPUG bpug10(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
     .height(height),
-    .enable(enable[10]),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[10]));
     
-    BPUG bpug11(.clk(clk),
+    BPUG bpug11(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
     .height(height),
-    .enable(enable[11]),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[11]));
     
-    BPUG bpug12(.clk(clk),
+    BPUG bpug12(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
     .height(height),
-    .enable(enable[12]),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[12]));
     
-    BPUG bpug13(.clk(clk),
+    BPUG bpug13(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
     .height(height),
-    .enable(enable[13]),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[13]));
     
-    BPUG bpug14(.clk(clk),
+    BPUG bpug14(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
     .height(height),
-    .enable(enable[14]),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[14]));
     
-    BPUG bpug15(.clk(clk),
+    BPUG bpug15(.clk(clk_bpug),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
     .height(height),
-    .enable(enable[15]),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[15]));
     
