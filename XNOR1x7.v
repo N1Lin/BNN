@@ -27,9 +27,10 @@ module XNOR1x7(
     );
     
     wire [6:0] img_cal;
-    assign img_cal[6:5] = height == 7? img[6:5] : 2'b11;
-    assign img_cal[4:3] = height == 5? img[4:3] : 2'b11;
-    assign img_cal[2:1] = height == 3? img[2:1] : 2'b11;
-    assign img_cal[0] = img[0];
+    assign img_cal[6] = height == 7? img[6] : 1'b1;
+    assign img_cal[5] = height >= 5? img[5] : 1'b1;
+    assign img_cal[4:2] = img[4:2];
+    assign img_cal[1] = height >= 5? img[1] : 1'b1;
+    assign img_cal[0] = height == 7? img[0] : 1'b1;
     assign xnor_out = img_cal~^wgt;
 endmodule

@@ -13,11 +13,10 @@ module BPUG(
     input clk,
     input rst,
     input [2:0]height,
-    input enable,
-    input [2:0]wgt_sel,
-    input [7:0]data_in,// input data, both image and weight
-    input [9:0] instruction_in,//instructions bus
     input sel,//
+    input enable,
+    input [12:0] instruction_in,//instructions bus
+    input [7:0]data_in,// input data, both image and weight
     output wire signed[7:0][6:0] bpu_out//calculation of BPU
     );
     
@@ -25,7 +24,7 @@ module BPUG(
     assign clk_bpug = clk & enable;
     
     wire[4:0] instruction;//calculation instruction to BPU
-    assign instruction =instruction_in[4:0];
+    assign instruction[4:0] =instruction_in[4:0];
     wire data_sel;//image data selector
     assign data_sel = instruction_in[5];// =0, [6:0]of image data; =1, [7:1] of image data
     //data_sel at the same time controls the address of pooling
@@ -35,6 +34,9 @@ module BPUG(
     assign img_reg_up = instruction_in[8];
     wire img_reg_sel;//to select [7:0][7:0] of img for calculation
     assign  img_reg_sel = instruction_in[9];
+    wire [2:0] wgt_sel;
+    assign wgt_wel = instruction_in[12:10];
+    
     ////////////////////////////////////////////////////////////
     
     wire [7:0]img_in;//image data in
@@ -80,13 +82,16 @@ module BPUG(
     end
     
     wire [6:0][6:0]img;
+    assign img[6] = data_sel? img_reg[6][7:1]:img_reg[6][6:0];
+    assign img[5] = data_sel? img_reg[5][7:1]:img_reg[5][6:0];
+    
     assign img[0] = data_sel? img_reg[0][7:1]:img_reg[0][6:0];
     assign img[1] = data_sel? img_reg[1][7:1]:img_reg[1][6:0];
     assign img[2] = data_sel? img_reg[2][7:1]:img_reg[2][6:0];
     assign img[3] = data_sel? img_reg[3][7:1]:img_reg[3][6:0];
     assign img[4] = data_sel? img_reg[4][7:1]:img_reg[4][6:0];
-    assign img[5] = data_sel? img_reg[5][7:1]:img_reg[5][6:0];
-    assign img[6] = data_sel? img_reg[6][7:1]:img_reg[6][6:0];
+    
+    
     
     wire[7:0] wgt_en_bpu;
     assign wgt_en_bpu[0] = wgt_sel==0? wgt_en:0;

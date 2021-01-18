@@ -22,7 +22,7 @@ module BNNCore(
     input clk,
     input rst,
     input [3:0][7:0]data_in,//input data, image toghether with weight
-    input [19:0] instruction,//instruction bus
+    input [22:0] instruction,//instruction bus
     output wire[3:0][7:0]result_bins//stores the output of this layer
     );
     
@@ -40,10 +40,11 @@ module BNNCore(
         end
     end
     
-    wire [9:0] instruction_bpug;//instructions for bpugs
+    wire [12:0] instruction_bpug;//instructions for bpugs
     assign instruction_bpug[3:0] = instruction[3:0];
     assign instruction_bpug[7:4] = instruction[8:5];
     assign instruction_bpug[9:8] = instruction[16:15];
+    assign instruction_bpug[12:10] = instruction[19:17];
 
     wire [3:0] bpug_sel;//to pick one bpug
     assign bpug_sel = instruction[4:1];
@@ -121,7 +122,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[0]),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[0]));
@@ -131,7 +131,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[1]),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[1]));
@@ -141,7 +140,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[2]),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[2]));
@@ -151,7 +149,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[3]),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[3]));
@@ -161,7 +158,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[4]),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[4]));
@@ -171,7 +167,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[5]),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[5]));
@@ -181,7 +176,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[6]),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[6]));
@@ -191,7 +185,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[7]),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[7]));
@@ -201,7 +194,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[8]),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[8]));
@@ -211,7 +203,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[9]),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[9]));
@@ -221,7 +212,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[10]),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[10]));
@@ -231,7 +221,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[11]),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[11]));
@@ -241,7 +230,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[12]),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[12]));
@@ -251,7 +239,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[13]),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[13]));
@@ -261,7 +248,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[14]),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[14]));
@@ -271,7 +257,6 @@ module BNNCore(
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
     .height(height),
-    .wgt_sel(wgt_sel),
     .enable(enable[15]),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[15]));
