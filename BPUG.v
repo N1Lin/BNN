@@ -14,11 +14,21 @@ module BPUG(
     input rst,
     input [2:0]height,
     input sel,//
+    input [2:0]bpu_enable,
     input [12:0] instruction_in,//instructions bus
     input [7:0]data_in,// input data, both image and weight
     output wire signed[7:0][6:0] bpu_out//calculation of BPU
     );
-
+    
+    wire[7:0] bpu_clk;
+    assign bpu_clk[0] = clk;
+    assign bpu_clk[1] = (bpu_enable>=1)?clk:0;
+    assign bpu_clk[2] = (bpu_enable>=2)?clk:0;
+    assign bpu_clk[3] = (bpu_enable>=3)?clk:0;
+    assign bpu_clk[4] = (bpu_enable>=4)?clk:0;
+    assign bpu_clk[5] = (bpu_enable>=5)?clk:0;
+    assign bpu_clk[6] = (bpu_enable>=6)?clk:0;
+    assign bpu_clk[7] = (bpu_enable>=7)?clk:0;
     wire[4:0] instruction;//calculation instruction to BPU
     assign instruction =instruction_in[4:0];
     wire data_sel;//image data selector
@@ -31,7 +41,7 @@ module BPUG(
     wire img_reg_sel;//to select [7:0][7:0] of img for calculation
     assign  img_reg_sel = instruction_in[9];
     wire [2:0] wgt_sel;
-    assign wgt_wel = instruction_in[12:10];
+    assign wgt_sel = instruction_in[12:10];
 
     ////////////////////////////////////////////////////////////
     
@@ -97,64 +107,72 @@ module BPUG(
     assign wgt_en_bpu[7] = wgt_sel==7? wgt_en:0;
     
     //instance
-    BPU bpu0(.clk(clk),
+    BPU bpu0(.clk(bpu_clk[0]),
     .rst(rst),
+    .sel(sel),
     .height(height),
     .wgt_en(wgt_en_bpu[0]),
     .instruction(instruction),
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[0]));
-    BPU bpu1(.clk(clk),
+    BPU bpu1(.clk(bpu_clk[1]),
     .rst(rst),
+    .sel(sel),
     .height(height),
     .wgt_en(wgt_en_bpu[1]),
     .instruction(instruction),
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[1]));
-    BPU bpu2(.clk(clk),
+    BPU bpu2(.clk(bpu_clk[2]),
     .rst(rst),
+    .sel(sel),
     .height(height),
     .wgt_en(wgt_en_bpu[2]),
     .instruction(instruction),
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[2]));
-    BPU bpu3(.clk(clk),
+    BPU bpu3(.clk(bpu_clk[3]),
     .rst(rst),
+    .sel(sel),
     .height(height),
     .wgt_en(wgt_en_bpu[3]),
     .instruction(instruction),
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[3]));
-    BPU bpu4(.clk(clk),
+    BPU bpu4(.clk(bpu_clk[4]),
     .rst(rst),
+    .sel(sel),
     .height(height),
     .wgt_en(wgt_en_bpu[4]),
     .instruction(instruction),
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[4]));
-    BPU bpu5(.clk(clk),
+    BPU bpu5(.clk(bpu_clk[5]),
     .rst(rst),
+    .sel(sel),
     .height(height),
     .wgt_en(wgt_en_bpu[5]),
     .instruction(instruction),
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[5]));
-    BPU bpu6(.clk(clk),
+    BPU bpu6(.clk(bpu_clk[6]),
     .rst(rst),
+    .sel(sel),
     .height(height),
     .wgt_en(wgt_en_bpu[6]),
     .instruction(instruction),
     .img(img),
     .wgt_input(wgt_in),
     .popcnt_add(bpu_out[6]));
-    BPU bpu7(.clk(clk),
+    BPU bpu7(.clk(bpu_clk[7]),
     .rst(rst),
+    .sel(sel),
     .height(height),
     .wgt_en(wgt_en_bpu[7]),
     .instruction(instruction),

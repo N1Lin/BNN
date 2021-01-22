@@ -77,10 +77,15 @@ for assembly in read_data:
             else:
                 print("error_LOAD2 1")
                 sys.exit()
-            if (int(assembly[3]) <= 1) & (int(assembly[3]) >= 0):
-                machine_code = machine_code + "000000"+ assembly[3]
+            if (int(assembly[3]) <= 7) & (int(assembly[3]) >= 0):
+                machine_code = machine_code + str.zfill(bin(int(assembly[3]))[2:], 3)
             else:
                 print("error_LOAD2 2")
+                sys.exit()
+            if (int(assembly[4]) <= 1) & (int(assembly[4]) >= 0):
+                machine_code = machine_code + "000"+ assembly[4]
+            else:
+                print("error_LOAD2 3")
                 sys.exit()
         elif "BIAS" == assembly[1]:
             machine_code = machine_code + "0100000000"
@@ -99,6 +104,11 @@ for assembly in read_data:
             else:
                 print("error_load2img")
                 sys.exit()
+        elif "PARAM" == assembly[1]:
+            machine_code = machine_code + "11"
+            machine_code = machine_code + "00000000"
+            if (int(assembly[2]) <= 1) & (int(assembly[2]) >= 0):
+                machine_code = machine_code + assembly[2]
         else:
             print("error_LOAD2")
             sys.exit()

@@ -25,7 +25,7 @@ module BNNCtrl(
     input rst,
     input pause,
     input [15:0]inst,//input instructios
-    output reg[16:0]bnncore_ctrl,//instruction to bnn_core
+    output reg[19:0]bnncore_ctrl,//instruction to bnn_core
     output reg[14:0]datasram_ctrl,//12~0:address bits, 13: CEN, 14: WEN
     output wire[12:0]instsram_ctrl//10~0:address bits, 11: CEN, 12: WEN
     );
@@ -127,12 +127,13 @@ module BNNCtrl(
                 2'b00:begin
                     bnncore_ctrl[7] <= 1;//weight enable
                     bnncore_ctrl[2:1] <= inst[8:7];//select a colomn of bpug
+                    bnncore_ctrl[19:17] <= inst[6:4];//select a block of weight register
 
                     bnncore_ctrl[0] <= 0;
                     bnncore_ctrl[6:3] <= 0;
                     bnncore_ctrl[16:8] <= 0;
 
-                    datasram_ctrl[12:0] <= pc2[12:0];
+                    datasram_ctrl[12:0] <= pc2[12:0];//data address
                     datasram_ctrl[13] <=0;
                     datasram_ctrl[14] <=1;
                 end
@@ -141,7 +142,7 @@ module BNNCtrl(
                     bnncore_ctrl[11] <= 1;//bias enable
 
                     bnncore_ctrl[10:0] <= 0;
-                    bnncore_ctrl[16:12] <= 0;
+                    bnncore_ctrl[19:12] <= 0;
 
                     datasram_ctrl[12:0] <= pc2[12:0];
                     datasram_ctrl[13] <=0;
@@ -157,7 +158,20 @@ module BNNCtrl(
                     bnncore_ctrl[7:3] <= 0;
                     bnncore_ctrl[15:9] <= 0;
 
-                    datasram_ctrl[12:0] <= pc2[12:0];
+                    datasram_ctrl[12:0] <= pc2[12:0];//data's address
+                    datasram_ctrl[13] <=0;
+                    datasram_ctrl[14] <=1;
+                end
+                //load kernel size& BPUG enables& BPU enables
+                2'b11:begin
+                    bnncore_ctrl[8] <= 1;//image enable
+                    bnncore_ctrl[15] <= 1;//image-up enable
+                    //when both 8& 15 are 1, write in kernel size and those enable signals
+
+                    bnncore_ctrl[7:0] <= 0;
+                    bnncore_ctrl[14:9] <= 0;
+
+                    datasram_ctrl[12:0] <= pc2[12:0];//data's address
                     datasram_ctrl[13] <=0;
                     datasram_ctrl[14] <=1;
                 end

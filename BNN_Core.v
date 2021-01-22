@@ -22,12 +22,13 @@ module BNNCore(
     input clk,
     input rst,
     input [3:0][7:0]data_in,//input data, image toghether with weight
-    input [22:0] instruction,//instruction bus
+    input [19:0] instruction,//instruction bus
     output wire[3:0][7:0]result_bins//stores the output of this layer
     );
     
     reg[2:0][7:0]pooling_reg;//stores pooling data, controlled by pooling_en
     reg[15:0] bpug_enable;
+    reg[2:0] bpu_enable;
     reg[2:0] height;
     always@(posedge clk) begin
         if (rst)begin
@@ -37,11 +38,15 @@ module BNNCore(
         else if(instruction[15]&instruction[8])begin
             bpug_enable <= {data_in[1],data_in[0]};
             height <= data_in[2][2:0];
+            bpu_enable <= data_in[2][5:3];
         end
     end
-    wire[15:0] clk_bpug;
-    assign clk_bpug = clk & bpug_enable;
     
+    wire[15:0] clk_bpug;
+    assign clk_bpug = {16{clk}} & bpug_enable;
+    
+    wire[15:0]clkk;
+    assign clkk = {16{clk}};
     wire [12:0] instruction_bpug;//instructions for bpugs
     assign instruction_bpug[3:0] = instruction[3:0];
     assign instruction_bpug[7:4] = instruction[8:5];
@@ -66,8 +71,6 @@ module BNNCore(
     assign img_reg_up = instruction[15];
     wire img_reg_sel;//instruct to write in which part of img reg
     assign img_reg_sel = instruction[16];
-    wire [2:0]wgt_sel;
-    assign wgt_sel = instruction[19:17];
     
     wire[3:0] chip_sel;
     assign chip_sel[0] = bpug_sel==0? 1:0;
@@ -119,131 +122,147 @@ module BNNCore(
             end
         end
     end
-    BPUG bpug0(.clk(clk_bpug),
+    BPUG bpug0(.clk(clk_bpug[0]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[0]));
     
-    BPUG bpug1(.clk(clk_bpug),
+    BPUG bpug1(.clk(clk_bpug[1]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[1]));
     
-    BPUG bpug2(.clk(clk_bpug),
+    BPUG bpug2(.clk(clk_bpug[2]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[2]));
     
-    BPUG bpug3(.clk(clk_bpug),
+    BPUG bpug3(.clk(clk_bpug[3]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[0]),
     .bpu_out(bpu_out[3]));
     
-    BPUG bpug4(.clk(clk_bpug),
+    BPUG bpug4(.clk(clk_bpug[4]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[4]));
     
-    BPUG bpug5(.clk(clk_bpug),
+    BPUG bpug5(.clk(clk_bpug[5]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[5]));
     
-    BPUG bpug6(.clk(clk_bpug),
+    BPUG bpug6(.clk(clk_bpug[6]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[6]));
     
-    BPUG bpug7(.clk(clk_bpug),
+    BPUG bpug7(.clk(clk_bpug[7]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[1]),
     .bpu_out(bpu_out[7]));
     
-    BPUG bpug8(.clk(clk_bpug),
+    BPUG bpug8(.clk(clk_bpug[8]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[8]));
     
-    BPUG bpug9(.clk(clk_bpug),
+    BPUG bpug9(.clk(clk_bpug[9]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[9]));
     
-    BPUG bpug10(.clk(clk_bpug),
+    BPUG bpug10(.clk(clk_bpug[10]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[10]));
     
-    BPUG bpug11(.clk(clk_bpug),
+    BPUG bpug11(.clk(clk_bpug[11]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[2]),
     .bpu_out(bpu_out[11]));
     
-    BPUG bpug12(.clk(clk_bpug),
+    BPUG bpug12(.clk(clk_bpug[12]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[0]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[12]));
     
-    BPUG bpug13(.clk(clk_bpug),
+    BPUG bpug13(.clk(clk_bpug[13]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[1]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[13]));
     
-    BPUG bpug14(.clk(clk_bpug),
+    BPUG bpug14(.clk(clk_bpug[14]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[2]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[14]));
     
-    BPUG bpug15(.clk(clk_bpug),
+    BPUG bpug15(.clk(clk_bpug[15]),
     .rst(rst),
     .instruction_in(instruction_bpug),
     .data_in(data_in[3]),
     .height(height),
+    .bpu_enable(bpu_enable),
     .sel(chip_sel[3]),
     .bpu_out(bpu_out[15]));
     
@@ -262,14 +281,14 @@ module BNNCore(
             cal_intern[7] <= $signed({{1{bias[7][7]}},bias[7]});
         end
         else if(psum_add)begin
-            cal_intern[0] <= cal_intern[0]+$signed({{2{bpu_out_add[0][6]}},bpu_out_add[0]});
-            cal_intern[1] <= cal_intern[1]+$signed({{2{bpu_out_add[1][6]}},bpu_out_add[1]});
-            cal_intern[2] <= cal_intern[2]+$signed({{2{bpu_out_add[2][6]}},bpu_out_add[2]});
-            cal_intern[3] <= cal_intern[3]+$signed({{2{bpu_out_add[3][6]}},bpu_out_add[3]});
-            cal_intern[4] <= cal_intern[4]+$signed({{2{bpu_out_add[4][6]}},bpu_out_add[4]});
-            cal_intern[5] <= cal_intern[5]+$signed({{2{bpu_out_add[5][6]}},bpu_out_add[5]});
-            cal_intern[6] <= cal_intern[6]+$signed({{2{bpu_out_add[6][6]}},bpu_out_add[6]});
-            cal_intern[7] <= cal_intern[7]+$signed({{2{bpu_out_add[7][6]}},bpu_out_add[7]});
+            cal_intern[0] <= cal_intern[0]+$signed({{4{bpu_out_add[0][6]}},bpu_out_add[0]});
+            cal_intern[1] <= cal_intern[1]+$signed({{4{bpu_out_add[1][6]}},bpu_out_add[1]});
+            cal_intern[2] <= cal_intern[2]+$signed({{4{bpu_out_add[2][6]}},bpu_out_add[2]});
+            cal_intern[3] <= cal_intern[3]+$signed({{4{bpu_out_add[3][6]}},bpu_out_add[3]});
+            cal_intern[4] <= cal_intern[4]+$signed({{4{bpu_out_add[4][6]}},bpu_out_add[4]});
+            cal_intern[5] <= cal_intern[5]+$signed({{4{bpu_out_add[5][6]}},bpu_out_add[5]});
+            cal_intern[6] <= cal_intern[6]+$signed({{4{bpu_out_add[6][6]}},bpu_out_add[6]});
+            cal_intern[7] <= cal_intern[7]+$signed({{4{bpu_out_add[7][6]}},bpu_out_add[7]});
         end
     end
     

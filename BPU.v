@@ -22,6 +22,7 @@
 module BPU(
     input clk,
     input rst,
+    input sel,
     input [2:0]height,//height of calculation
     input [4:0]instruction, //instruction signal
     input wgt_en,
@@ -42,7 +43,7 @@ module BPU(
         if(rst)begin
             wgt <= 0;
         end
-        else if(wgt_en)begin
+        else if(wgt_en & sel)begin
             wgt <= {wgt[5:0],wgt_input};
         end
     end
