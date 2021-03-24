@@ -1,0 +1,432 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Sun Mar 21 19:49:44 2021
+| Host         : LAPTOP-CF0KAGUB running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file INPUTDATA_control_sets_placed.rpt
+| Design       : INPUTDATA
+| Device       : xc7z020
+--------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   354 |
+|    Minimum number of control sets                        |   354 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |  1075 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   354 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |   129 |
+| >= 8 to < 10       |    51 |
+| >= 10 to < 12      |     2 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     2 |
+| >= 16              |   168 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              10 |            7 |
+| No           | No                    | Yes                    |              86 |           37 |
+| No           | Yes                   | No                     |               7 |            4 |
+| Yes          | No                    | No                     |              91 |           25 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |            9835 |         3052 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-------------------------------------+----------------------------------------------+---------------------------------------+------------------+----------------+
+|             Clock Signal            |                 Enable Signal                |            Set/Reset Signal           | Slice Load Count | Bel Load Count |
++-------------------------------------+----------------------------------------------+---------------------------------------+------------------+----------------+
+|  clkk/inst/clk_out1                 | trigger2_out                                 | RST_IBUF                              |                1 |              1 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/bnncore_ctrl_reg[8]_0[0]        |                                       |                1 |              3 |
+|  clkk/inst/clk_out1                 | cnt0                                         | cnt[5]_i_1_n_0                        |                2 |              6 |
+|  top1/BNNCore/bpug11/bpu6/bpu_clk_6 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug1/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug5/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug12/bpu7/bpu_clk_7 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug4/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug8/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug8/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug4/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug4/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug10/bpu1/bpu_clk_1 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug4/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug11/bpu5/bpu_clk_5 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug8/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug0/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug0/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug8/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug10/bpu3/bpu_clk_3 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug0/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug8/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug1/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug1/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug10/bpu4/bpu_clk_4 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug1/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug2/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug0/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug13/bpu1/bpu_clk_1 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug13/bpu2/bpu_clk_2 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug0/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug12/bpu5/bpu_clk_5 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug0/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug0/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug10/bpu5/bpu_clk_5 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug13/bpu3/bpu_clk_3 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug1/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug13/bpu7/bpu_clk_7 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug1/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug4/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug10/bpu6/bpu_clk_6 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug1/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug13/bpu0/CLK       | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug2/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug4/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug4/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug13/bpu6/bpu_clk_6 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  BNNCore/clk_bpug[6]                | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug2/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug5/bpu0/CLK        | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug11/bpu7/bpu_clk_7 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug5/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug5/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug10/bpu7/bpu_clk_7 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug5/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug9/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug9/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug5/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug5/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug12/bpu6/bpu_clk_6 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug5/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug12/bpu2/bpu_clk_2 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug9/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug6/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug6/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug9/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug6/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug11/bpu1/bpu_clk_1 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug6/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug11/bpu2/bpu_clk_2 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug9/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug6/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug6/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug9/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug6/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug12/bpu3/bpu_clk_3 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug7/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug10/bpu2/bpu_clk_2 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug12/bpu4/bpu_clk_4 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug7/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug7/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug9/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug7/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug11/bpu3/bpu_clk_3 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug11/bpu4/bpu_clk_4 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug7/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug7/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug12/bpu1/bpu_clk_1 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug7/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug10/bpu0/CLK       | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug13/bpu5/bpu_clk_5 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug8/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug8/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug2/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug13/bpu4/bpu_clk_4 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug14/bpu1/bpu_clk_1 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug14/bpu5/bpu_clk_5 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug14/bpu2/bpu_clk_2 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug14/bpu3/bpu_clk_3 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug14/bpu4/bpu_clk_4 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug14/bpu6/bpu_clk_6 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug14/bpu7/bpu_clk_7 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug15/bpu4/bpu_clk_4 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug15/bpu1/bpu_clk_1 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug15/bpu2/bpu_clk_2 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug15/bpu3/bpu_clk_3 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug15/bpu5/bpu_clk_5 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug15/bpu6/bpu_clk_6 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug15/bpu7/bpu_clk_7 | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug2/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug2/bpu0/CLK        | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug2/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug2/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug3/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug3/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug3/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug3/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug3/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug3/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug3/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  BNNCore/clk_bpug[7]                | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  BNNCore/clk_bpug[0]                | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  BNNCore/clk_bpug[8]                | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  BNNCore/clk_bpug__0[15]            | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  BNNCore/clk_bpug[12]               | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  BNNCore/clk_bpug__0[3]             | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  BNNCore/clk_bpug[4]                | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  BNNCore/clk_bpug[1]                | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  BNNCore/clk_bpug[14]               | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  BNNCore/clk_bpug[9]                | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  BNNCore/clk_bpug[11]               | top1/BNNCtrl/bnncore_ctrl_reg[14]_0[5]       | top1/BNNCtrl/SR[0]                    |                2 |              7 |
+|  top1/BNNCore/bpug2/bpu0/CLK        | top1/BNNCtrl/bnncore_ctrl_reg[8]_rep_0[0]    | RST_IBUF                              |                1 |              8 |
+|  BNNCore/clk_bpug[12]               | top1/BNNCtrl/bnncore_ctrl_reg[8]_rep__6_0[0] | RST_IBUF                              |                1 |              8 |
+|  BNNCore/clk_bpug[7]                | top1/BNNCtrl/bnncore_ctrl_reg[8]_rep__1_0[0] | RST_IBUF                              |                1 |              8 |
+|  BNNCore/clk_bpug__0[3]             | top1/BNNCtrl/bnncore_ctrl_reg[8]_rep_0[0]    | RST_IBUF                              |                1 |              8 |
+|  BNNCore/clk_bpug[4]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_11[0]      | RST_IBUF                              |                1 |              8 |
+|  BNNCore/clk_bpug[8]                | top1/BNNCtrl/bnncore_ctrl_reg[8]_rep__4_0[0] | RST_IBUF                              |                3 |              8 |
+|  BNNCore/clk_bpug[1]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_10[0]      | RST_IBUF                              |                1 |              8 |
+|  BNNCore/clk_bpug[0]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_10[0]      | RST_IBUF                              |                2 |              8 |
+|  BNNCore/clk_bpug__0[15]            | top1/BNNCtrl/bnncore_ctrl_reg[8]_rep__6_0[0] | RST_IBUF                              |                3 |              8 |
+|  BNNCore/clk_bpug[14]               | top1/BNNCtrl/bnncore_ctrl_reg[8]_rep__6_0[0] | RST_IBUF                              |                1 |              8 |
+|  top1/BNNCore/bpug10/bpu0/CLK       | top1/BNNCtrl/bnncore_ctrl_reg[8]_rep__4_0[0] | RST_IBUF                              |                4 |              8 |
+|  BNNCore/clk_bpug[9]                | top1/BNNCtrl/bnncore_ctrl_reg[8]_rep__4_0[0] | RST_IBUF                              |                2 |              8 |
+|  BNNCore/clk_bpug[6]                | top1/BNNCtrl/bnncore_ctrl_reg[8]_rep__1_0[0] | RST_IBUF                              |                2 |              8 |
+|  BNNCore/clk_bpug[11]               | top1/BNNCtrl/bnncore_ctrl_reg[8]_rep__4_0[0] | RST_IBUF                              |                3 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r9[7]_i_1_n_0                   | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/bnncore_ctrl_reg[12]_2[0]       | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/bnncore_ctrl_reg[12]_0[0]       | RST_IBUF                              |                2 |              8 |
+|  top1/BNNCore/bpug13/bpu0/CLK       | top1/BNNCtrl/bnncore_ctrl_reg[8]_rep__6_0[0] | RST_IBUF                              |                1 |              8 |
+|  top1/BNNCore/bpug5/bpu0/CLK        | top1/BNNCtrl/bnncore_ctrl_reg[16]_11[0]      | RST_IBUF                              |                2 |              8 |
+|  clkk/inst/clk_out1                 | readcnt0                                     | cnt[5]_i_1_n_0                        |                3 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/bnncore_ctrl_reg[12]_1[0]       | RST_IBUF                              |                2 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/pc2[15]_i_1_n_0                 | RST_IBUF                              |                2 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/pc2[7]_i_1_n_0                  | RST_IBUF                              |                5 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/pc4[7]_i_1_n_0                  | RST_IBUF                              |                5 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/pc3[7]_i_1_n_0                  | RST_IBUF                              |                2 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/pc4[15]_i_1_n_0                 | RST_IBUF                              |                2 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/pc3[15]_i_1_n_0                 | RST_IBUF                              |                2 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r10[7]_i_1_n_0                  | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r10[15]_i_1_n_0                 | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r11[15]_i_1_n_0                 | RST_IBUF                              |                3 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r11[7]_i_1_n_0                  | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r12[15]_i_1_n_0                 | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r12[7]_i_1_n_0                  | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r1[7]_i_1_n_0                   | RST_IBUF                              |                3 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r1[15]_i_1_n_0                  | RST_IBUF                              |                3 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r2[7]_i_1_n_0                   | RST_IBUF                              |                3 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r2[15]_i_1_n_0                  | RST_IBUF                              |                3 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r3[15]_i_1_n_0                  | RST_IBUF                              |                2 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r3[7]_i_1_n_0                   | RST_IBUF                              |                4 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r4[7]_i_1_n_0                   | RST_IBUF                              |                3 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r5[15]_i_1_n_0                  | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r4[15]_i_1_n_0                  | RST_IBUF                              |                2 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r5[7]_i_1_n_0                   | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r6[7]_i_1_n_0                   | RST_IBUF                              |                2 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r6[15]_i_1_n_0                  | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r7[15]_i_1_n_0                  | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r7[7]_i_1_n_0                   | RST_IBUF                              |                2 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r8[15]_i_1_n_0                  | RST_IBUF                              |                2 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r8[7]_i_1_n_0                   | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/r9[15]_i_1_n_0                  | RST_IBUF                              |                1 |              8 |
+|  clkk/inst/clk_out1                 | runtimecnt[8]_i_1_n_0                        | RST_IBUF                              |                3 |              9 |
+|  clkk/inst/clk_out1                 |                                              |                                       |                7 |             10 |
+|  clkk/inst/clk_out1                 | runtime0                                     | RST_IBUF                              |                4 |             11 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/datasram_ctrl[14]_i_1_n_0       | RST_IBUF                              |                8 |             14 |
+|  clkk/inst/clk_out1                 | SRAMA[13]_i_1_n_0                            | RST_IBUF                              |                6 |             14 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/pc1                             | RST_IBUF                              |                6 |             16 |
+|  clkk/inst/clk_out1                 | ramcnt[0]_i_1_n_0                            | RST_IBUF                              |                5 |             17 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/bnncore_ctrl_reg[15]_0          | RST_IBUF                              |               24 |             45 |
+|  top1/BNNCore/bpug4/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[18]_1[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug4/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[7]_1[0]        | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug14/bpu2/bpu_clk_2 | top1/BNNCtrl/bnncore_ctrl_reg[18]_7[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug14/bpu3/bpu_clk_3 | top1/BNNCtrl/bnncore_ctrl_reg[17]_3[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug0/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[17]_8[0]       | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug0/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[18]_4[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug14/bpu4/bpu_clk_4 | top1/BNNCtrl/bnncore_ctrl_reg[7]_7[0]        | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug0/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[17]_0[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug14/bpu6/bpu_clk_6 | top1/BNNCtrl/bnncore_ctrl_reg[18]_3[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug1/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[17]_8[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug14/bpu7/bpu_clk_7 | top1/BNNCtrl/bnncore_ctrl_reg[7]_3[0]        | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug1/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[18]_4[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug15/bpu4/bpu_clk_4 | top1/BNNCtrl/bnncore_ctrl_reg[7]_7[0]        | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug15/bpu1/bpu_clk_1 | top1/BNNCtrl/bnncore_ctrl_reg[17]_11[0]      | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug1/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[7]_4[0]        | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug0/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[7]_4[0]        | RST_IBUF                              |               17 |             49 |
+|  top1/BNNCore/bpug15/bpu2/bpu_clk_2 | top1/BNNCtrl/bnncore_ctrl_reg[18]_7[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug15/bpu3/bpu_clk_3 | top1/BNNCtrl/bnncore_ctrl_reg[17]_3[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug0/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[17]_4[0]       | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug15/bpu5/bpu_clk_5 | top1/BNNCtrl/bnncore_ctrl_reg[17]_7[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug0/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[18]_0[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug0/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[7]_0[0]        | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug15/bpu6/bpu_clk_6 | top1/BNNCtrl/bnncore_ctrl_reg[18]_3[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug1/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[17]_4[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug15/bpu7/bpu_clk_7 | top1/BNNCtrl/bnncore_ctrl_reg[7]_3[0]        | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug1/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[18]_0[0]       | RST_IBUF                              |               17 |             49 |
+|  top1/BNNCore/bpug2/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[18]_4[0]       | RST_IBUF                              |               13 |             49 |
+|  top1/BNNCore/bpug4/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[17]_1[0]       | RST_IBUF                              |               18 |             49 |
+|  top1/BNNCore/bpug2/bpu0/CLK        | top1/BNNCtrl/bnncore_ctrl_reg[17]_12[0]      | RST_IBUF                              |               13 |             49 |
+|  top1/BNNCore/bpug1/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[7]_0[0]        | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug2/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[17]_8[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug4/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[17]_9[0]       | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug4/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[18]_5[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug2/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[7]_0[0]        | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug3/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[17]_8[0]       | RST_IBUF                              |               17 |             49 |
+|  top1/BNNCore/bpug5/bpu0/CLK        | top1/BNNCtrl/bnncore_ctrl_reg[17]_13[0]      | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug5/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[17]_9[0]       | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug3/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[18]_4[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug3/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[17]_0[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug5/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[17]_1[0]       | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug5/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[7]_5[0]        | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug3/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[7]_0[0]        | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug5/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[17]_5[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug3/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[7]_4[0]        | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug3/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[17]_4[0]       | RST_IBUF                              |               13 |             49 |
+|  top1/BNNCore/bpug5/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[18]_1[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug3/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[18]_0[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug5/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[7]_1[0]        | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug6/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[17]_9[0]       | RST_IBUF                              |               14 |             49 |
+|  BNNCore/clk_bpug[7]                | top1/BNNCtrl/bnncore_ctrl_reg[17]_13[0]      | RST_IBUF                              |               18 |             49 |
+|  top1/BNNCore/bpug6/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[18]_5[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug6/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[17]_1[0]       | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug6/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[7]_5[0]        | RST_IBUF                              |               14 |             49 |
+|  BNNCore/clk_bpug[0]                | top1/BNNCtrl/bnncore_ctrl_reg[17]_12[0]      | RST_IBUF                              |               15 |             49 |
+|  BNNCore/clk_bpug[8]                | top1/BNNCtrl/bnncore_ctrl_reg[17]_14[0]      | RST_IBUF                              |               12 |             49 |
+|  top1/BNNCore/bpug6/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[17]_5[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug6/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[18]_1[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug6/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[7]_1[0]        | RST_IBUF                              |               16 |             49 |
+|  BNNCore/clk_bpug__0[15]            | top1/BNNCtrl/bnncore_ctrl_reg[17]_15[0]      | RST_IBUF                              |               12 |             49 |
+|  top1/BNNCore/bpug7/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[7]_5[0]        | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug7/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[17]_9[0]       | RST_IBUF                              |               16 |             49 |
+|  BNNCore/clk_bpug[6]                | top1/BNNCtrl/bnncore_ctrl_reg[17]_13[0]      | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug7/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[18]_5[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug7/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[17]_1[0]       | RST_IBUF                              |               14 |             49 |
+|  BNNCore/clk_bpug[12]               | top1/BNNCtrl/bnncore_ctrl_reg[17]_15[0]      | RST_IBUF                              |                9 |             49 |
+|  top1/BNNCore/bpug7/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[17]_5[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug7/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[18]_1[0]       | RST_IBUF                              |               16 |             49 |
+|  BNNCore/clk_bpug__0[3]             | top1/BNNCtrl/bnncore_ctrl_reg[17]_12[0]      | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug7/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[7]_1[0]        | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug8/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[17]_10[0]      | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug8/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[18]_6[0]       | RST_IBUF                              |               13 |             49 |
+|  BNNCore/clk_bpug[4]                | top1/BNNCtrl/bnncore_ctrl_reg[17]_13[0]      | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug8/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[17]_2[0]       | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug8/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[7]_6[0]        | RST_IBUF                              |               16 |             49 |
+|  BNNCore/clk_bpug[1]                | top1/BNNCtrl/bnncore_ctrl_reg[17]_12[0]      | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug8/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[17]_6[0]       | RST_IBUF                              |               16 |             49 |
+|  BNNCore/clk_bpug[14]               | top1/BNNCtrl/bnncore_ctrl_reg[17]_15[0]      | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug8/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[18]_2[0]       | RST_IBUF                              |               16 |             49 |
+|  BNNCore/clk_bpug[9]                | top1/BNNCtrl/bnncore_ctrl_reg[17]_14[0]      | RST_IBUF                              |               10 |             49 |
+|  top1/BNNCore/bpug8/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[7]_2[0]        | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug13/bpu1/bpu_clk_1 | top1/BNNCtrl/bnncore_ctrl_reg[17]_11[0]      | RST_IBUF                              |               15 |             49 |
+|  BNNCore/clk_bpug[11]               | top1/BNNCtrl/bnncore_ctrl_reg[17]_14[0]      | RST_IBUF                              |               13 |             49 |
+|  top1/BNNCore/bpug13/bpu2/bpu_clk_2 | top1/BNNCtrl/bnncore_ctrl_reg[18]_7[0]       | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug13/bpu3/bpu_clk_3 | top1/BNNCtrl/bnncore_ctrl_reg[17]_3[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug13/bpu7/bpu_clk_7 | top1/BNNCtrl/bnncore_ctrl_reg[7]_3[0]        | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug13/bpu0/CLK       | top1/BNNCtrl/bnncore_ctrl_reg[17]_15[0]      | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug9/bpu1/bpu_clk_1  | top1/BNNCtrl/bnncore_ctrl_reg[17]_10[0]      | RST_IBUF                              |               17 |             49 |
+|  top1/BNNCore/bpug9/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[18]_6[0]       | RST_IBUF                              |               17 |             49 |
+|  top1/BNNCore/bpug9/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[17]_2[0]       | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug9/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[7]_6[0]        | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug9/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[17]_6[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug9/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[18]_2[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug10/bpu2/bpu_clk_2 | top1/BNNCtrl/bnncore_ctrl_reg[18]_6[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug9/bpu7/bpu_clk_7  | top1/BNNCtrl/bnncore_ctrl_reg[7]_2[0]        | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug10/bpu0/CLK       | top1/BNNCtrl/bnncore_ctrl_reg[17]_14[0]      | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug13/bpu5/bpu_clk_5 | top1/BNNCtrl/bnncore_ctrl_reg[17]_7[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug10/bpu1/bpu_clk_1 | top1/BNNCtrl/bnncore_ctrl_reg[17]_10[0]      | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug10/bpu3/bpu_clk_3 | top1/BNNCtrl/bnncore_ctrl_reg[17]_2[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug10/bpu4/bpu_clk_4 | top1/BNNCtrl/bnncore_ctrl_reg[7]_6[0]        | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug10/bpu5/bpu_clk_5 | top1/BNNCtrl/bnncore_ctrl_reg[17]_6[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug10/bpu6/bpu_clk_6 | top1/BNNCtrl/bnncore_ctrl_reg[18]_2[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug10/bpu7/bpu_clk_7 | top1/BNNCtrl/bnncore_ctrl_reg[7]_2[0]        | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug11/bpu1/bpu_clk_1 | top1/BNNCtrl/bnncore_ctrl_reg[17]_10[0]      | RST_IBUF                              |               17 |             49 |
+|  top1/BNNCore/bpug11/bpu2/bpu_clk_2 | top1/BNNCtrl/bnncore_ctrl_reg[18]_6[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug11/bpu3/bpu_clk_3 | top1/BNNCtrl/bnncore_ctrl_reg[17]_2[0]       | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug11/bpu4/bpu_clk_4 | top1/BNNCtrl/bnncore_ctrl_reg[7]_6[0]        | RST_IBUF                              |               13 |             49 |
+|  top1/BNNCore/bpug11/bpu5/bpu_clk_5 | top1/BNNCtrl/bnncore_ctrl_reg[17]_6[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug11/bpu6/bpu_clk_6 | top1/BNNCtrl/bnncore_ctrl_reg[18]_2[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug11/bpu7/bpu_clk_7 | top1/BNNCtrl/bnncore_ctrl_reg[7]_2[0]        | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug12/bpu2/bpu_clk_2 | top1/BNNCtrl/bnncore_ctrl_reg[18]_7[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug12/bpu1/bpu_clk_1 | top1/BNNCtrl/bnncore_ctrl_reg[17]_11[0]      | RST_IBUF                              |               18 |             49 |
+|  top1/BNNCore/bpug12/bpu7/bpu_clk_7 | top1/BNNCtrl/bnncore_ctrl_reg[7]_3[0]        | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug12/bpu3/bpu_clk_3 | top1/BNNCtrl/bnncore_ctrl_reg[17]_3[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug12/bpu4/bpu_clk_4 | top1/BNNCtrl/bnncore_ctrl_reg[7]_7[0]        | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug12/bpu5/bpu_clk_5 | top1/BNNCtrl/bnncore_ctrl_reg[17]_7[0]       | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug12/bpu6/bpu_clk_6 | top1/BNNCtrl/bnncore_ctrl_reg[18]_3[0]       | RST_IBUF                              |               18 |             49 |
+|  top1/BNNCore/bpug1/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[17]_0[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug13/bpu6/bpu_clk_6 | top1/BNNCtrl/bnncore_ctrl_reg[18]_3[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug2/bpu3/bpu_clk_3  | top1/BNNCtrl/bnncore_ctrl_reg[17]_0[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug2/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[7]_4[0]        | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug2/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[17]_4[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug2/bpu6/bpu_clk_6  | top1/BNNCtrl/bnncore_ctrl_reg[18]_0[0]       | RST_IBUF                              |               16 |             49 |
+|  top1/BNNCore/bpug5/bpu2/bpu_clk_2  | top1/BNNCtrl/bnncore_ctrl_reg[18]_5[0]       | RST_IBUF                              |               15 |             49 |
+|  top1/BNNCore/bpug4/bpu4/bpu_clk_4  | top1/BNNCtrl/bnncore_ctrl_reg[7]_5[0]        | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug13/bpu4/bpu_clk_4 | top1/BNNCtrl/bnncore_ctrl_reg[7]_7[0]        | RST_IBUF                              |               13 |             49 |
+|  top1/BNNCore/bpug14/bpu1/bpu_clk_1 | top1/BNNCtrl/bnncore_ctrl_reg[17]_11[0]      | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug4/bpu5/bpu_clk_5  | top1/BNNCtrl/bnncore_ctrl_reg[17]_5[0]       | RST_IBUF                              |               14 |             49 |
+|  top1/BNNCore/bpug14/bpu5/bpu_clk_5 | top1/BNNCtrl/bnncore_ctrl_reg[17]_7[0]       | RST_IBUF                              |               15 |             49 |
+|  BNNCore/clk_bpug[0]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_5[0]       | RST_IBUF                              |                9 |             56 |
+|  BNNCore/clk_bpug[4]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_7[0]       | RST_IBUF                              |               10 |             56 |
+|  top1/BNNCore/bpug13/bpu0/CLK       | top1/BNNCtrl/bnncore_ctrl_reg[16]_9[0]       | RST_IBUF                              |               17 |             56 |
+|  BNNCore/clk_bpug[14]               | top1/BNNCtrl/bnncore_ctrl_reg[16]_9[0]       | RST_IBUF                              |               18 |             56 |
+|  BNNCore/clk_bpug__0[15]            | top1/BNNCtrl/bnncore_ctrl_reg[16]_9[0]       | RST_IBUF                              |               19 |             56 |
+|  top1/BNNCore/bpug10/bpu0/CLK       | top1/BNNCtrl/bnncore_ctrl_reg[16]_8[0]       | RST_IBUF                              |               17 |             56 |
+|  BNNCore/clk_bpug[9]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_8[0]       | RST_IBUF                              |               20 |             56 |
+|  BNNCore/clk_bpug[1]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_5[0]       | RST_IBUF                              |               10 |             56 |
+|  top1/BNNCore/bpug5/bpu0/CLK        | top1/BNNCtrl/bnncore_ctrl_reg[16]_7[0]       | RST_IBUF                              |               13 |             56 |
+|  BNNCore/clk_bpug[6]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_6[0]       | RST_IBUF                              |               21 |             56 |
+|  BNNCore/clk_bpug[12]               | top1/BNNCtrl/bnncore_ctrl_reg[16]_9[0]       | RST_IBUF                              |               18 |             56 |
+|  BNNCore/clk_bpug[11]               | top1/BNNCtrl/bnncore_ctrl_reg[16]_8[0]       | RST_IBUF                              |               18 |             56 |
+|  BNNCore/clk_bpug__0[3]             | top1/BNNCtrl/bnncore_ctrl_reg[16]_4[0]       | RST_IBUF                              |               16 |             56 |
+|  top1/BNNCore/bpug2/bpu0/CLK        | top1/BNNCtrl/bnncore_ctrl_reg[16]_4[0]       | RST_IBUF                              |               19 |             56 |
+|  BNNCore/clk_bpug[7]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_6[0]       | RST_IBUF                              |               18 |             56 |
+|  BNNCore/clk_bpug[8]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_8[0]       | RST_IBUF                              |               18 |             56 |
+|  BNNCore/clk_bpug[6]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_1[0]       | RST_IBUF                              |               26 |             64 |
+|  BNNCore/clk_bpug[9]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_2[0]       | RST_IBUF                              |               25 |             64 |
+|  BNNCore/clk_bpug[4]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_13[0]      | RST_IBUF                              |               15 |             64 |
+|  BNNCore/clk_bpug[12]               | top1/BNNCtrl/bnncore_ctrl_reg[16]_3[0]       | RST_IBUF                              |               22 |             64 |
+|  BNNCore/clk_bpug[11]               | top1/BNNCtrl/bnncore_ctrl_reg[16]_2[0]       | RST_IBUF                              |               31 |             64 |
+|  top1/BNNCore/bpug2/bpu0/CLK        | top1/BNNCtrl/bnncore_ctrl_reg[16]_0[0]       | RST_IBUF                              |               31 |             64 |
+|  BNNCore/clk_bpug__0[15]            | top1/BNNCtrl/bnncore_ctrl_reg[16]_3[0]       | RST_IBUF                              |               26 |             64 |
+|  top1/BNNCore/bpug10/bpu0/CLK       | top1/BNNCtrl/bnncore_ctrl_reg[16]_2[0]       | RST_IBUF                              |               30 |             64 |
+|  top1/BNNCore/bpug5/bpu0/CLK        | top1/BNNCtrl/bnncore_ctrl_reg[16]_13[0]      | RST_IBUF                              |               18 |             64 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/E[0]                            | RST_IBUF                              |               15 |             64 |
+|  BNNCore/clk_bpug[1]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_12[0]      | RST_IBUF                              |               17 |             64 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/bnncore_ctrl_reg[10]_0[0]       | RST_IBUF                              |               14 |             64 |
+|  BNNCore/clk_bpug[7]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_1[0]       | RST_IBUF                              |               31 |             64 |
+|  BNNCore/clk_bpug[8]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_2[0]       | RST_IBUF                              |               30 |             64 |
+|  BNNCore/clk_bpug[14]               | top1/BNNCtrl/bnncore_ctrl_reg[16]_3[0]       | RST_IBUF                              |               27 |             64 |
+|  BNNCore/clk_bpug__0[3]             | top1/BNNCtrl/bnncore_ctrl_reg[16]_0[0]       | RST_IBUF                              |               28 |             64 |
+|  BNNCore/clk_bpug[0]                | top1/BNNCtrl/bnncore_ctrl_reg[16]_12[0]      | RST_IBUF                              |               16 |             64 |
+|  top1/BNNCore/bpug13/bpu0/CLK       | top1/BNNCtrl/bnncore_ctrl_reg[16]_3[0]       | RST_IBUF                              |               26 |             64 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/bnncore_ctrl[15]_i_2_n_0        | top1/BNNCtrl/bnncore_ctrl[15]_i_1_n_0 |               45 |             86 |
+|  clkk/inst/clk_out1                 | top1/BNNCtrl/bnncore_ctrl_reg[9]_0[0]        |                                       |               24 |             88 |
+|  clkk/inst/clk_out1                 |                                              | RST_IBUF                              |               41 |             93 |
++-------------------------------------+----------------------------------------------+---------------------------------------+------------------+----------------+
+
+

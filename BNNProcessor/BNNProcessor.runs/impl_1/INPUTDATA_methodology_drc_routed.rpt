@@ -1,0 +1,696 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Sun Mar 21 19:52:20 2021
+| Host         : LAPTOP-CF0KAGUB running 64-bit major release  (build 9200)
+| Command      : report_methodology -file INPUTDATA_methodology_drc_routed.rpt -pb INPUTDATA_methodology_drc_routed.pb -rpx INPUTDATA_methodology_drc_routed.rpx
+| Design       : INPUTDATA
+| Device       : xc7z020clg484-1
+| Speed File   : -1
+| Design State : Fully Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 131
++-----------+------------------+--------------------------------------------------------+------------+
+| Rule      | Severity         | Description                                            | Violations |
++-----------+------------------+--------------------------------------------------------+------------+
+| TIMING-14 | Critical Warning | LUT on the clock tree                                  | 129        |
+| XDCC-1    | Warning          | Scoped Clock constraint overwritten with the same name | 1          |
+| XDCC-7    | Warning          | Scoped Clock constraint overwritten on the same source | 1          |
++-----------+------------------+--------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-14#1 Critical Warning
+LUT on the clock tree  
+The LUT INSTSRAM_i_14 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#2 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug0/bpu1/popcnt_add[6]_i_1__5 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#3 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug0/bpu2/popcnt_add[6]_i_1__6 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#4 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug0/bpu3/popcnt_add[6]_i_1__7 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#5 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug0/bpu4/popcnt_add[6]_i_1__4 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#6 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug0/bpu5/popcnt_add[6]_i_1__8 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#7 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug0/bpu6/popcnt_add[6]_i_1__9 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#8 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug0/bpu7/popcnt_add[6]_i_1__10 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#9 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug1/bpu1/popcnt_add[6]_i_1__12 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#10 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug1/bpu2/popcnt_add[6]_i_1__13 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#11 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug1/bpu3/popcnt_add[6]_i_1__14 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#12 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug1/bpu4/popcnt_add[6]_i_1__11 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#13 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug1/bpu5/popcnt_add[6]_i_1__15 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#14 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug1/bpu6/popcnt_add[6]_i_1__16 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#15 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug1/bpu7/popcnt_add[6]_i_1__17 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#16 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug10/bpu0/popcnt_add[6]_i_1__1 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#17 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug10/bpu1/popcnt_add[6]_i_1__75 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#18 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug10/bpu2/popcnt_add[6]_i_1__76 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#19 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug10/bpu3/popcnt_add[6]_i_1__77 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#20 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug10/bpu4/popcnt_add[6]_i_1__74 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#21 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug10/bpu5/popcnt_add[6]_i_1__78 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#22 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug10/bpu6/popcnt_add[6]_i_1__79 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#23 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug10/bpu7/popcnt_add[6]_i_1__80 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#24 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug11/bpu1/popcnt_add[6]_i_1__82 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#25 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug11/bpu2/popcnt_add[6]_i_1__83 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#26 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug11/bpu3/popcnt_add[6]_i_1__84 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#27 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug11/bpu4/popcnt_add[6]_i_1__81 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#28 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug11/bpu5/popcnt_add[6]_i_1__85 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#29 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug11/bpu6/popcnt_add[6]_i_1__86 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#30 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug11/bpu7/popcnt_add[6]_i_1__87 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#31 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug12/bpu1/popcnt_add[6]_i_1__89 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#32 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug12/bpu2/popcnt_add[6]_i_1__90 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#33 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug12/bpu3/popcnt_add[6]_i_1__91 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#34 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug12/bpu4/popcnt_add[6]_i_1__88 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#35 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug12/bpu5/popcnt_add[6]_i_1__92 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#36 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug12/bpu6/popcnt_add[6]_i_1__93 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#37 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug12/bpu7/popcnt_add[6]_i_1__94 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#38 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug13/bpu0/popcnt_add[6]_i_1__2 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#39 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug13/bpu1/popcnt_add[6]_i_1__96 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#40 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug13/bpu2/popcnt_add[6]_i_1__97 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#41 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug13/bpu3/popcnt_add[6]_i_1__98 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#42 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug13/bpu4/popcnt_add[6]_i_1__95 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#43 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug13/bpu5/popcnt_add[6]_i_1__99 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#44 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug13/bpu6/popcnt_add[6]_i_1__100 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#45 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug13/bpu7/popcnt_add[6]_i_1__101 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#46 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug14/bpu1/popcnt_add[6]_i_1__103 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#47 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug14/bpu2/popcnt_add[6]_i_1__104 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#48 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug14/bpu3/popcnt_add[6]_i_1__105 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#49 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug14/bpu4/popcnt_add[6]_i_1__102 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#50 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug14/bpu5/popcnt_add[6]_i_1__106 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#51 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug14/bpu6/popcnt_add[6]_i_1__107 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#52 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug14/bpu7/popcnt_add[6]_i_1__108 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#53 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug15/bpu1/popcnt_add[6]_i_1__114 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#54 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug15/bpu2/popcnt_add[6]_i_1__113 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#55 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug15/bpu3/popcnt_add[6]_i_1__112 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#56 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug15/bpu4/popcnt_add[6]_i_1__115 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#57 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug15/bpu5/popcnt_add[6]_i_1__111 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#58 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug15/bpu6/popcnt_add[6]_i_1__110 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#59 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug15/bpu7/popcnt_add[6]_i_1__109 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#60 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug2/bpu0/popcnt_add[6]_i_1 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#61 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug2/bpu1/popcnt_add[6]_i_1__23 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#62 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug2/bpu2/popcnt_add[6]_i_1__22 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#63 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug2/bpu3/popcnt_add[6]_i_1__21 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#64 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug2/bpu4/popcnt_add[6]_i_1__24 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#65 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug2/bpu5/popcnt_add[6]_i_1__20 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#66 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug2/bpu6/popcnt_add[6]_i_1__19 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#67 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug2/bpu7/popcnt_add[6]_i_1__18 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#68 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug3/bpu1/popcnt_add[6]_i_1__30 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#69 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug3/bpu2/popcnt_add[6]_i_1__29 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#70 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug3/bpu3/popcnt_add[6]_i_1__28 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#71 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug3/bpu4/popcnt_add[6]_i_1__31 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#72 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug3/bpu5/popcnt_add[6]_i_1__27 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#73 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug3/bpu6/popcnt_add[6]_i_1__26 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#74 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug3/bpu7/popcnt_add[6]_i_1__25 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#75 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug4/bpu1/popcnt_add[6]_i_1__33 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#76 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug4/bpu2/popcnt_add[6]_i_1__34 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#77 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug4/bpu3/popcnt_add[6]_i_1__35 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#78 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug4/bpu4/popcnt_add[6]_i_1__32 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#79 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug4/bpu5/popcnt_add[6]_i_1__36 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#80 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug4/bpu6/popcnt_add[6]_i_1__37 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#81 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug4/bpu7/popcnt_add[6]_i_1__38 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#82 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug5/bpu0/popcnt_add[6]_i_1__0 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#83 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug5/bpu1/popcnt_add[6]_i_1__40 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#84 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug5/bpu2/popcnt_add[6]_i_1__41 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#85 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug5/bpu3/popcnt_add[6]_i_1__42 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#86 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug5/bpu4/popcnt_add[6]_i_1__39 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#87 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug5/bpu5/popcnt_add[6]_i_1__43 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#88 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug5/bpu6/popcnt_add[6]_i_1__44 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#89 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug5/bpu7/popcnt_add[6]_i_1__45 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#90 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug6/bpu1/popcnt_add[6]_i_1__47 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#91 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug6/bpu2/popcnt_add[6]_i_1__48 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#92 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug6/bpu3/popcnt_add[6]_i_1__49 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#93 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug6/bpu4/popcnt_add[6]_i_1__46 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#94 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug6/bpu5/popcnt_add[6]_i_1__50 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#95 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug6/bpu6/popcnt_add[6]_i_1__51 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#96 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug6/bpu7/popcnt_add[6]_i_1__52 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#97 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug7/bpu1/popcnt_add[6]_i_1__54 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#98 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug7/bpu2/popcnt_add[6]_i_1__55 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#99 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug7/bpu3/popcnt_add[6]_i_1__56 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#100 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug7/bpu4/popcnt_add[6]_i_1__53 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#101 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug7/bpu5/popcnt_add[6]_i_1__57 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#102 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug7/bpu6/popcnt_add[6]_i_1__58 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#103 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug7/bpu7/popcnt_add[6]_i_1__59 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#104 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug8/bpu1/popcnt_add[6]_i_1__61 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#105 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug8/bpu2/popcnt_add[6]_i_1__62 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#106 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug8/bpu3/popcnt_add[6]_i_1__63 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#107 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug8/bpu4/popcnt_add[6]_i_1__60 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#108 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug8/bpu5/popcnt_add[6]_i_1__64 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#109 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug8/bpu6/popcnt_add[6]_i_1__65 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#110 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug8/bpu7/popcnt_add[6]_i_1__66 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#111 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug9/bpu1/popcnt_add[6]_i_1__68 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#112 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug9/bpu2/popcnt_add[6]_i_1__69 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#113 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug9/bpu3/popcnt_add[6]_i_1__70 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#114 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug9/bpu4/popcnt_add[6]_i_1__67 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#115 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug9/bpu5/popcnt_add[6]_i_1__71 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#116 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug9/bpu6/popcnt_add[6]_i_1__72 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#117 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/bpug9/bpu7/popcnt_add[6]_i_1__73 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#118 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/popcnt_add[6]_i_2 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#119 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/popcnt_add[6]_i_2__0 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#120 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/popcnt_add[6]_i_2__1 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#121 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/popcnt_add[6]_i_2__2 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#122 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/popcnt_add[6]_i_2__3 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#123 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/popcnt_add[6]_i_2__4 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#124 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/popcnt_add[6]_i_2__5 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#125 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/popcnt_add[6]_i_2__6 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#126 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/popcnt_add[6]_i_2__7 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#127 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/popcnt_add[6]_i_2__8 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#128 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/popcnt_add[6]_i_2__9 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#129 Critical Warning
+LUT on the clock tree  
+The LUT top1/BNNCore/popcnt_add[6]_i_3 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+XDCC-1#1 Warning
+Scoped Clock constraint overwritten with the same name  
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -waveform {0.000 5.000} [get_ports sysclk] (Source: D:/WeChat Files/wxid_7qg360e9m44722/FileStorage/File/2021-01/BNNProcessor/BNNProcessor.srcs/constrs_1/new/top.xdc (Line: 7))
+Previous: create_clock -period 10.000 [get_ports sysclk] (Source: d:/WeChat Files/wxid_7qg360e9m44722/FileStorage/File/2021-01/BNNProcessor/BNNProcessor.srcs/sources_1/ip/clk_10m/clk_10m.xdc (Line: 56))
+Related violations: <none>
+
+XDCC-7#1 Warning
+Scoped Clock constraint overwritten on the same source  
+A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -waveform {0.000 5.000} [get_ports sysclk] (Source: D:/WeChat Files/wxid_7qg360e9m44722/FileStorage/File/2021-01/BNNProcessor/BNNProcessor.srcs/constrs_1/new/top.xdc (Line: 7))
+Previous: create_clock -period 10.000 [get_ports sysclk] (Source: d:/WeChat Files/wxid_7qg360e9m44722/FileStorage/File/2021-01/BNNProcessor/BNNProcessor.srcs/sources_1/ip/clk_10m/clk_10m.xdc (Line: 56))
+Related violations: <none>
+
+

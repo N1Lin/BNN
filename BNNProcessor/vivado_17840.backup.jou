@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sat Jan  9 13:39:27 2021
+# Process ID: 17840
+# Current directory: D:/WeChat Files/wxid_7qg360e9m44722/FileStorage/File/2021-01/BNNProcessor
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1748 D:\WeChat Files\wxid_7qg360e9m44722\FileStorage\File\2021-01\BNNProcessor\BNNProcessor.xpr
+# Log file: D:/WeChat Files/wxid_7qg360e9m44722/FileStorage/File/2021-01/BNNProcessor/vivado.log
+# Journal file: D:/WeChat Files/wxid_7qg360e9m44722/FileStorage/File/2021-01/BNNProcessor\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:/WeChat Files/wxid_7qg360e9m44722/FileStorage/File/2021-01/BNNProcessor/BNNProcessor.xpr}
+update_compile_order -fileset sources_1
+synth_design -rtl -name rtl_1

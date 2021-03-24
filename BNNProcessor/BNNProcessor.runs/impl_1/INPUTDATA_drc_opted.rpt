@@ -1,0 +1,744 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Sun Mar 21 19:48:37 2021
+| Host         : LAPTOP-CF0KAGUB running 64-bit major release  (build 9200)
+| Command      : report_drc -file INPUTDATA_drc_opted.rpt -pb INPUTDATA_drc_opted.pb -rpx INPUTDATA_drc_opted.rpx
+| Design       : INPUTDATA
+| Device       : xc7z020clg484-1
+| Speed File   : -1
+| Design State : Synthesized
+------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 118
++-------------+----------+-------------------------------------------------------------+------------+
+| Rule        | Severity | Description                                                 | Violations |
++-------------+----------+-------------------------------------------------------------+------------+
+| PLHOLDVIO-2 | Warning  | Non-Optimal connections which could lead to hold violations | 117        |
+| ZPS7-1      | Warning  | PS7 block required                                          | 1          |
++-------------+----------+-------------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+PLHOLDVIO-2#1 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT INSTSRAM_i_14 is driving clock pin of 9 cells. This could lead to large hold time violations. Involved cells are:
+top1/DATASRAM/memory_reg_0, top1/DATASRAM/memory_reg_1, top1/DATASRAM/memory_reg_2, top1/DATASRAM/memory_reg_3, top1/DATASRAM/memory_reg_4, top1/DATASRAM/memory_reg_5, top1/DATASRAM/memory_reg_6, top1/DATASRAM/memory_reg_7, top1/INSTSRAM/memory_reg
+Related violations: <none>
+
+PLHOLDVIO-2#2 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug0/bpu1/popcnt_add[6]_i_1__5 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug0/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug0/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug0/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug0/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug0/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug0/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug0/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug0/bpu1/wgt_reg[0][0], top1/BNNCore/bpug0/bpu1/wgt_reg[0][1], top1/BNNCore/bpug0/bpu1/wgt_reg[0][2], top1/BNNCore/bpug0/bpu1/wgt_reg[0][3], top1/BNNCore/bpug0/bpu1/wgt_reg[0][4], top1/BNNCore/bpug0/bpu1/wgt_reg[0][5], top1/BNNCore/bpug0/bpu1/wgt_reg[0][6], top1/BNNCore/bpug0/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#3 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug0/bpu2/popcnt_add[6]_i_1__6 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug0/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug0/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug0/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug0/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug0/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug0/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug0/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug0/bpu2/wgt_reg[0][0], top1/BNNCore/bpug0/bpu2/wgt_reg[0][1], top1/BNNCore/bpug0/bpu2/wgt_reg[0][2], top1/BNNCore/bpug0/bpu2/wgt_reg[0][3], top1/BNNCore/bpug0/bpu2/wgt_reg[0][4], top1/BNNCore/bpug0/bpu2/wgt_reg[0][5], top1/BNNCore/bpug0/bpu2/wgt_reg[0][6], top1/BNNCore/bpug0/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#4 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug0/bpu3/popcnt_add[6]_i_1__7 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug0/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug0/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug0/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug0/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug0/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug0/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug0/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug0/bpu3/wgt_reg[0][0], top1/BNNCore/bpug0/bpu3/wgt_reg[0][1], top1/BNNCore/bpug0/bpu3/wgt_reg[0][2], top1/BNNCore/bpug0/bpu3/wgt_reg[0][3], top1/BNNCore/bpug0/bpu3/wgt_reg[0][4], top1/BNNCore/bpug0/bpu3/wgt_reg[0][5], top1/BNNCore/bpug0/bpu3/wgt_reg[0][6], top1/BNNCore/bpug0/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#5 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug0/bpu4/popcnt_add[6]_i_1__4 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug0/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug0/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug0/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug0/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug0/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug0/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug0/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug0/bpu4/wgt_reg[0][0], top1/BNNCore/bpug0/bpu4/wgt_reg[0][1], top1/BNNCore/bpug0/bpu4/wgt_reg[0][2], top1/BNNCore/bpug0/bpu4/wgt_reg[0][3], top1/BNNCore/bpug0/bpu4/wgt_reg[0][4], top1/BNNCore/bpug0/bpu4/wgt_reg[0][5], top1/BNNCore/bpug0/bpu4/wgt_reg[0][6], top1/BNNCore/bpug0/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#6 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug0/bpu5/popcnt_add[6]_i_1__8 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug0/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug0/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug0/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug0/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug0/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug0/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug0/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug0/bpu5/wgt_reg[0][0], top1/BNNCore/bpug0/bpu5/wgt_reg[0][1], top1/BNNCore/bpug0/bpu5/wgt_reg[0][2], top1/BNNCore/bpug0/bpu5/wgt_reg[0][3], top1/BNNCore/bpug0/bpu5/wgt_reg[0][4], top1/BNNCore/bpug0/bpu5/wgt_reg[0][5], top1/BNNCore/bpug0/bpu5/wgt_reg[0][6], top1/BNNCore/bpug0/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#7 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug0/bpu6/popcnt_add[6]_i_1__9 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug0/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug0/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug0/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug0/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug0/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug0/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug0/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug0/bpu6/wgt_reg[0][0], top1/BNNCore/bpug0/bpu6/wgt_reg[0][1], top1/BNNCore/bpug0/bpu6/wgt_reg[0][2], top1/BNNCore/bpug0/bpu6/wgt_reg[0][3], top1/BNNCore/bpug0/bpu6/wgt_reg[0][4], top1/BNNCore/bpug0/bpu6/wgt_reg[0][5], top1/BNNCore/bpug0/bpu6/wgt_reg[0][6], top1/BNNCore/bpug0/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#8 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug0/bpu7/popcnt_add[6]_i_1__10 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug0/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug0/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug0/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug0/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug0/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug0/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug0/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug0/bpu7/wgt_reg[0][0], top1/BNNCore/bpug0/bpu7/wgt_reg[0][1], top1/BNNCore/bpug0/bpu7/wgt_reg[0][2], top1/BNNCore/bpug0/bpu7/wgt_reg[0][3], top1/BNNCore/bpug0/bpu7/wgt_reg[0][4], top1/BNNCore/bpug0/bpu7/wgt_reg[0][5], top1/BNNCore/bpug0/bpu7/wgt_reg[0][6], top1/BNNCore/bpug0/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#9 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug1/bpu1/popcnt_add[6]_i_1__12 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug1/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug1/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug1/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug1/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug1/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug1/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug1/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug1/bpu1/wgt_reg[0][0], top1/BNNCore/bpug1/bpu1/wgt_reg[0][1], top1/BNNCore/bpug1/bpu1/wgt_reg[0][2], top1/BNNCore/bpug1/bpu1/wgt_reg[0][3], top1/BNNCore/bpug1/bpu1/wgt_reg[0][4], top1/BNNCore/bpug1/bpu1/wgt_reg[0][5], top1/BNNCore/bpug1/bpu1/wgt_reg[0][6], top1/BNNCore/bpug1/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#10 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug1/bpu2/popcnt_add[6]_i_1__13 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug1/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug1/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug1/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug1/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug1/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug1/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug1/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug1/bpu2/wgt_reg[0][0], top1/BNNCore/bpug1/bpu2/wgt_reg[0][1], top1/BNNCore/bpug1/bpu2/wgt_reg[0][2], top1/BNNCore/bpug1/bpu2/wgt_reg[0][3], top1/BNNCore/bpug1/bpu2/wgt_reg[0][4], top1/BNNCore/bpug1/bpu2/wgt_reg[0][5], top1/BNNCore/bpug1/bpu2/wgt_reg[0][6], top1/BNNCore/bpug1/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#11 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug1/bpu3/popcnt_add[6]_i_1__14 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug1/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug1/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug1/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug1/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug1/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug1/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug1/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug1/bpu3/wgt_reg[0][0], top1/BNNCore/bpug1/bpu3/wgt_reg[0][1], top1/BNNCore/bpug1/bpu3/wgt_reg[0][2], top1/BNNCore/bpug1/bpu3/wgt_reg[0][3], top1/BNNCore/bpug1/bpu3/wgt_reg[0][4], top1/BNNCore/bpug1/bpu3/wgt_reg[0][5], top1/BNNCore/bpug1/bpu3/wgt_reg[0][6], top1/BNNCore/bpug1/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#12 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug1/bpu4/popcnt_add[6]_i_1__11 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug1/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug1/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug1/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug1/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug1/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug1/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug1/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug1/bpu4/wgt_reg[0][0], top1/BNNCore/bpug1/bpu4/wgt_reg[0][1], top1/BNNCore/bpug1/bpu4/wgt_reg[0][2], top1/BNNCore/bpug1/bpu4/wgt_reg[0][3], top1/BNNCore/bpug1/bpu4/wgt_reg[0][4], top1/BNNCore/bpug1/bpu4/wgt_reg[0][5], top1/BNNCore/bpug1/bpu4/wgt_reg[0][6], top1/BNNCore/bpug1/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#13 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug1/bpu5/popcnt_add[6]_i_1__15 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug1/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug1/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug1/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug1/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug1/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug1/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug1/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug1/bpu5/wgt_reg[0][0], top1/BNNCore/bpug1/bpu5/wgt_reg[0][1], top1/BNNCore/bpug1/bpu5/wgt_reg[0][2], top1/BNNCore/bpug1/bpu5/wgt_reg[0][3], top1/BNNCore/bpug1/bpu5/wgt_reg[0][4], top1/BNNCore/bpug1/bpu5/wgt_reg[0][5], top1/BNNCore/bpug1/bpu5/wgt_reg[0][6], top1/BNNCore/bpug1/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#14 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug1/bpu6/popcnt_add[6]_i_1__16 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug1/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug1/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug1/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug1/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug1/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug1/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug1/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug1/bpu6/wgt_reg[0][0], top1/BNNCore/bpug1/bpu6/wgt_reg[0][1], top1/BNNCore/bpug1/bpu6/wgt_reg[0][2], top1/BNNCore/bpug1/bpu6/wgt_reg[0][3], top1/BNNCore/bpug1/bpu6/wgt_reg[0][4], top1/BNNCore/bpug1/bpu6/wgt_reg[0][5], top1/BNNCore/bpug1/bpu6/wgt_reg[0][6], top1/BNNCore/bpug1/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#15 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug1/bpu7/popcnt_add[6]_i_1__17 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug1/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug1/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug1/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug1/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug1/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug1/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug1/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug1/bpu7/wgt_reg[0][0], top1/BNNCore/bpug1/bpu7/wgt_reg[0][1], top1/BNNCore/bpug1/bpu7/wgt_reg[0][2], top1/BNNCore/bpug1/bpu7/wgt_reg[0][3], top1/BNNCore/bpug1/bpu7/wgt_reg[0][4], top1/BNNCore/bpug1/bpu7/wgt_reg[0][5], top1/BNNCore/bpug1/bpu7/wgt_reg[0][6], top1/BNNCore/bpug1/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#16 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug10/bpu0/popcnt_add[6]_i_1__1 is driving clock pin of 184 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug10/bpu0/popcnt_add_reg[0], top1/BNNCore/bpug10/bpu0/popcnt_add_reg[1], top1/BNNCore/bpug10/bpu0/popcnt_add_reg[2], top1/BNNCore/bpug10/bpu0/popcnt_add_reg[3], top1/BNNCore/bpug10/bpu0/popcnt_add_reg[4], top1/BNNCore/bpug10/bpu0/popcnt_add_reg[5], top1/BNNCore/bpug10/bpu0/popcnt_add_reg[6], top1/BNNCore/bpug10/bpu0/wgt_reg[0][0], top1/BNNCore/bpug10/bpu0/wgt_reg[0][1], top1/BNNCore/bpug10/bpu0/wgt_reg[0][2], top1/BNNCore/bpug10/bpu0/wgt_reg[0][3], top1/BNNCore/bpug10/bpu0/wgt_reg[0][4], top1/BNNCore/bpug10/bpu0/wgt_reg[0][5], top1/BNNCore/bpug10/bpu0/wgt_reg[0][6], top1/BNNCore/bpug10/bpu0/wgt_reg[1][0] (the first 15 of 184 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#17 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug10/bpu1/popcnt_add[6]_i_1__75 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug10/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug10/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug10/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug10/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug10/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug10/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug10/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug10/bpu1/wgt_reg[0][0], top1/BNNCore/bpug10/bpu1/wgt_reg[0][1], top1/BNNCore/bpug10/bpu1/wgt_reg[0][2], top1/BNNCore/bpug10/bpu1/wgt_reg[0][3], top1/BNNCore/bpug10/bpu1/wgt_reg[0][4], top1/BNNCore/bpug10/bpu1/wgt_reg[0][5], top1/BNNCore/bpug10/bpu1/wgt_reg[0][6], top1/BNNCore/bpug10/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#18 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug10/bpu2/popcnt_add[6]_i_1__76 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug10/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug10/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug10/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug10/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug10/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug10/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug10/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug10/bpu2/wgt_reg[0][0], top1/BNNCore/bpug10/bpu2/wgt_reg[0][1], top1/BNNCore/bpug10/bpu2/wgt_reg[0][2], top1/BNNCore/bpug10/bpu2/wgt_reg[0][3], top1/BNNCore/bpug10/bpu2/wgt_reg[0][4], top1/BNNCore/bpug10/bpu2/wgt_reg[0][5], top1/BNNCore/bpug10/bpu2/wgt_reg[0][6], top1/BNNCore/bpug10/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#19 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug10/bpu3/popcnt_add[6]_i_1__77 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug10/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug10/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug10/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug10/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug10/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug10/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug10/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug10/bpu3/wgt_reg[0][0], top1/BNNCore/bpug10/bpu3/wgt_reg[0][1], top1/BNNCore/bpug10/bpu3/wgt_reg[0][2], top1/BNNCore/bpug10/bpu3/wgt_reg[0][3], top1/BNNCore/bpug10/bpu3/wgt_reg[0][4], top1/BNNCore/bpug10/bpu3/wgt_reg[0][5], top1/BNNCore/bpug10/bpu3/wgt_reg[0][6], top1/BNNCore/bpug10/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#20 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug10/bpu4/popcnt_add[6]_i_1__74 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug10/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug10/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug10/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug10/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug10/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug10/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug10/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug10/bpu4/wgt_reg[0][0], top1/BNNCore/bpug10/bpu4/wgt_reg[0][1], top1/BNNCore/bpug10/bpu4/wgt_reg[0][2], top1/BNNCore/bpug10/bpu4/wgt_reg[0][3], top1/BNNCore/bpug10/bpu4/wgt_reg[0][4], top1/BNNCore/bpug10/bpu4/wgt_reg[0][5], top1/BNNCore/bpug10/bpu4/wgt_reg[0][6], top1/BNNCore/bpug10/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#21 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug10/bpu5/popcnt_add[6]_i_1__78 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug10/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug10/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug10/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug10/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug10/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug10/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug10/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug10/bpu5/wgt_reg[0][0], top1/BNNCore/bpug10/bpu5/wgt_reg[0][1], top1/BNNCore/bpug10/bpu5/wgt_reg[0][2], top1/BNNCore/bpug10/bpu5/wgt_reg[0][3], top1/BNNCore/bpug10/bpu5/wgt_reg[0][4], top1/BNNCore/bpug10/bpu5/wgt_reg[0][5], top1/BNNCore/bpug10/bpu5/wgt_reg[0][6], top1/BNNCore/bpug10/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#22 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug10/bpu6/popcnt_add[6]_i_1__79 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug10/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug10/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug10/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug10/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug10/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug10/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug10/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug10/bpu6/wgt_reg[0][0], top1/BNNCore/bpug10/bpu6/wgt_reg[0][1], top1/BNNCore/bpug10/bpu6/wgt_reg[0][2], top1/BNNCore/bpug10/bpu6/wgt_reg[0][3], top1/BNNCore/bpug10/bpu6/wgt_reg[0][4], top1/BNNCore/bpug10/bpu6/wgt_reg[0][5], top1/BNNCore/bpug10/bpu6/wgt_reg[0][6], top1/BNNCore/bpug10/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#23 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug10/bpu7/popcnt_add[6]_i_1__80 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug10/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug10/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug10/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug10/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug10/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug10/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug10/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug10/bpu7/wgt_reg[0][0], top1/BNNCore/bpug10/bpu7/wgt_reg[0][1], top1/BNNCore/bpug10/bpu7/wgt_reg[0][2], top1/BNNCore/bpug10/bpu7/wgt_reg[0][3], top1/BNNCore/bpug10/bpu7/wgt_reg[0][4], top1/BNNCore/bpug10/bpu7/wgt_reg[0][5], top1/BNNCore/bpug10/bpu7/wgt_reg[0][6], top1/BNNCore/bpug10/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#24 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug11/bpu1/popcnt_add[6]_i_1__82 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug11/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug11/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug11/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug11/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug11/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug11/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug11/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug11/bpu1/wgt_reg[0][0], top1/BNNCore/bpug11/bpu1/wgt_reg[0][1], top1/BNNCore/bpug11/bpu1/wgt_reg[0][2], top1/BNNCore/bpug11/bpu1/wgt_reg[0][3], top1/BNNCore/bpug11/bpu1/wgt_reg[0][4], top1/BNNCore/bpug11/bpu1/wgt_reg[0][5], top1/BNNCore/bpug11/bpu1/wgt_reg[0][6], top1/BNNCore/bpug11/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#25 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug11/bpu2/popcnt_add[6]_i_1__83 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug11/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug11/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug11/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug11/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug11/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug11/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug11/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug11/bpu2/wgt_reg[0][0], top1/BNNCore/bpug11/bpu2/wgt_reg[0][1], top1/BNNCore/bpug11/bpu2/wgt_reg[0][2], top1/BNNCore/bpug11/bpu2/wgt_reg[0][3], top1/BNNCore/bpug11/bpu2/wgt_reg[0][4], top1/BNNCore/bpug11/bpu2/wgt_reg[0][5], top1/BNNCore/bpug11/bpu2/wgt_reg[0][6], top1/BNNCore/bpug11/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#26 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug11/bpu3/popcnt_add[6]_i_1__84 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug11/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug11/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug11/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug11/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug11/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug11/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug11/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug11/bpu3/wgt_reg[0][0], top1/BNNCore/bpug11/bpu3/wgt_reg[0][1], top1/BNNCore/bpug11/bpu3/wgt_reg[0][2], top1/BNNCore/bpug11/bpu3/wgt_reg[0][3], top1/BNNCore/bpug11/bpu3/wgt_reg[0][4], top1/BNNCore/bpug11/bpu3/wgt_reg[0][5], top1/BNNCore/bpug11/bpu3/wgt_reg[0][6], top1/BNNCore/bpug11/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#27 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug11/bpu4/popcnt_add[6]_i_1__81 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug11/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug11/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug11/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug11/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug11/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug11/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug11/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug11/bpu4/wgt_reg[0][0], top1/BNNCore/bpug11/bpu4/wgt_reg[0][1], top1/BNNCore/bpug11/bpu4/wgt_reg[0][2], top1/BNNCore/bpug11/bpu4/wgt_reg[0][3], top1/BNNCore/bpug11/bpu4/wgt_reg[0][4], top1/BNNCore/bpug11/bpu4/wgt_reg[0][5], top1/BNNCore/bpug11/bpu4/wgt_reg[0][6], top1/BNNCore/bpug11/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#28 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug11/bpu5/popcnt_add[6]_i_1__85 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug11/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug11/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug11/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug11/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug11/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug11/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug11/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug11/bpu5/wgt_reg[0][0], top1/BNNCore/bpug11/bpu5/wgt_reg[0][1], top1/BNNCore/bpug11/bpu5/wgt_reg[0][2], top1/BNNCore/bpug11/bpu5/wgt_reg[0][3], top1/BNNCore/bpug11/bpu5/wgt_reg[0][4], top1/BNNCore/bpug11/bpu5/wgt_reg[0][5], top1/BNNCore/bpug11/bpu5/wgt_reg[0][6], top1/BNNCore/bpug11/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#29 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug11/bpu6/popcnt_add[6]_i_1__86 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug11/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug11/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug11/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug11/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug11/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug11/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug11/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug11/bpu6/wgt_reg[0][0], top1/BNNCore/bpug11/bpu6/wgt_reg[0][1], top1/BNNCore/bpug11/bpu6/wgt_reg[0][2], top1/BNNCore/bpug11/bpu6/wgt_reg[0][3], top1/BNNCore/bpug11/bpu6/wgt_reg[0][4], top1/BNNCore/bpug11/bpu6/wgt_reg[0][5], top1/BNNCore/bpug11/bpu6/wgt_reg[0][6], top1/BNNCore/bpug11/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#30 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug11/bpu7/popcnt_add[6]_i_1__87 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug11/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug11/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug11/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug11/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug11/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug11/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug11/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug11/bpu7/wgt_reg[0][0], top1/BNNCore/bpug11/bpu7/wgt_reg[0][1], top1/BNNCore/bpug11/bpu7/wgt_reg[0][2], top1/BNNCore/bpug11/bpu7/wgt_reg[0][3], top1/BNNCore/bpug11/bpu7/wgt_reg[0][4], top1/BNNCore/bpug11/bpu7/wgt_reg[0][5], top1/BNNCore/bpug11/bpu7/wgt_reg[0][6], top1/BNNCore/bpug11/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#31 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug12/bpu1/popcnt_add[6]_i_1__89 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug12/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug12/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug12/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug12/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug12/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug12/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug12/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug12/bpu1/wgt_reg[0][0], top1/BNNCore/bpug12/bpu1/wgt_reg[0][1], top1/BNNCore/bpug12/bpu1/wgt_reg[0][2], top1/BNNCore/bpug12/bpu1/wgt_reg[0][3], top1/BNNCore/bpug12/bpu1/wgt_reg[0][4], top1/BNNCore/bpug12/bpu1/wgt_reg[0][5], top1/BNNCore/bpug12/bpu1/wgt_reg[0][6], top1/BNNCore/bpug12/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#32 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug12/bpu2/popcnt_add[6]_i_1__90 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug12/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug12/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug12/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug12/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug12/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug12/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug12/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug12/bpu2/wgt_reg[0][0], top1/BNNCore/bpug12/bpu2/wgt_reg[0][1], top1/BNNCore/bpug12/bpu2/wgt_reg[0][2], top1/BNNCore/bpug12/bpu2/wgt_reg[0][3], top1/BNNCore/bpug12/bpu2/wgt_reg[0][4], top1/BNNCore/bpug12/bpu2/wgt_reg[0][5], top1/BNNCore/bpug12/bpu2/wgt_reg[0][6], top1/BNNCore/bpug12/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#33 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug12/bpu3/popcnt_add[6]_i_1__91 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug12/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug12/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug12/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug12/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug12/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug12/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug12/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug12/bpu3/wgt_reg[0][0], top1/BNNCore/bpug12/bpu3/wgt_reg[0][1], top1/BNNCore/bpug12/bpu3/wgt_reg[0][2], top1/BNNCore/bpug12/bpu3/wgt_reg[0][3], top1/BNNCore/bpug12/bpu3/wgt_reg[0][4], top1/BNNCore/bpug12/bpu3/wgt_reg[0][5], top1/BNNCore/bpug12/bpu3/wgt_reg[0][6], top1/BNNCore/bpug12/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#34 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug12/bpu4/popcnt_add[6]_i_1__88 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug12/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug12/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug12/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug12/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug12/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug12/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug12/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug12/bpu4/wgt_reg[0][0], top1/BNNCore/bpug12/bpu4/wgt_reg[0][1], top1/BNNCore/bpug12/bpu4/wgt_reg[0][2], top1/BNNCore/bpug12/bpu4/wgt_reg[0][3], top1/BNNCore/bpug12/bpu4/wgt_reg[0][4], top1/BNNCore/bpug12/bpu4/wgt_reg[0][5], top1/BNNCore/bpug12/bpu4/wgt_reg[0][6], top1/BNNCore/bpug12/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#35 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug12/bpu5/popcnt_add[6]_i_1__92 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug12/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug12/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug12/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug12/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug12/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug12/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug12/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug12/bpu5/wgt_reg[0][0], top1/BNNCore/bpug12/bpu5/wgt_reg[0][1], top1/BNNCore/bpug12/bpu5/wgt_reg[0][2], top1/BNNCore/bpug12/bpu5/wgt_reg[0][3], top1/BNNCore/bpug12/bpu5/wgt_reg[0][4], top1/BNNCore/bpug12/bpu5/wgt_reg[0][5], top1/BNNCore/bpug12/bpu5/wgt_reg[0][6], top1/BNNCore/bpug12/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#36 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug12/bpu6/popcnt_add[6]_i_1__93 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug12/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug12/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug12/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug12/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug12/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug12/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug12/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug12/bpu6/wgt_reg[0][0], top1/BNNCore/bpug12/bpu6/wgt_reg[0][1], top1/BNNCore/bpug12/bpu6/wgt_reg[0][2], top1/BNNCore/bpug12/bpu6/wgt_reg[0][3], top1/BNNCore/bpug12/bpu6/wgt_reg[0][4], top1/BNNCore/bpug12/bpu6/wgt_reg[0][5], top1/BNNCore/bpug12/bpu6/wgt_reg[0][6], top1/BNNCore/bpug12/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#37 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug12/bpu7/popcnt_add[6]_i_1__94 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug12/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug12/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug12/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug12/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug12/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug12/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug12/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug12/bpu7/wgt_reg[0][0], top1/BNNCore/bpug12/bpu7/wgt_reg[0][1], top1/BNNCore/bpug12/bpu7/wgt_reg[0][2], top1/BNNCore/bpug12/bpu7/wgt_reg[0][3], top1/BNNCore/bpug12/bpu7/wgt_reg[0][4], top1/BNNCore/bpug12/bpu7/wgt_reg[0][5], top1/BNNCore/bpug12/bpu7/wgt_reg[0][6], top1/BNNCore/bpug12/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#38 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug13/bpu0/popcnt_add[6]_i_1__2 is driving clock pin of 184 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug13/bpu0/popcnt_add_reg[0], top1/BNNCore/bpug13/bpu0/popcnt_add_reg[1], top1/BNNCore/bpug13/bpu0/popcnt_add_reg[2], top1/BNNCore/bpug13/bpu0/popcnt_add_reg[3], top1/BNNCore/bpug13/bpu0/popcnt_add_reg[4], top1/BNNCore/bpug13/bpu0/popcnt_add_reg[5], top1/BNNCore/bpug13/bpu0/popcnt_add_reg[6], top1/BNNCore/bpug13/bpu0/wgt_reg[0][0], top1/BNNCore/bpug13/bpu0/wgt_reg[0][1], top1/BNNCore/bpug13/bpu0/wgt_reg[0][2], top1/BNNCore/bpug13/bpu0/wgt_reg[0][3], top1/BNNCore/bpug13/bpu0/wgt_reg[0][4], top1/BNNCore/bpug13/bpu0/wgt_reg[0][5], top1/BNNCore/bpug13/bpu0/wgt_reg[0][6], top1/BNNCore/bpug13/bpu0/wgt_reg[1][0] (the first 15 of 184 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#39 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug13/bpu1/popcnt_add[6]_i_1__96 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug13/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug13/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug13/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug13/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug13/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug13/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug13/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug13/bpu1/wgt_reg[0][0], top1/BNNCore/bpug13/bpu1/wgt_reg[0][1], top1/BNNCore/bpug13/bpu1/wgt_reg[0][2], top1/BNNCore/bpug13/bpu1/wgt_reg[0][3], top1/BNNCore/bpug13/bpu1/wgt_reg[0][4], top1/BNNCore/bpug13/bpu1/wgt_reg[0][5], top1/BNNCore/bpug13/bpu1/wgt_reg[0][6], top1/BNNCore/bpug13/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#40 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug13/bpu2/popcnt_add[6]_i_1__97 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug13/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug13/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug13/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug13/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug13/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug13/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug13/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug13/bpu2/wgt_reg[0][0], top1/BNNCore/bpug13/bpu2/wgt_reg[0][1], top1/BNNCore/bpug13/bpu2/wgt_reg[0][2], top1/BNNCore/bpug13/bpu2/wgt_reg[0][3], top1/BNNCore/bpug13/bpu2/wgt_reg[0][4], top1/BNNCore/bpug13/bpu2/wgt_reg[0][5], top1/BNNCore/bpug13/bpu2/wgt_reg[0][6], top1/BNNCore/bpug13/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#41 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug13/bpu3/popcnt_add[6]_i_1__98 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug13/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug13/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug13/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug13/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug13/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug13/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug13/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug13/bpu3/wgt_reg[0][0], top1/BNNCore/bpug13/bpu3/wgt_reg[0][1], top1/BNNCore/bpug13/bpu3/wgt_reg[0][2], top1/BNNCore/bpug13/bpu3/wgt_reg[0][3], top1/BNNCore/bpug13/bpu3/wgt_reg[0][4], top1/BNNCore/bpug13/bpu3/wgt_reg[0][5], top1/BNNCore/bpug13/bpu3/wgt_reg[0][6], top1/BNNCore/bpug13/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#42 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug13/bpu4/popcnt_add[6]_i_1__95 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug13/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug13/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug13/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug13/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug13/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug13/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug13/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug13/bpu4/wgt_reg[0][0], top1/BNNCore/bpug13/bpu4/wgt_reg[0][1], top1/BNNCore/bpug13/bpu4/wgt_reg[0][2], top1/BNNCore/bpug13/bpu4/wgt_reg[0][3], top1/BNNCore/bpug13/bpu4/wgt_reg[0][4], top1/BNNCore/bpug13/bpu4/wgt_reg[0][5], top1/BNNCore/bpug13/bpu4/wgt_reg[0][6], top1/BNNCore/bpug13/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#43 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug13/bpu5/popcnt_add[6]_i_1__99 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug13/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug13/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug13/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug13/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug13/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug13/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug13/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug13/bpu5/wgt_reg[0][0], top1/BNNCore/bpug13/bpu5/wgt_reg[0][1], top1/BNNCore/bpug13/bpu5/wgt_reg[0][2], top1/BNNCore/bpug13/bpu5/wgt_reg[0][3], top1/BNNCore/bpug13/bpu5/wgt_reg[0][4], top1/BNNCore/bpug13/bpu5/wgt_reg[0][5], top1/BNNCore/bpug13/bpu5/wgt_reg[0][6], top1/BNNCore/bpug13/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#44 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug13/bpu6/popcnt_add[6]_i_1__100 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug13/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug13/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug13/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug13/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug13/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug13/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug13/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug13/bpu6/wgt_reg[0][0], top1/BNNCore/bpug13/bpu6/wgt_reg[0][1], top1/BNNCore/bpug13/bpu6/wgt_reg[0][2], top1/BNNCore/bpug13/bpu6/wgt_reg[0][3], top1/BNNCore/bpug13/bpu6/wgt_reg[0][4], top1/BNNCore/bpug13/bpu6/wgt_reg[0][5], top1/BNNCore/bpug13/bpu6/wgt_reg[0][6], top1/BNNCore/bpug13/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#45 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug13/bpu7/popcnt_add[6]_i_1__101 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug13/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug13/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug13/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug13/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug13/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug13/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug13/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug13/bpu7/wgt_reg[0][0], top1/BNNCore/bpug13/bpu7/wgt_reg[0][1], top1/BNNCore/bpug13/bpu7/wgt_reg[0][2], top1/BNNCore/bpug13/bpu7/wgt_reg[0][3], top1/BNNCore/bpug13/bpu7/wgt_reg[0][4], top1/BNNCore/bpug13/bpu7/wgt_reg[0][5], top1/BNNCore/bpug13/bpu7/wgt_reg[0][6], top1/BNNCore/bpug13/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#46 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug14/bpu1/popcnt_add[6]_i_1__103 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug14/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug14/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug14/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug14/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug14/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug14/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug14/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug14/bpu1/wgt_reg[0][0], top1/BNNCore/bpug14/bpu1/wgt_reg[0][1], top1/BNNCore/bpug14/bpu1/wgt_reg[0][2], top1/BNNCore/bpug14/bpu1/wgt_reg[0][3], top1/BNNCore/bpug14/bpu1/wgt_reg[0][4], top1/BNNCore/bpug14/bpu1/wgt_reg[0][5], top1/BNNCore/bpug14/bpu1/wgt_reg[0][6], top1/BNNCore/bpug14/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#47 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug14/bpu2/popcnt_add[6]_i_1__104 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug14/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug14/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug14/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug14/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug14/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug14/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug14/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug14/bpu2/wgt_reg[0][0], top1/BNNCore/bpug14/bpu2/wgt_reg[0][1], top1/BNNCore/bpug14/bpu2/wgt_reg[0][2], top1/BNNCore/bpug14/bpu2/wgt_reg[0][3], top1/BNNCore/bpug14/bpu2/wgt_reg[0][4], top1/BNNCore/bpug14/bpu2/wgt_reg[0][5], top1/BNNCore/bpug14/bpu2/wgt_reg[0][6], top1/BNNCore/bpug14/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#48 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug14/bpu3/popcnt_add[6]_i_1__105 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug14/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug14/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug14/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug14/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug14/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug14/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug14/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug14/bpu3/wgt_reg[0][0], top1/BNNCore/bpug14/bpu3/wgt_reg[0][1], top1/BNNCore/bpug14/bpu3/wgt_reg[0][2], top1/BNNCore/bpug14/bpu3/wgt_reg[0][3], top1/BNNCore/bpug14/bpu3/wgt_reg[0][4], top1/BNNCore/bpug14/bpu3/wgt_reg[0][5], top1/BNNCore/bpug14/bpu3/wgt_reg[0][6], top1/BNNCore/bpug14/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#49 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug14/bpu4/popcnt_add[6]_i_1__102 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug14/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug14/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug14/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug14/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug14/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug14/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug14/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug14/bpu4/wgt_reg[0][0], top1/BNNCore/bpug14/bpu4/wgt_reg[0][1], top1/BNNCore/bpug14/bpu4/wgt_reg[0][2], top1/BNNCore/bpug14/bpu4/wgt_reg[0][3], top1/BNNCore/bpug14/bpu4/wgt_reg[0][4], top1/BNNCore/bpug14/bpu4/wgt_reg[0][5], top1/BNNCore/bpug14/bpu4/wgt_reg[0][6], top1/BNNCore/bpug14/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#50 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug14/bpu5/popcnt_add[6]_i_1__106 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug14/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug14/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug14/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug14/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug14/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug14/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug14/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug14/bpu5/wgt_reg[0][0], top1/BNNCore/bpug14/bpu5/wgt_reg[0][1], top1/BNNCore/bpug14/bpu5/wgt_reg[0][2], top1/BNNCore/bpug14/bpu5/wgt_reg[0][3], top1/BNNCore/bpug14/bpu5/wgt_reg[0][4], top1/BNNCore/bpug14/bpu5/wgt_reg[0][5], top1/BNNCore/bpug14/bpu5/wgt_reg[0][6], top1/BNNCore/bpug14/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#51 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug14/bpu6/popcnt_add[6]_i_1__107 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug14/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug14/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug14/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug14/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug14/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug14/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug14/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug14/bpu6/wgt_reg[0][0], top1/BNNCore/bpug14/bpu6/wgt_reg[0][1], top1/BNNCore/bpug14/bpu6/wgt_reg[0][2], top1/BNNCore/bpug14/bpu6/wgt_reg[0][3], top1/BNNCore/bpug14/bpu6/wgt_reg[0][4], top1/BNNCore/bpug14/bpu6/wgt_reg[0][5], top1/BNNCore/bpug14/bpu6/wgt_reg[0][6], top1/BNNCore/bpug14/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#52 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug14/bpu7/popcnt_add[6]_i_1__108 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug14/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug14/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug14/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug14/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug14/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug14/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug14/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug14/bpu7/wgt_reg[0][0], top1/BNNCore/bpug14/bpu7/wgt_reg[0][1], top1/BNNCore/bpug14/bpu7/wgt_reg[0][2], top1/BNNCore/bpug14/bpu7/wgt_reg[0][3], top1/BNNCore/bpug14/bpu7/wgt_reg[0][4], top1/BNNCore/bpug14/bpu7/wgt_reg[0][5], top1/BNNCore/bpug14/bpu7/wgt_reg[0][6], top1/BNNCore/bpug14/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#53 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug15/bpu1/popcnt_add[6]_i_1__114 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug15/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug15/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug15/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug15/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug15/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug15/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug15/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug15/bpu1/wgt_reg[0][0], top1/BNNCore/bpug15/bpu1/wgt_reg[0][1], top1/BNNCore/bpug15/bpu1/wgt_reg[0][2], top1/BNNCore/bpug15/bpu1/wgt_reg[0][3], top1/BNNCore/bpug15/bpu1/wgt_reg[0][4], top1/BNNCore/bpug15/bpu1/wgt_reg[0][5], top1/BNNCore/bpug15/bpu1/wgt_reg[0][6], top1/BNNCore/bpug15/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#54 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug15/bpu2/popcnt_add[6]_i_1__113 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug15/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug15/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug15/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug15/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug15/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug15/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug15/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug15/bpu2/wgt_reg[0][0], top1/BNNCore/bpug15/bpu2/wgt_reg[0][1], top1/BNNCore/bpug15/bpu2/wgt_reg[0][2], top1/BNNCore/bpug15/bpu2/wgt_reg[0][3], top1/BNNCore/bpug15/bpu2/wgt_reg[0][4], top1/BNNCore/bpug15/bpu2/wgt_reg[0][5], top1/BNNCore/bpug15/bpu2/wgt_reg[0][6], top1/BNNCore/bpug15/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#55 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug15/bpu3/popcnt_add[6]_i_1__112 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug15/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug15/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug15/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug15/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug15/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug15/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug15/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug15/bpu3/wgt_reg[0][0], top1/BNNCore/bpug15/bpu3/wgt_reg[0][1], top1/BNNCore/bpug15/bpu3/wgt_reg[0][2], top1/BNNCore/bpug15/bpu3/wgt_reg[0][3], top1/BNNCore/bpug15/bpu3/wgt_reg[0][4], top1/BNNCore/bpug15/bpu3/wgt_reg[0][5], top1/BNNCore/bpug15/bpu3/wgt_reg[0][6], top1/BNNCore/bpug15/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#56 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug15/bpu4/popcnt_add[6]_i_1__115 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug15/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug15/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug15/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug15/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug15/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug15/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug15/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug15/bpu4/wgt_reg[0][0], top1/BNNCore/bpug15/bpu4/wgt_reg[0][1], top1/BNNCore/bpug15/bpu4/wgt_reg[0][2], top1/BNNCore/bpug15/bpu4/wgt_reg[0][3], top1/BNNCore/bpug15/bpu4/wgt_reg[0][4], top1/BNNCore/bpug15/bpu4/wgt_reg[0][5], top1/BNNCore/bpug15/bpu4/wgt_reg[0][6], top1/BNNCore/bpug15/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#57 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug15/bpu5/popcnt_add[6]_i_1__111 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug15/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug15/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug15/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug15/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug15/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug15/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug15/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug15/bpu5/wgt_reg[0][0], top1/BNNCore/bpug15/bpu5/wgt_reg[0][1], top1/BNNCore/bpug15/bpu5/wgt_reg[0][2], top1/BNNCore/bpug15/bpu5/wgt_reg[0][3], top1/BNNCore/bpug15/bpu5/wgt_reg[0][4], top1/BNNCore/bpug15/bpu5/wgt_reg[0][5], top1/BNNCore/bpug15/bpu5/wgt_reg[0][6], top1/BNNCore/bpug15/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#58 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug15/bpu6/popcnt_add[6]_i_1__110 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug15/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug15/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug15/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug15/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug15/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug15/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug15/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug15/bpu6/wgt_reg[0][0], top1/BNNCore/bpug15/bpu6/wgt_reg[0][1], top1/BNNCore/bpug15/bpu6/wgt_reg[0][2], top1/BNNCore/bpug15/bpu6/wgt_reg[0][3], top1/BNNCore/bpug15/bpu6/wgt_reg[0][4], top1/BNNCore/bpug15/bpu6/wgt_reg[0][5], top1/BNNCore/bpug15/bpu6/wgt_reg[0][6], top1/BNNCore/bpug15/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#59 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug15/bpu7/popcnt_add[6]_i_1__109 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug15/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug15/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug15/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug15/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug15/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug15/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug15/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug15/bpu7/wgt_reg[0][0], top1/BNNCore/bpug15/bpu7/wgt_reg[0][1], top1/BNNCore/bpug15/bpu7/wgt_reg[0][2], top1/BNNCore/bpug15/bpu7/wgt_reg[0][3], top1/BNNCore/bpug15/bpu7/wgt_reg[0][4], top1/BNNCore/bpug15/bpu7/wgt_reg[0][5], top1/BNNCore/bpug15/bpu7/wgt_reg[0][6], top1/BNNCore/bpug15/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#60 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug2/bpu0/popcnt_add[6]_i_1 is driving clock pin of 184 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug2/bpu0/popcnt_add_reg[0], top1/BNNCore/bpug2/bpu0/popcnt_add_reg[1], top1/BNNCore/bpug2/bpu0/popcnt_add_reg[2], top1/BNNCore/bpug2/bpu0/popcnt_add_reg[3], top1/BNNCore/bpug2/bpu0/popcnt_add_reg[4], top1/BNNCore/bpug2/bpu0/popcnt_add_reg[5], top1/BNNCore/bpug2/bpu0/popcnt_add_reg[6], top1/BNNCore/bpug2/bpu0/wgt_reg[0][0], top1/BNNCore/bpug2/bpu0/wgt_reg[0][1], top1/BNNCore/bpug2/bpu0/wgt_reg[0][2], top1/BNNCore/bpug2/bpu0/wgt_reg[0][3], top1/BNNCore/bpug2/bpu0/wgt_reg[0][4], top1/BNNCore/bpug2/bpu0/wgt_reg[0][5], top1/BNNCore/bpug2/bpu0/wgt_reg[0][6], top1/BNNCore/bpug2/bpu0/wgt_reg[1][0] (the first 15 of 184 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#61 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug2/bpu1/popcnt_add[6]_i_1__23 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug2/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug2/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug2/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug2/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug2/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug2/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug2/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug2/bpu1/wgt_reg[0][0], top1/BNNCore/bpug2/bpu1/wgt_reg[0][1], top1/BNNCore/bpug2/bpu1/wgt_reg[0][2], top1/BNNCore/bpug2/bpu1/wgt_reg[0][3], top1/BNNCore/bpug2/bpu1/wgt_reg[0][4], top1/BNNCore/bpug2/bpu1/wgt_reg[0][5], top1/BNNCore/bpug2/bpu1/wgt_reg[0][6], top1/BNNCore/bpug2/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#62 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug2/bpu2/popcnt_add[6]_i_1__22 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug2/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug2/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug2/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug2/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug2/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug2/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug2/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug2/bpu2/wgt_reg[0][0], top1/BNNCore/bpug2/bpu2/wgt_reg[0][1], top1/BNNCore/bpug2/bpu2/wgt_reg[0][2], top1/BNNCore/bpug2/bpu2/wgt_reg[0][3], top1/BNNCore/bpug2/bpu2/wgt_reg[0][4], top1/BNNCore/bpug2/bpu2/wgt_reg[0][5], top1/BNNCore/bpug2/bpu2/wgt_reg[0][6], top1/BNNCore/bpug2/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#63 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug2/bpu3/popcnt_add[6]_i_1__21 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug2/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug2/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug2/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug2/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug2/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug2/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug2/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug2/bpu3/wgt_reg[0][0], top1/BNNCore/bpug2/bpu3/wgt_reg[0][1], top1/BNNCore/bpug2/bpu3/wgt_reg[0][2], top1/BNNCore/bpug2/bpu3/wgt_reg[0][3], top1/BNNCore/bpug2/bpu3/wgt_reg[0][4], top1/BNNCore/bpug2/bpu3/wgt_reg[0][5], top1/BNNCore/bpug2/bpu3/wgt_reg[0][6], top1/BNNCore/bpug2/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#64 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug2/bpu4/popcnt_add[6]_i_1__24 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug2/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug2/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug2/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug2/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug2/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug2/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug2/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug2/bpu4/wgt_reg[0][0], top1/BNNCore/bpug2/bpu4/wgt_reg[0][1], top1/BNNCore/bpug2/bpu4/wgt_reg[0][2], top1/BNNCore/bpug2/bpu4/wgt_reg[0][3], top1/BNNCore/bpug2/bpu4/wgt_reg[0][4], top1/BNNCore/bpug2/bpu4/wgt_reg[0][5], top1/BNNCore/bpug2/bpu4/wgt_reg[0][6], top1/BNNCore/bpug2/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#65 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug2/bpu5/popcnt_add[6]_i_1__20 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug2/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug2/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug2/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug2/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug2/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug2/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug2/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug2/bpu5/wgt_reg[0][0], top1/BNNCore/bpug2/bpu5/wgt_reg[0][1], top1/BNNCore/bpug2/bpu5/wgt_reg[0][2], top1/BNNCore/bpug2/bpu5/wgt_reg[0][3], top1/BNNCore/bpug2/bpu5/wgt_reg[0][4], top1/BNNCore/bpug2/bpu5/wgt_reg[0][5], top1/BNNCore/bpug2/bpu5/wgt_reg[0][6], top1/BNNCore/bpug2/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#66 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug2/bpu6/popcnt_add[6]_i_1__19 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug2/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug2/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug2/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug2/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug2/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug2/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug2/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug2/bpu6/wgt_reg[0][0], top1/BNNCore/bpug2/bpu6/wgt_reg[0][1], top1/BNNCore/bpug2/bpu6/wgt_reg[0][2], top1/BNNCore/bpug2/bpu6/wgt_reg[0][3], top1/BNNCore/bpug2/bpu6/wgt_reg[0][4], top1/BNNCore/bpug2/bpu6/wgt_reg[0][5], top1/BNNCore/bpug2/bpu6/wgt_reg[0][6], top1/BNNCore/bpug2/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#67 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug2/bpu7/popcnt_add[6]_i_1__18 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug2/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug2/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug2/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug2/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug2/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug2/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug2/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug2/bpu7/wgt_reg[0][0], top1/BNNCore/bpug2/bpu7/wgt_reg[0][1], top1/BNNCore/bpug2/bpu7/wgt_reg[0][2], top1/BNNCore/bpug2/bpu7/wgt_reg[0][3], top1/BNNCore/bpug2/bpu7/wgt_reg[0][4], top1/BNNCore/bpug2/bpu7/wgt_reg[0][5], top1/BNNCore/bpug2/bpu7/wgt_reg[0][6], top1/BNNCore/bpug2/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#68 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug3/bpu1/popcnt_add[6]_i_1__30 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug3/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug3/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug3/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug3/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug3/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug3/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug3/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug3/bpu1/wgt_reg[0][0], top1/BNNCore/bpug3/bpu1/wgt_reg[0][1], top1/BNNCore/bpug3/bpu1/wgt_reg[0][2], top1/BNNCore/bpug3/bpu1/wgt_reg[0][3], top1/BNNCore/bpug3/bpu1/wgt_reg[0][4], top1/BNNCore/bpug3/bpu1/wgt_reg[0][5], top1/BNNCore/bpug3/bpu1/wgt_reg[0][6], top1/BNNCore/bpug3/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#69 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug3/bpu2/popcnt_add[6]_i_1__29 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug3/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug3/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug3/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug3/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug3/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug3/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug3/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug3/bpu2/wgt_reg[0][0], top1/BNNCore/bpug3/bpu2/wgt_reg[0][1], top1/BNNCore/bpug3/bpu2/wgt_reg[0][2], top1/BNNCore/bpug3/bpu2/wgt_reg[0][3], top1/BNNCore/bpug3/bpu2/wgt_reg[0][4], top1/BNNCore/bpug3/bpu2/wgt_reg[0][5], top1/BNNCore/bpug3/bpu2/wgt_reg[0][6], top1/BNNCore/bpug3/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#70 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug3/bpu3/popcnt_add[6]_i_1__28 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug3/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug3/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug3/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug3/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug3/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug3/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug3/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug3/bpu3/wgt_reg[0][0], top1/BNNCore/bpug3/bpu3/wgt_reg[0][1], top1/BNNCore/bpug3/bpu3/wgt_reg[0][2], top1/BNNCore/bpug3/bpu3/wgt_reg[0][3], top1/BNNCore/bpug3/bpu3/wgt_reg[0][4], top1/BNNCore/bpug3/bpu3/wgt_reg[0][5], top1/BNNCore/bpug3/bpu3/wgt_reg[0][6], top1/BNNCore/bpug3/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#71 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug3/bpu4/popcnt_add[6]_i_1__31 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug3/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug3/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug3/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug3/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug3/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug3/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug3/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug3/bpu4/wgt_reg[0][0], top1/BNNCore/bpug3/bpu4/wgt_reg[0][1], top1/BNNCore/bpug3/bpu4/wgt_reg[0][2], top1/BNNCore/bpug3/bpu4/wgt_reg[0][3], top1/BNNCore/bpug3/bpu4/wgt_reg[0][4], top1/BNNCore/bpug3/bpu4/wgt_reg[0][5], top1/BNNCore/bpug3/bpu4/wgt_reg[0][6], top1/BNNCore/bpug3/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#72 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug3/bpu5/popcnt_add[6]_i_1__27 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug3/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug3/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug3/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug3/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug3/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug3/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug3/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug3/bpu5/wgt_reg[0][0], top1/BNNCore/bpug3/bpu5/wgt_reg[0][1], top1/BNNCore/bpug3/bpu5/wgt_reg[0][2], top1/BNNCore/bpug3/bpu5/wgt_reg[0][3], top1/BNNCore/bpug3/bpu5/wgt_reg[0][4], top1/BNNCore/bpug3/bpu5/wgt_reg[0][5], top1/BNNCore/bpug3/bpu5/wgt_reg[0][6], top1/BNNCore/bpug3/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#73 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug3/bpu6/popcnt_add[6]_i_1__26 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug3/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug3/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug3/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug3/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug3/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug3/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug3/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug3/bpu6/wgt_reg[0][0], top1/BNNCore/bpug3/bpu6/wgt_reg[0][1], top1/BNNCore/bpug3/bpu6/wgt_reg[0][2], top1/BNNCore/bpug3/bpu6/wgt_reg[0][3], top1/BNNCore/bpug3/bpu6/wgt_reg[0][4], top1/BNNCore/bpug3/bpu6/wgt_reg[0][5], top1/BNNCore/bpug3/bpu6/wgt_reg[0][6], top1/BNNCore/bpug3/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#74 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug3/bpu7/popcnt_add[6]_i_1__25 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug3/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug3/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug3/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug3/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug3/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug3/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug3/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug3/bpu7/wgt_reg[0][0], top1/BNNCore/bpug3/bpu7/wgt_reg[0][1], top1/BNNCore/bpug3/bpu7/wgt_reg[0][2], top1/BNNCore/bpug3/bpu7/wgt_reg[0][3], top1/BNNCore/bpug3/bpu7/wgt_reg[0][4], top1/BNNCore/bpug3/bpu7/wgt_reg[0][5], top1/BNNCore/bpug3/bpu7/wgt_reg[0][6], top1/BNNCore/bpug3/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#75 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug4/bpu1/popcnt_add[6]_i_1__33 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug4/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug4/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug4/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug4/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug4/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug4/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug4/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug4/bpu1/wgt_reg[0][0], top1/BNNCore/bpug4/bpu1/wgt_reg[0][1], top1/BNNCore/bpug4/bpu1/wgt_reg[0][2], top1/BNNCore/bpug4/bpu1/wgt_reg[0][3], top1/BNNCore/bpug4/bpu1/wgt_reg[0][4], top1/BNNCore/bpug4/bpu1/wgt_reg[0][5], top1/BNNCore/bpug4/bpu1/wgt_reg[0][6], top1/BNNCore/bpug4/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#76 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug4/bpu2/popcnt_add[6]_i_1__34 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug4/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug4/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug4/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug4/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug4/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug4/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug4/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug4/bpu2/wgt_reg[0][0], top1/BNNCore/bpug4/bpu2/wgt_reg[0][1], top1/BNNCore/bpug4/bpu2/wgt_reg[0][2], top1/BNNCore/bpug4/bpu2/wgt_reg[0][3], top1/BNNCore/bpug4/bpu2/wgt_reg[0][4], top1/BNNCore/bpug4/bpu2/wgt_reg[0][5], top1/BNNCore/bpug4/bpu2/wgt_reg[0][6], top1/BNNCore/bpug4/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#77 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug4/bpu3/popcnt_add[6]_i_1__35 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug4/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug4/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug4/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug4/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug4/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug4/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug4/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug4/bpu3/wgt_reg[0][0], top1/BNNCore/bpug4/bpu3/wgt_reg[0][1], top1/BNNCore/bpug4/bpu3/wgt_reg[0][2], top1/BNNCore/bpug4/bpu3/wgt_reg[0][3], top1/BNNCore/bpug4/bpu3/wgt_reg[0][4], top1/BNNCore/bpug4/bpu3/wgt_reg[0][5], top1/BNNCore/bpug4/bpu3/wgt_reg[0][6], top1/BNNCore/bpug4/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#78 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug4/bpu4/popcnt_add[6]_i_1__32 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug4/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug4/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug4/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug4/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug4/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug4/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug4/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug4/bpu4/wgt_reg[0][0], top1/BNNCore/bpug4/bpu4/wgt_reg[0][1], top1/BNNCore/bpug4/bpu4/wgt_reg[0][2], top1/BNNCore/bpug4/bpu4/wgt_reg[0][3], top1/BNNCore/bpug4/bpu4/wgt_reg[0][4], top1/BNNCore/bpug4/bpu4/wgt_reg[0][5], top1/BNNCore/bpug4/bpu4/wgt_reg[0][6], top1/BNNCore/bpug4/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#79 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug4/bpu5/popcnt_add[6]_i_1__36 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug4/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug4/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug4/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug4/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug4/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug4/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug4/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug4/bpu5/wgt_reg[0][0], top1/BNNCore/bpug4/bpu5/wgt_reg[0][1], top1/BNNCore/bpug4/bpu5/wgt_reg[0][2], top1/BNNCore/bpug4/bpu5/wgt_reg[0][3], top1/BNNCore/bpug4/bpu5/wgt_reg[0][4], top1/BNNCore/bpug4/bpu5/wgt_reg[0][5], top1/BNNCore/bpug4/bpu5/wgt_reg[0][6], top1/BNNCore/bpug4/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#80 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug4/bpu6/popcnt_add[6]_i_1__37 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug4/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug4/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug4/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug4/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug4/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug4/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug4/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug4/bpu6/wgt_reg[0][0], top1/BNNCore/bpug4/bpu6/wgt_reg[0][1], top1/BNNCore/bpug4/bpu6/wgt_reg[0][2], top1/BNNCore/bpug4/bpu6/wgt_reg[0][3], top1/BNNCore/bpug4/bpu6/wgt_reg[0][4], top1/BNNCore/bpug4/bpu6/wgt_reg[0][5], top1/BNNCore/bpug4/bpu6/wgt_reg[0][6], top1/BNNCore/bpug4/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#81 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug4/bpu7/popcnt_add[6]_i_1__38 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug4/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug4/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug4/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug4/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug4/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug4/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug4/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug4/bpu7/wgt_reg[0][0], top1/BNNCore/bpug4/bpu7/wgt_reg[0][1], top1/BNNCore/bpug4/bpu7/wgt_reg[0][2], top1/BNNCore/bpug4/bpu7/wgt_reg[0][3], top1/BNNCore/bpug4/bpu7/wgt_reg[0][4], top1/BNNCore/bpug4/bpu7/wgt_reg[0][5], top1/BNNCore/bpug4/bpu7/wgt_reg[0][6], top1/BNNCore/bpug4/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#82 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug5/bpu0/popcnt_add[6]_i_1__0 is driving clock pin of 184 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug5/bpu0/popcnt_add_reg[0], top1/BNNCore/bpug5/bpu0/popcnt_add_reg[1], top1/BNNCore/bpug5/bpu0/popcnt_add_reg[2], top1/BNNCore/bpug5/bpu0/popcnt_add_reg[3], top1/BNNCore/bpug5/bpu0/popcnt_add_reg[4], top1/BNNCore/bpug5/bpu0/popcnt_add_reg[5], top1/BNNCore/bpug5/bpu0/popcnt_add_reg[6], top1/BNNCore/bpug5/bpu0/wgt_reg[0][0], top1/BNNCore/bpug5/bpu0/wgt_reg[0][1], top1/BNNCore/bpug5/bpu0/wgt_reg[0][2], top1/BNNCore/bpug5/bpu0/wgt_reg[0][3], top1/BNNCore/bpug5/bpu0/wgt_reg[0][4], top1/BNNCore/bpug5/bpu0/wgt_reg[0][5], top1/BNNCore/bpug5/bpu0/wgt_reg[0][6], top1/BNNCore/bpug5/bpu0/wgt_reg[1][0] (the first 15 of 184 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#83 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug5/bpu1/popcnt_add[6]_i_1__40 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug5/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug5/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug5/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug5/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug5/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug5/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug5/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug5/bpu1/wgt_reg[0][0], top1/BNNCore/bpug5/bpu1/wgt_reg[0][1], top1/BNNCore/bpug5/bpu1/wgt_reg[0][2], top1/BNNCore/bpug5/bpu1/wgt_reg[0][3], top1/BNNCore/bpug5/bpu1/wgt_reg[0][4], top1/BNNCore/bpug5/bpu1/wgt_reg[0][5], top1/BNNCore/bpug5/bpu1/wgt_reg[0][6], top1/BNNCore/bpug5/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#84 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug5/bpu2/popcnt_add[6]_i_1__41 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug5/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug5/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug5/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug5/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug5/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug5/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug5/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug5/bpu2/wgt_reg[0][0], top1/BNNCore/bpug5/bpu2/wgt_reg[0][1], top1/BNNCore/bpug5/bpu2/wgt_reg[0][2], top1/BNNCore/bpug5/bpu2/wgt_reg[0][3], top1/BNNCore/bpug5/bpu2/wgt_reg[0][4], top1/BNNCore/bpug5/bpu2/wgt_reg[0][5], top1/BNNCore/bpug5/bpu2/wgt_reg[0][6], top1/BNNCore/bpug5/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#85 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug5/bpu3/popcnt_add[6]_i_1__42 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug5/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug5/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug5/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug5/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug5/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug5/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug5/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug5/bpu3/wgt_reg[0][0], top1/BNNCore/bpug5/bpu3/wgt_reg[0][1], top1/BNNCore/bpug5/bpu3/wgt_reg[0][2], top1/BNNCore/bpug5/bpu3/wgt_reg[0][3], top1/BNNCore/bpug5/bpu3/wgt_reg[0][4], top1/BNNCore/bpug5/bpu3/wgt_reg[0][5], top1/BNNCore/bpug5/bpu3/wgt_reg[0][6], top1/BNNCore/bpug5/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#86 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug5/bpu4/popcnt_add[6]_i_1__39 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug5/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug5/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug5/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug5/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug5/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug5/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug5/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug5/bpu4/wgt_reg[0][0], top1/BNNCore/bpug5/bpu4/wgt_reg[0][1], top1/BNNCore/bpug5/bpu4/wgt_reg[0][2], top1/BNNCore/bpug5/bpu4/wgt_reg[0][3], top1/BNNCore/bpug5/bpu4/wgt_reg[0][4], top1/BNNCore/bpug5/bpu4/wgt_reg[0][5], top1/BNNCore/bpug5/bpu4/wgt_reg[0][6], top1/BNNCore/bpug5/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#87 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug5/bpu5/popcnt_add[6]_i_1__43 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug5/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug5/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug5/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug5/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug5/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug5/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug5/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug5/bpu5/wgt_reg[0][0], top1/BNNCore/bpug5/bpu5/wgt_reg[0][1], top1/BNNCore/bpug5/bpu5/wgt_reg[0][2], top1/BNNCore/bpug5/bpu5/wgt_reg[0][3], top1/BNNCore/bpug5/bpu5/wgt_reg[0][4], top1/BNNCore/bpug5/bpu5/wgt_reg[0][5], top1/BNNCore/bpug5/bpu5/wgt_reg[0][6], top1/BNNCore/bpug5/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#88 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug5/bpu6/popcnt_add[6]_i_1__44 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug5/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug5/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug5/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug5/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug5/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug5/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug5/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug5/bpu6/wgt_reg[0][0], top1/BNNCore/bpug5/bpu6/wgt_reg[0][1], top1/BNNCore/bpug5/bpu6/wgt_reg[0][2], top1/BNNCore/bpug5/bpu6/wgt_reg[0][3], top1/BNNCore/bpug5/bpu6/wgt_reg[0][4], top1/BNNCore/bpug5/bpu6/wgt_reg[0][5], top1/BNNCore/bpug5/bpu6/wgt_reg[0][6], top1/BNNCore/bpug5/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#89 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug5/bpu7/popcnt_add[6]_i_1__45 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug5/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug5/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug5/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug5/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug5/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug5/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug5/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug5/bpu7/wgt_reg[0][0], top1/BNNCore/bpug5/bpu7/wgt_reg[0][1], top1/BNNCore/bpug5/bpu7/wgt_reg[0][2], top1/BNNCore/bpug5/bpu7/wgt_reg[0][3], top1/BNNCore/bpug5/bpu7/wgt_reg[0][4], top1/BNNCore/bpug5/bpu7/wgt_reg[0][5], top1/BNNCore/bpug5/bpu7/wgt_reg[0][6], top1/BNNCore/bpug5/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#90 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug6/bpu1/popcnt_add[6]_i_1__47 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug6/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug6/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug6/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug6/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug6/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug6/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug6/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug6/bpu1/wgt_reg[0][0], top1/BNNCore/bpug6/bpu1/wgt_reg[0][1], top1/BNNCore/bpug6/bpu1/wgt_reg[0][2], top1/BNNCore/bpug6/bpu1/wgt_reg[0][3], top1/BNNCore/bpug6/bpu1/wgt_reg[0][4], top1/BNNCore/bpug6/bpu1/wgt_reg[0][5], top1/BNNCore/bpug6/bpu1/wgt_reg[0][6], top1/BNNCore/bpug6/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#91 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug6/bpu2/popcnt_add[6]_i_1__48 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug6/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug6/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug6/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug6/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug6/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug6/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug6/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug6/bpu2/wgt_reg[0][0], top1/BNNCore/bpug6/bpu2/wgt_reg[0][1], top1/BNNCore/bpug6/bpu2/wgt_reg[0][2], top1/BNNCore/bpug6/bpu2/wgt_reg[0][3], top1/BNNCore/bpug6/bpu2/wgt_reg[0][4], top1/BNNCore/bpug6/bpu2/wgt_reg[0][5], top1/BNNCore/bpug6/bpu2/wgt_reg[0][6], top1/BNNCore/bpug6/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#92 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug6/bpu3/popcnt_add[6]_i_1__49 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug6/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug6/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug6/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug6/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug6/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug6/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug6/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug6/bpu3/wgt_reg[0][0], top1/BNNCore/bpug6/bpu3/wgt_reg[0][1], top1/BNNCore/bpug6/bpu3/wgt_reg[0][2], top1/BNNCore/bpug6/bpu3/wgt_reg[0][3], top1/BNNCore/bpug6/bpu3/wgt_reg[0][4], top1/BNNCore/bpug6/bpu3/wgt_reg[0][5], top1/BNNCore/bpug6/bpu3/wgt_reg[0][6], top1/BNNCore/bpug6/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#93 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug6/bpu4/popcnt_add[6]_i_1__46 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug6/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug6/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug6/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug6/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug6/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug6/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug6/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug6/bpu4/wgt_reg[0][0], top1/BNNCore/bpug6/bpu4/wgt_reg[0][1], top1/BNNCore/bpug6/bpu4/wgt_reg[0][2], top1/BNNCore/bpug6/bpu4/wgt_reg[0][3], top1/BNNCore/bpug6/bpu4/wgt_reg[0][4], top1/BNNCore/bpug6/bpu4/wgt_reg[0][5], top1/BNNCore/bpug6/bpu4/wgt_reg[0][6], top1/BNNCore/bpug6/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#94 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug6/bpu5/popcnt_add[6]_i_1__50 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug6/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug6/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug6/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug6/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug6/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug6/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug6/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug6/bpu5/wgt_reg[0][0], top1/BNNCore/bpug6/bpu5/wgt_reg[0][1], top1/BNNCore/bpug6/bpu5/wgt_reg[0][2], top1/BNNCore/bpug6/bpu5/wgt_reg[0][3], top1/BNNCore/bpug6/bpu5/wgt_reg[0][4], top1/BNNCore/bpug6/bpu5/wgt_reg[0][5], top1/BNNCore/bpug6/bpu5/wgt_reg[0][6], top1/BNNCore/bpug6/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#95 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug6/bpu6/popcnt_add[6]_i_1__51 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug6/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug6/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug6/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug6/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug6/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug6/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug6/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug6/bpu6/wgt_reg[0][0], top1/BNNCore/bpug6/bpu6/wgt_reg[0][1], top1/BNNCore/bpug6/bpu6/wgt_reg[0][2], top1/BNNCore/bpug6/bpu6/wgt_reg[0][3], top1/BNNCore/bpug6/bpu6/wgt_reg[0][4], top1/BNNCore/bpug6/bpu6/wgt_reg[0][5], top1/BNNCore/bpug6/bpu6/wgt_reg[0][6], top1/BNNCore/bpug6/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#96 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug6/bpu7/popcnt_add[6]_i_1__52 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug6/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug6/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug6/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug6/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug6/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug6/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug6/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug6/bpu7/wgt_reg[0][0], top1/BNNCore/bpug6/bpu7/wgt_reg[0][1], top1/BNNCore/bpug6/bpu7/wgt_reg[0][2], top1/BNNCore/bpug6/bpu7/wgt_reg[0][3], top1/BNNCore/bpug6/bpu7/wgt_reg[0][4], top1/BNNCore/bpug6/bpu7/wgt_reg[0][5], top1/BNNCore/bpug6/bpu7/wgt_reg[0][6], top1/BNNCore/bpug6/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#97 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug7/bpu1/popcnt_add[6]_i_1__54 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug7/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug7/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug7/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug7/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug7/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug7/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug7/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug7/bpu1/wgt_reg[0][0], top1/BNNCore/bpug7/bpu1/wgt_reg[0][1], top1/BNNCore/bpug7/bpu1/wgt_reg[0][2], top1/BNNCore/bpug7/bpu1/wgt_reg[0][3], top1/BNNCore/bpug7/bpu1/wgt_reg[0][4], top1/BNNCore/bpug7/bpu1/wgt_reg[0][5], top1/BNNCore/bpug7/bpu1/wgt_reg[0][6], top1/BNNCore/bpug7/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#98 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug7/bpu2/popcnt_add[6]_i_1__55 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug7/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug7/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug7/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug7/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug7/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug7/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug7/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug7/bpu2/wgt_reg[0][0], top1/BNNCore/bpug7/bpu2/wgt_reg[0][1], top1/BNNCore/bpug7/bpu2/wgt_reg[0][2], top1/BNNCore/bpug7/bpu2/wgt_reg[0][3], top1/BNNCore/bpug7/bpu2/wgt_reg[0][4], top1/BNNCore/bpug7/bpu2/wgt_reg[0][5], top1/BNNCore/bpug7/bpu2/wgt_reg[0][6], top1/BNNCore/bpug7/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#99 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug7/bpu3/popcnt_add[6]_i_1__56 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug7/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug7/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug7/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug7/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug7/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug7/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug7/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug7/bpu3/wgt_reg[0][0], top1/BNNCore/bpug7/bpu3/wgt_reg[0][1], top1/BNNCore/bpug7/bpu3/wgt_reg[0][2], top1/BNNCore/bpug7/bpu3/wgt_reg[0][3], top1/BNNCore/bpug7/bpu3/wgt_reg[0][4], top1/BNNCore/bpug7/bpu3/wgt_reg[0][5], top1/BNNCore/bpug7/bpu3/wgt_reg[0][6], top1/BNNCore/bpug7/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#100 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug7/bpu4/popcnt_add[6]_i_1__53 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug7/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug7/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug7/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug7/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug7/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug7/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug7/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug7/bpu4/wgt_reg[0][0], top1/BNNCore/bpug7/bpu4/wgt_reg[0][1], top1/BNNCore/bpug7/bpu4/wgt_reg[0][2], top1/BNNCore/bpug7/bpu4/wgt_reg[0][3], top1/BNNCore/bpug7/bpu4/wgt_reg[0][4], top1/BNNCore/bpug7/bpu4/wgt_reg[0][5], top1/BNNCore/bpug7/bpu4/wgt_reg[0][6], top1/BNNCore/bpug7/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#101 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug7/bpu5/popcnt_add[6]_i_1__57 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug7/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug7/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug7/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug7/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug7/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug7/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug7/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug7/bpu5/wgt_reg[0][0], top1/BNNCore/bpug7/bpu5/wgt_reg[0][1], top1/BNNCore/bpug7/bpu5/wgt_reg[0][2], top1/BNNCore/bpug7/bpu5/wgt_reg[0][3], top1/BNNCore/bpug7/bpu5/wgt_reg[0][4], top1/BNNCore/bpug7/bpu5/wgt_reg[0][5], top1/BNNCore/bpug7/bpu5/wgt_reg[0][6], top1/BNNCore/bpug7/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#102 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug7/bpu6/popcnt_add[6]_i_1__58 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug7/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug7/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug7/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug7/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug7/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug7/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug7/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug7/bpu6/wgt_reg[0][0], top1/BNNCore/bpug7/bpu6/wgt_reg[0][1], top1/BNNCore/bpug7/bpu6/wgt_reg[0][2], top1/BNNCore/bpug7/bpu6/wgt_reg[0][3], top1/BNNCore/bpug7/bpu6/wgt_reg[0][4], top1/BNNCore/bpug7/bpu6/wgt_reg[0][5], top1/BNNCore/bpug7/bpu6/wgt_reg[0][6], top1/BNNCore/bpug7/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#103 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug7/bpu7/popcnt_add[6]_i_1__59 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug7/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug7/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug7/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug7/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug7/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug7/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug7/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug7/bpu7/wgt_reg[0][0], top1/BNNCore/bpug7/bpu7/wgt_reg[0][1], top1/BNNCore/bpug7/bpu7/wgt_reg[0][2], top1/BNNCore/bpug7/bpu7/wgt_reg[0][3], top1/BNNCore/bpug7/bpu7/wgt_reg[0][4], top1/BNNCore/bpug7/bpu7/wgt_reg[0][5], top1/BNNCore/bpug7/bpu7/wgt_reg[0][6], top1/BNNCore/bpug7/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#104 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug8/bpu1/popcnt_add[6]_i_1__61 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug8/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug8/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug8/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug8/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug8/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug8/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug8/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug8/bpu1/wgt_reg[0][0], top1/BNNCore/bpug8/bpu1/wgt_reg[0][1], top1/BNNCore/bpug8/bpu1/wgt_reg[0][2], top1/BNNCore/bpug8/bpu1/wgt_reg[0][3], top1/BNNCore/bpug8/bpu1/wgt_reg[0][4], top1/BNNCore/bpug8/bpu1/wgt_reg[0][5], top1/BNNCore/bpug8/bpu1/wgt_reg[0][6], top1/BNNCore/bpug8/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#105 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug8/bpu2/popcnt_add[6]_i_1__62 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug8/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug8/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug8/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug8/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug8/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug8/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug8/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug8/bpu2/wgt_reg[0][0], top1/BNNCore/bpug8/bpu2/wgt_reg[0][1], top1/BNNCore/bpug8/bpu2/wgt_reg[0][2], top1/BNNCore/bpug8/bpu2/wgt_reg[0][3], top1/BNNCore/bpug8/bpu2/wgt_reg[0][4], top1/BNNCore/bpug8/bpu2/wgt_reg[0][5], top1/BNNCore/bpug8/bpu2/wgt_reg[0][6], top1/BNNCore/bpug8/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#106 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug8/bpu3/popcnt_add[6]_i_1__63 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug8/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug8/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug8/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug8/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug8/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug8/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug8/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug8/bpu3/wgt_reg[0][0], top1/BNNCore/bpug8/bpu3/wgt_reg[0][1], top1/BNNCore/bpug8/bpu3/wgt_reg[0][2], top1/BNNCore/bpug8/bpu3/wgt_reg[0][3], top1/BNNCore/bpug8/bpu3/wgt_reg[0][4], top1/BNNCore/bpug8/bpu3/wgt_reg[0][5], top1/BNNCore/bpug8/bpu3/wgt_reg[0][6], top1/BNNCore/bpug8/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#107 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug8/bpu4/popcnt_add[6]_i_1__60 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug8/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug8/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug8/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug8/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug8/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug8/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug8/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug8/bpu4/wgt_reg[0][0], top1/BNNCore/bpug8/bpu4/wgt_reg[0][1], top1/BNNCore/bpug8/bpu4/wgt_reg[0][2], top1/BNNCore/bpug8/bpu4/wgt_reg[0][3], top1/BNNCore/bpug8/bpu4/wgt_reg[0][4], top1/BNNCore/bpug8/bpu4/wgt_reg[0][5], top1/BNNCore/bpug8/bpu4/wgt_reg[0][6], top1/BNNCore/bpug8/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#108 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug8/bpu5/popcnt_add[6]_i_1__64 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug8/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug8/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug8/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug8/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug8/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug8/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug8/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug8/bpu5/wgt_reg[0][0], top1/BNNCore/bpug8/bpu5/wgt_reg[0][1], top1/BNNCore/bpug8/bpu5/wgt_reg[0][2], top1/BNNCore/bpug8/bpu5/wgt_reg[0][3], top1/BNNCore/bpug8/bpu5/wgt_reg[0][4], top1/BNNCore/bpug8/bpu5/wgt_reg[0][5], top1/BNNCore/bpug8/bpu5/wgt_reg[0][6], top1/BNNCore/bpug8/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#109 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug8/bpu6/popcnt_add[6]_i_1__65 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug8/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug8/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug8/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug8/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug8/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug8/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug8/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug8/bpu6/wgt_reg[0][0], top1/BNNCore/bpug8/bpu6/wgt_reg[0][1], top1/BNNCore/bpug8/bpu6/wgt_reg[0][2], top1/BNNCore/bpug8/bpu6/wgt_reg[0][3], top1/BNNCore/bpug8/bpu6/wgt_reg[0][4], top1/BNNCore/bpug8/bpu6/wgt_reg[0][5], top1/BNNCore/bpug8/bpu6/wgt_reg[0][6], top1/BNNCore/bpug8/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#110 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug8/bpu7/popcnt_add[6]_i_1__66 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug8/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug8/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug8/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug8/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug8/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug8/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug8/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug8/bpu7/wgt_reg[0][0], top1/BNNCore/bpug8/bpu7/wgt_reg[0][1], top1/BNNCore/bpug8/bpu7/wgt_reg[0][2], top1/BNNCore/bpug8/bpu7/wgt_reg[0][3], top1/BNNCore/bpug8/bpu7/wgt_reg[0][4], top1/BNNCore/bpug8/bpu7/wgt_reg[0][5], top1/BNNCore/bpug8/bpu7/wgt_reg[0][6], top1/BNNCore/bpug8/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#111 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug9/bpu1/popcnt_add[6]_i_1__68 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug9/bpu1/popcnt_add_reg[0], top1/BNNCore/bpug9/bpu1/popcnt_add_reg[1], top1/BNNCore/bpug9/bpu1/popcnt_add_reg[2], top1/BNNCore/bpug9/bpu1/popcnt_add_reg[3], top1/BNNCore/bpug9/bpu1/popcnt_add_reg[4], top1/BNNCore/bpug9/bpu1/popcnt_add_reg[5], top1/BNNCore/bpug9/bpu1/popcnt_add_reg[6], top1/BNNCore/bpug9/bpu1/wgt_reg[0][0], top1/BNNCore/bpug9/bpu1/wgt_reg[0][1], top1/BNNCore/bpug9/bpu1/wgt_reg[0][2], top1/BNNCore/bpug9/bpu1/wgt_reg[0][3], top1/BNNCore/bpug9/bpu1/wgt_reg[0][4], top1/BNNCore/bpug9/bpu1/wgt_reg[0][5], top1/BNNCore/bpug9/bpu1/wgt_reg[0][6], top1/BNNCore/bpug9/bpu1/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#112 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug9/bpu2/popcnt_add[6]_i_1__69 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug9/bpu2/popcnt_add_reg[0], top1/BNNCore/bpug9/bpu2/popcnt_add_reg[1], top1/BNNCore/bpug9/bpu2/popcnt_add_reg[2], top1/BNNCore/bpug9/bpu2/popcnt_add_reg[3], top1/BNNCore/bpug9/bpu2/popcnt_add_reg[4], top1/BNNCore/bpug9/bpu2/popcnt_add_reg[5], top1/BNNCore/bpug9/bpu2/popcnt_add_reg[6], top1/BNNCore/bpug9/bpu2/wgt_reg[0][0], top1/BNNCore/bpug9/bpu2/wgt_reg[0][1], top1/BNNCore/bpug9/bpu2/wgt_reg[0][2], top1/BNNCore/bpug9/bpu2/wgt_reg[0][3], top1/BNNCore/bpug9/bpu2/wgt_reg[0][4], top1/BNNCore/bpug9/bpu2/wgt_reg[0][5], top1/BNNCore/bpug9/bpu2/wgt_reg[0][6], top1/BNNCore/bpug9/bpu2/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#113 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug9/bpu3/popcnt_add[6]_i_1__70 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug9/bpu3/popcnt_add_reg[0], top1/BNNCore/bpug9/bpu3/popcnt_add_reg[1], top1/BNNCore/bpug9/bpu3/popcnt_add_reg[2], top1/BNNCore/bpug9/bpu3/popcnt_add_reg[3], top1/BNNCore/bpug9/bpu3/popcnt_add_reg[4], top1/BNNCore/bpug9/bpu3/popcnt_add_reg[5], top1/BNNCore/bpug9/bpu3/popcnt_add_reg[6], top1/BNNCore/bpug9/bpu3/wgt_reg[0][0], top1/BNNCore/bpug9/bpu3/wgt_reg[0][1], top1/BNNCore/bpug9/bpu3/wgt_reg[0][2], top1/BNNCore/bpug9/bpu3/wgt_reg[0][3], top1/BNNCore/bpug9/bpu3/wgt_reg[0][4], top1/BNNCore/bpug9/bpu3/wgt_reg[0][5], top1/BNNCore/bpug9/bpu3/wgt_reg[0][6], top1/BNNCore/bpug9/bpu3/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#114 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug9/bpu4/popcnt_add[6]_i_1__67 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug9/bpu4/popcnt_add_reg[0], top1/BNNCore/bpug9/bpu4/popcnt_add_reg[1], top1/BNNCore/bpug9/bpu4/popcnt_add_reg[2], top1/BNNCore/bpug9/bpu4/popcnt_add_reg[3], top1/BNNCore/bpug9/bpu4/popcnt_add_reg[4], top1/BNNCore/bpug9/bpu4/popcnt_add_reg[5], top1/BNNCore/bpug9/bpu4/popcnt_add_reg[6], top1/BNNCore/bpug9/bpu4/wgt_reg[0][0], top1/BNNCore/bpug9/bpu4/wgt_reg[0][1], top1/BNNCore/bpug9/bpu4/wgt_reg[0][2], top1/BNNCore/bpug9/bpu4/wgt_reg[0][3], top1/BNNCore/bpug9/bpu4/wgt_reg[0][4], top1/BNNCore/bpug9/bpu4/wgt_reg[0][5], top1/BNNCore/bpug9/bpu4/wgt_reg[0][6], top1/BNNCore/bpug9/bpu4/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#115 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug9/bpu5/popcnt_add[6]_i_1__71 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug9/bpu5/popcnt_add_reg[0], top1/BNNCore/bpug9/bpu5/popcnt_add_reg[1], top1/BNNCore/bpug9/bpu5/popcnt_add_reg[2], top1/BNNCore/bpug9/bpu5/popcnt_add_reg[3], top1/BNNCore/bpug9/bpu5/popcnt_add_reg[4], top1/BNNCore/bpug9/bpu5/popcnt_add_reg[5], top1/BNNCore/bpug9/bpu5/popcnt_add_reg[6], top1/BNNCore/bpug9/bpu5/wgt_reg[0][0], top1/BNNCore/bpug9/bpu5/wgt_reg[0][1], top1/BNNCore/bpug9/bpu5/wgt_reg[0][2], top1/BNNCore/bpug9/bpu5/wgt_reg[0][3], top1/BNNCore/bpug9/bpu5/wgt_reg[0][4], top1/BNNCore/bpug9/bpu5/wgt_reg[0][5], top1/BNNCore/bpug9/bpu5/wgt_reg[0][6], top1/BNNCore/bpug9/bpu5/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#116 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug9/bpu6/popcnt_add[6]_i_1__72 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug9/bpu6/popcnt_add_reg[0], top1/BNNCore/bpug9/bpu6/popcnt_add_reg[1], top1/BNNCore/bpug9/bpu6/popcnt_add_reg[2], top1/BNNCore/bpug9/bpu6/popcnt_add_reg[3], top1/BNNCore/bpug9/bpu6/popcnt_add_reg[4], top1/BNNCore/bpug9/bpu6/popcnt_add_reg[5], top1/BNNCore/bpug9/bpu6/popcnt_add_reg[6], top1/BNNCore/bpug9/bpu6/wgt_reg[0][0], top1/BNNCore/bpug9/bpu6/wgt_reg[0][1], top1/BNNCore/bpug9/bpu6/wgt_reg[0][2], top1/BNNCore/bpug9/bpu6/wgt_reg[0][3], top1/BNNCore/bpug9/bpu6/wgt_reg[0][4], top1/BNNCore/bpug9/bpu6/wgt_reg[0][5], top1/BNNCore/bpug9/bpu6/wgt_reg[0][6], top1/BNNCore/bpug9/bpu6/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#117 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT top1/BNNCore/bpug9/bpu7/popcnt_add[6]_i_1__73 is driving clock pin of 56 cells. This could lead to large hold time violations. Involved cells are:
+top1/BNNCore/bpug9/bpu7/popcnt_add_reg[0], top1/BNNCore/bpug9/bpu7/popcnt_add_reg[1], top1/BNNCore/bpug9/bpu7/popcnt_add_reg[2], top1/BNNCore/bpug9/bpu7/popcnt_add_reg[3], top1/BNNCore/bpug9/bpu7/popcnt_add_reg[4], top1/BNNCore/bpug9/bpu7/popcnt_add_reg[5], top1/BNNCore/bpug9/bpu7/popcnt_add_reg[6], top1/BNNCore/bpug9/bpu7/wgt_reg[0][0], top1/BNNCore/bpug9/bpu7/wgt_reg[0][1], top1/BNNCore/bpug9/bpu7/wgt_reg[0][2], top1/BNNCore/bpug9/bpu7/wgt_reg[0][3], top1/BNNCore/bpug9/bpu7/wgt_reg[0][4], top1/BNNCore/bpug9/bpu7/wgt_reg[0][5], top1/BNNCore/bpug9/bpu7/wgt_reg[0][6], top1/BNNCore/bpug9/bpu7/wgt_reg[1][0] (the first 15 of 56 listed)
+Related violations: <none>
+
+ZPS7-1#1 Warning
+PS7 block required  
+The PS7 cell must be used in this Zynq design in order to enable correct default configuration.
+Related violations: <none>
+
+
