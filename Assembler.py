@@ -1,12 +1,12 @@
 import sys
+
 machine_code = ""#machine instruction codes
-doc = open('D:/WeChat Files/wxid_7qg360e9m44722/FileStorage/File/2021-01/BNNProcessor/BNNProcessor.sim/sim_1/behav/xsim/INST_SRAM','w')
-with open('INST_FOR_REAL') as f:
+with open('real_inst_reformed') as f:
     read_data = f.read()
 f.close()
 read_data = read_data.split('\n')
-# print("depth of instruction:",end="")
-# print(len(read_data))
+print("depth of instruction:",end="")
+print(len(read_data))
 for assembly in read_data:
     assembly = assembly.upper()
     assembly = assembly.split()
@@ -151,9 +151,12 @@ for assembly in read_data:
             sys.exit()
 
         if (int(assembly[2]) <= 63) & (int(assembly[2]) >= -64):
-            if int(assembly[2]) > 0:
+            if int(assembly[2]) >= 0:
                 assembly[2] = bin(int(assembly[2]))[2:].rjust(7, "0")
             else:
+                if(int(assembly[2])==-1):
+                    assembly[2] = bin(int(assembly[2]) + 1)[2:]
+                else:
                 assembly[2] = bin(int(assembly[2]) + 1)[3:]
                 assembly[2] = assembly[2].replace("1", "a")
                 assembly[2] = assembly[2].replace("0", "1")
@@ -163,6 +166,7 @@ for assembly in read_data:
         else:
             print("error_add_2")
             sys.exit()
+
 
     elif "CMP" == assembly[0]:
         machine_code = machine_code + "00101"
@@ -372,8 +376,7 @@ for assembly in read_data:
             sys.exit()
 
     if len(machine_code) == 16:
-        print(machine_code)
-        print(machine_code, file=doc)
+        print(machine_code+',')
         machine_code = machine_code.replace("1", "")
         machine_code = machine_code.replace("0", "")
     else:

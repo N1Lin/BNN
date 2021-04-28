@@ -1,32 +1,12 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2020/11/06 17:53:44
-// Design Name: 
-// Module Name: BPU
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
-
-module BNNCtrl(
+module CTRL_Origin(
     input clk,
     input rst,
     input pause,
     input [15:0]inst,//input instructios
     output reg[19:0]bnncore_ctrl,//instruction to bnn_core
-    output reg[15:0]datasram_ctrl,//13~0:address bits, 14: CEN, 15: WEN
+    output reg[15:0]datasram_ctrl,//12~0:address bits, 13: CEN, 14: WEN
     output wire[12:0]instsram_ctrl//10~0:address bits, 11: CEN, 12: WEN
     );
     
@@ -109,7 +89,7 @@ module BNNCtrl(
                     3'b000: ;
                     3'b001: pc2<={inst[7:0],pc2[7:0]};
                     3'b010: pc3<={inst[7:0],pc3[7:0]};
-                    3'b011: pc4<={inst[15:8],pc4[7:0]};
+                    3'b011: pc4<={inst[7:0],pc4[7:0]};
                     3'b100: r1<={inst[7:0],r1[7:0]};
                     3'b101: r2<={inst[7:0],r2[7:0]};
                     3'b110: r3<={inst[7:0],r3[7:0]};
@@ -144,7 +124,7 @@ module BNNCtrl(
                     bnncore_ctrl[10:0] <= 0;
                     bnncore_ctrl[19:12] <= 0;
 
-                    datasram_ctrl[13:0] <= pc2[13:0];
+                    datasram_ctrl[13:0] <= pc2[12:0];
                     datasram_ctrl[14] <=0;
                     datasram_ctrl[15] <=1;
                 end
@@ -158,7 +138,7 @@ module BNNCtrl(
                     bnncore_ctrl[7:3] <= 0;
                     bnncore_ctrl[15:9] <= 0;
 
-                    datasram_ctrl[13:0] <= pc2[13:0];//data's address
+                    datasram_ctrl[13:0] <= pc2[12:0];//data's address
                     datasram_ctrl[14] <=0;
                     datasram_ctrl[15] <=1;
                 end
@@ -171,7 +151,7 @@ module BNNCtrl(
                     bnncore_ctrl[7:0] <= 0;
                     bnncore_ctrl[14:9] <= 0;
 
-                    datasram_ctrl[13:0] <= pc2[13:0];//data's address
+                    datasram_ctrl[13:0] <= pc2[12:0];//data's address
                     datasram_ctrl[14] <=0;
                     datasram_ctrl[15] <=1;
                 end
@@ -358,7 +338,7 @@ module BNNCtrl(
             bnncore_ctrl[13:7] <= 0;
             bnncore_ctrl[16:15] <= 0;
 
-            datasram_ctrl[13:0] <= pc4[13:0];
+            datasram_ctrl[13:0] <= pc4[12:0];
             datasram_ctrl[14] <= 0;
             datasram_ctrl[15] <= 0;
             if (inst[9]) begin

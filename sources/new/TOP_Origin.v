@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 
-module TOP
-#(parameter  DATASRAM_ADDRWIDTH=13,
+module TOP_Origin
+#(parameter  DATASRAM_ADDRWIDTH=14,
     DATASRAM_DATAWIDTH=32,
-    INSTSRAM_ADDRWIDTH=10,
+    INSTSRAM_ADDRWIDTH=11,
     INSTSRAM_DATAWIDTH=16)
-    (input CLK, 
+    (input CLK,
     input RST, 
     input PAUSE, 
     input SRAMSEL, 
@@ -13,7 +13,9 @@ module TOP
     input SRAMMUX, 
     input SRAMCEN, 
     input SRAMWEN, 
-    input SRAMDIN, 
+    input SRAMDIN,
+    input [1:0]SRAMSE,
+    input [1:0]SRAMDFT,
     output SRAMDOUT);
 
     // Port of P_TO_S_16
@@ -82,9 +84,7 @@ module TOP
     wire INSTWEN; //WEN of INST_SRAM
     wire INSTCLK; //CLK of INST_SRAM
     (* dont_touch = "true" *) SRAM #(.ADDRWIDTH(INSTSRAM_ADDRWIDTH), .DATAWIDTH(INSTSRAM_DATAWIDTH), .FILE_NAME("INST_SRAM")) INSTSRAM(INSTADDR, INSTD, INSTQ, INSTCEN, INSTWEN, INSTCLK, 3'b010, 2'b00, 1'b0, 1'b1);
-    
 
-    
     //Port of DATA_SRAM
     wire [(DATASRAM_ADDRWIDTH-1):0]DATAADDR; //ADDR of DATA_SRAM
     wire [(DATASRAM_DATAWIDTH-1):0]DATAD; //D of DATA_SRAM
